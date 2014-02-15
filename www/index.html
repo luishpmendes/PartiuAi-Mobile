@@ -15,9 +15,14 @@
             </header>
 
             <div id="main">
-                <form>
-                    <input type="text" name="email" id="email" value="" placeholder="Email" />
-                    <input type="password" name="password" id="password" value="" placeholder="Password" />
+                <form id="loginForm">
+                    <fieldset id="inputs">
+                        <input type="email" name="email" id="email" value="" placeholder="Email" autofocus required />
+                        <input type="password" name="password" id="password" value="" placeholder="Password" required />
+                    </fieldset>
+                    <fieldset id="actions">
+                        <input type="submit" value="Log In" />
+                    </fieldset>
                 </form>
             </div>
         </script>

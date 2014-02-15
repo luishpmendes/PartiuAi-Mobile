@@ -60,11 +60,19 @@ img {
     max-width: 100%;
 }
 
+fieldset {
+    border: 0;
+    padding: 0;
+    margin: 0;
+}
+
+
 #main {
     z-index: 1;
     width: 100%;
-    height: 100%
+    height: 100%;
     overflow: auto;
+    vertical-align: middle;
 }
 
 .scroller {
@@ -75,4 +83,43 @@ img {
     bottom: 0px;
     left: 0px;
     right: 0px;
+}
+
+form {
+    display: block;
+    width: 208px;
+    margin: 0 auto;
+}
+
+#inputs input {
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    -webkit-box-shadow: 0 0 0 2px #ddd inset;
+    box-shadow: 0 0 0 2px #ddd inset;
+    margin: 0 0 10px 0;
+    width: 100%;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    padding: 5px;
+    background-color: #eee;
+}
+
+#inputs input:focus {
+    background-color: #fff;
+    outline: none;
+    -webkit-box-shadow: 0 0 0 1px #eee inset;
+    box-shadow: 0 0 0 1px #eee inset;
+}
+
+#actions input {
+    border-radius: 10px;
+    box-shadow: 0 0 0 1px #eee inset;
+    width: 100%;
+    margin: 0 0 10px 0;
+    padding: 10px;
+    background-color: #55aa55
+}
+
+#actions input:focus {
+    outline: none;
 }
