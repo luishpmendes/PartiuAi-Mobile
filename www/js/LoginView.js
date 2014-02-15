@@ -1,4 +1,4 @@
-var HomeView = function (template) {
+var LoginView = function (template) {
 
     self = this;
 

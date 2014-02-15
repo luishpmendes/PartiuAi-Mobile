@@ -1,7 +1,11 @@
-.search-bar {
-    padding:10px 10px 12px 8px;
+.login {
+    padding: 10px;
 }
 
-.search-bar > input {
-    width: 100%;
+.login > input {
+    margin-bottom: 10px;
+}
+
+.login > button {
+    margin-top: 10px;
 }
