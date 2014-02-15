@@ -1,0 +1,7 @@
+.search-bar {
+    padding:10px 10px 12px 8px;
+}
+
+.search-bar > input {
+    width: 100%;
+}

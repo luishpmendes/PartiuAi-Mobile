@@ -3,10 +3,7 @@
 
     /* ---------------------------------- Local Variables ---------------------------------- */
 
-    var homeTpl = Handlebars.compile($("#home-tpl").html());
-    var employeeLiTpl = Handlebars.compile($("#employee-li-tpl").html());
-    var employeeTpl = Handlebars.compile($("#employee-tpl").html());
-    var detailsURL = /^#employees\/(\d{1,})/;
+    var loginTpl = Handlebars.compile($("#login-tpl").html());
     var slider = new PageSlider($('body'));
 
     /* --------------------------------- Event Registration -------------------------------- */
@@ -30,7 +27,7 @@
     /* ---------------------------------- Local Functions ---------------------------------- */
 
     function route() {
-        slider.slidePage(new HomeView(homeTpl).render().el);
+        slider.slidePage(new LoginView(loginTpl).render().el);
     }
 
     route();
