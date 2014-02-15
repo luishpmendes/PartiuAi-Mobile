@@ -9,8 +9,17 @@
         <title>PartiuAí</title>
     </head>
     <body>
-        <script id="home-tpl" type="text/x-handlebars-template">
-            PartiuAí
+        <script id="login-tpl" type="text/x-handlebars-template">
+            <header>
+                <h1>PartiuAí</h1>
+            </header>
+
+            <div id="main">
+                <form>
+                    <input type="text" name="email" id="email" value="" placeholder="Email" />
+                    <input type="password" name="password" id="password" value="" placeholder="Password" />
+                </form>
+            </div>
         </script>
         <script type="text/javascript" src="phonegap.js"></script>
         <script src="lib/fastclick.js"></script>
@@ -18,7 +27,7 @@
         <script src="lib/iscroll.js"></script>
         <script src="lib/jquery.js"></script>
         <script src="lib/pageslider.js"></script>
-        <script src="js/HomeView.js"></script>
+        <script src="js/LoginView.js"></script>
         <script type="text/javascript" src="js/app.js"></script>
     </body>
 </html>

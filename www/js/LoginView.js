@@ -1,8 +1,8 @@
-var HomeView = function (template) {
+var LoginView = function (template) {
 
     self = this;
 
-    this.render = function() {
+    this.render = function () {
         this.el.html(template());
         return this;
     };

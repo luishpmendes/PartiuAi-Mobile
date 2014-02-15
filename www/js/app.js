@@ -3,7 +3,7 @@
 
     /* ---------------------------------- Local Variables ---------------------------------- */
 
-    var homeTpl = Handlebars.compile($("#home-tpl").html());
+    var loginTpl = Handlebars.compile($("#login-tpl").html());
     var slider = new PageSlider($('body'));
 
     /* --------------------------------- Event Registration -------------------------------- */
@@ -14,7 +14,7 @@
                 navigator.notification.alert(
                     message,    // message
                     null,       // callback
-                    "Workshop", // title
+                    "PartiuAí", // title
                     'OK'        // buttonName
                 );
             };
@@ -27,7 +27,7 @@
     /* ---------------------------------- Local Functions ---------------------------------- */
 
     function route() {
-        slider.slidePage(new HomeView(homeTpl).render().el);
+        slider.slidePage(new LoginView(loginTpl).render().el);
     }
 
     route();
