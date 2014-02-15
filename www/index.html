@@ -6,24 +6,21 @@
         <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
         <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
+        <link href="assets/topcoat/css/topcoat-mobile-light.css" rel="stylesheet">
         <title>PartiuAí</title>
     </head>
     <body>
         <script id="login-tpl" type="text/x-handlebars-template">
-            <header>
-                <h1>PartiuAí</h1>
-            </header>
+            <div class="topcoat-navigation-bar">
+                <div class="topcoat-navigation-bar__item center full">
+                    <h1 class="topcoat-navigation-bar__title">Login</h1>
+                </div>
+            </div>
 
-            <div id="main">
-                <form id="loginForm">
-                    <fieldset id="inputs">
-                        <input type="email" name="email" id="email" value="" placeholder="Email" autofocus required />
-                        <input type="password" name="password" id="password" value="" placeholder="Password" required />
-                    </fieldset>
-                    <fieldset id="actions">
-                        <input type="submit" value="Log In" />
-                    </fieldset>
-                </form>
+            <div class="login">
+                <input type="email" class="topcoat-text-input" name="email" id="email" value="" placeholder="Email" autofocus required />
+                <input type="password" class="topcoat-text-input" name="password" id="password" value="" placeholder="Password" required />
+                <input type="submit" class="topcoat-button--cta" value="Log In" />
             </div>
         </script>
         <script type="text/javascript" src="phonegap.js"></script>
