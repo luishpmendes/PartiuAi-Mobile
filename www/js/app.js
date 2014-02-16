@@ -4,7 +4,6 @@
     /* ---------------------------------- Local Variables ---------------------------------- */
 
     var loginTpl = Handlebars.compile($("#login-tpl").html());
-    var slider = new PageSlider($('body'));
 
     /* --------------------------------- Event Registration -------------------------------- */
 
@@ -27,7 +26,7 @@
     /* ---------------------------------- Local Functions ---------------------------------- */
 
     function route() {
-        slider.slidePage(new LoginView(loginTpl).render().el);
+        $('body').html(new LoginView(loginTpl).render().el);
     }
 
     route();
