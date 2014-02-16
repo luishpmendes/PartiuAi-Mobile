@@ -11,6 +11,11 @@ body {
 .scroller {
     overflow: auto;
     -webkit-overflow-scrolling: touch;
+    position: relative;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
 }
 
 .login {
