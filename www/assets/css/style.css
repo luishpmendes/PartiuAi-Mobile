@@ -8,17 +8,13 @@ body {
     -webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
 }
 
-.scroller {
+.content {
     overflow: auto;
     -webkit-overflow-scrolling: touch;
-    position: relative;
-    top: 0px;
-    bottom: 0px;
+    position: absolute;
+    top: 4.375rem;
     left: 0px;
     right: 0px;
-}
-
-.login {
     padding: 10px;
 }
 

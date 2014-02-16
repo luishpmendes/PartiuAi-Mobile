@@ -13,7 +13,7 @@ var LoginView = function (template) {
             self.iscroll.refresh();
         } else {
             console.log('New iScroll');
-            self.iscroll = new IScroll($('.scroller', self.el)[0], {hScrollbar: false, vScrollbar: false, bounce: false });
+            self.iscroll = new IScroll($('.scroller', self.el)[0], {bounce: false });
         }
         return true;
     }

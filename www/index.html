@@ -10,12 +10,12 @@
     <body>
 
         <script id="login-tpl" type="text/x-handlebars-template">
-            <div class="topcoat-navigation-bar">
+            <header class="topcoat-navigation-bar">
                 <div class="topcoat-navigation-bar__item center full">
                     <h1 class="topcoat-navigation-bar__title">Partiu Aí</h1>
                 </div>
-            </div>
-            <div class="login scroller">
+            </header>
+            <div class="login content">
                 <input type="email" name="email" id="email" class="topcoat-text-input full" placeholder="Email" pattern="[^ @]*@[^ @]*" value="" autofocus required />
                 <input type="password" name="password" id="password" class="topcoat-text-input full" placeholder="Password" value="" required />
                 <button class="topcoat-button--cta full">Login</button>
@@ -29,7 +29,6 @@
         <script src="lib/handlebars.js"></script>
         <script src="lib/iscroll.js"></script>
         <script src="lib/jquery.js"></script>
-        <script src="lib/pageslider.js"></script>
         <script src="js/LoginView.js"></script>
         <script src="js/app.js"></script>
 
