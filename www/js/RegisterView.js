@@ -1,10 +1,12 @@
-var LoginView = function (template) {
+var RegisterView = function (template) {
+
+    self = this;
 
     this.initialize = function () {
         // Define a div wrapper for the view. The div wrapper is used to attach events.
         this.el = $('<div/>');
         this.el.load('ready', this.scroll);
-        this.el.on('click', '#loginButton', this.login);
+        this.el.on('click', '#backButton', this.back);
         this.el.on('click', '#registerButton', this.register);
     };
 
@@ -13,7 +15,7 @@ var LoginView = function (template) {
         return this;
     };
 
-    this.scroll = function () {
+    this.scroll = function() {
         if (self.iscroll) {
             console.log('Refresh iScroll');
             self.iscroll.refresh();
@@ -26,23 +28,37 @@ var LoginView = function (template) {
         return true;
     }
 
-    this.login = function () {
+    this.back = function () {
+        history.go(-1);
+    }
+
+    this.validate = function () {
         emailInput = $('#email')[0];
         passwordInput = $('#password')[0];
+        confirmPasswordInput = $('#confirmPassword')[0];
+        nameInput = $('#name')[0];
 
-        if (!emailInput || !passwordInput) {
+        if (!emailInput || !passwordInput || !confirmPasswordInput || !nameInput) {
             alert('ERROR!');
         } else if (!emailInput.value.match(emailInput.pattern)) {
             alert('Invalid Email!');
         } else if (passwordInput.value == '') {
             alert('Invalid Password!');
+        } else if (confirmPasswordInput.value != passwordInput.value) {
+            alert('Check your Password!');
+        } else if (nameInput.value == '') {
+            alert('Invalid Name!');
         } else {
-            window.location.hash = 'home';
+            return true;
         }
+        return false;
     }
 
     this.register = function () {
-        window.location.hash = 'register';
+        if (self.validate()) {
+            
+            window.location.hash = 'home';
+        }
     }
  
     this.initialize();

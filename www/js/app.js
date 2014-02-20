@@ -4,6 +4,8 @@
     /* ---------------------------------- Local Variables ---------------------------------- */
 
     var loginTpl = Handlebars.compile($("#login-tpl").html());
+    var registerTpl = Handlebars.compile($("#register-tpl").html());
+    var homeTpl = Handlebars.compile($("#home-tpl").html());
 
     /* --------------------------------- Event Registration -------------------------------- */
 
@@ -26,7 +28,18 @@
     /* ---------------------------------- Local Functions ---------------------------------- */
 
     function route() {
-        $('body').html(new LoginView(loginTpl).render().el);
+        var hash = window.location.hash;
+
+        if (hash == '#register') {
+            console.log("register");
+            $('body').html(new RegisterView(registerTpl).render().el);            
+        } else if (hash == '#home') {
+            console.log("home");
+            $('body').html(new HomeView(homeTpl).render().el);            
+        } else {
+            console.log("login");
+            $('body').html(new LoginView(loginTpl).render().el);
+        }
     }
 
     route();

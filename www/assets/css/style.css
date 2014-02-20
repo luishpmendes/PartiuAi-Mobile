@@ -8,13 +8,17 @@ body {
     -webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
 }
 
-.content {
+.scroller {
     overflow: auto;
     -webkit-overflow-scrolling: touch;
     position: absolute;
+}
+
+.login {
     top: 4.375rem;
     left: 0px;
     right: 0px;
+    bottom: 0px;
     padding: 10px;
 }
 
@@ -24,4 +28,37 @@ body {
 
 .login > button {
     margin-top: 10px;
+}
+
+.register {
+    top: 4.375rem;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    padding: 10px;   
+}
+
+.register > input {
+    margin-bottom: 10px;
+}
+
+.register > button {
+    margin-top: 10px;
+}
+
+.back-menu-button {
+    height: 100%;
+}
+
+.home {
+    position: absolute;
+    top: 4.375rem;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    padding: 10px;
+}
+
+.home > button {
+    height: 50%;
 }
