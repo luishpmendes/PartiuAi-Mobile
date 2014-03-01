@@ -19,10 +19,10 @@
                     'OK'        // buttonName
                 );
                 if (navigator.notification.beep) {
-                    navigator.notification.beep(2);
+                    navigator.notification.beep(1);
                 }
                 if (navigator.notification.vibrate) {
-                    navigator.notification.vibrate(2000);
+                    navigator.notification.vibrate(500);
                 }
             };
             window.confirm = function (message) {
