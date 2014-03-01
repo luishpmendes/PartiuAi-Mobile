@@ -4,8 +4,11 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1, maximum-scale=1">
         <!-- CSS -->
-        <link href="assets/topcoat/css/topcoat-mobile-light.css" rel="stylesheet">
-        <link href="assets/css/style.css" rel="stylesheet">
+        <link type='text/css' rel="stylesheet" href="assets/topcoat/css/topcoat-mobile-light.css" />
+        <link type='text/css' rel='stylesheet' href='assets/icomatic/icomatic.css' />
+        <link type='text/css' rel="stylesheet" href="assets/css/style.css" />
+
+        <script type='text/javascript' src='assets/icomatic/icomatic.js'></script>
     </head>
     <body>
         <!-- TEMPLATES -->
@@ -16,7 +19,7 @@
                 </div>
             </header>
             <div class="login scroller">
-                <input type="email" name="email" id="email" class="topcoat-text-input full" placeholder="Email" pattern="[^ @]*@[^ @]*" value="" autofocus required />
+                <input type="email" name="email" id="email" class="topcoat-text-input full" placeholder="Email" pattern="[^ @]*@[^ @]*" value="" required />
                 <input type="password" name="password" id="password" class="topcoat-text-input full" placeholder="Password" value="" required />
                 <button class="topcoat-button--cta full" id="loginButton">Login</button>
                 <button class="topcoat-button--cta full">Facebook Login</button>
@@ -28,7 +31,7 @@
             <header class="topcoat-navigation-bar">
                 <div class="topcoat-navigation-bar__item left quarter">
                     <button id="backButton" class="topcoat-icon-button--quiet slide-menu-button">
-                        <span class="topcoat-icon topcoat-icon--menu-back"></span>
+                        <span class="icomatic">Back</span>
                     </button>
                 </div>
                 <div class="topcoat-navigation-bar__item center half">
@@ -36,7 +39,7 @@
                 </div>
             </header>
             <div class="register scroller">
-                <input type="email" name="email" id="email" class="topcoat-text-input full" placeholder="Email" pattern="[^ @]*@[^ @]*" value="" autofocus required />
+                <input type="email" name="email" id="email" class="topcoat-text-input full" placeholder="Email" pattern="[^ @]*@[^ @]*" value="" required />
                 <input type="password" name="password" id="password" class="topcoat-text-input full" placeholder="Password" value="" required />
                 <input type="password" name="confirmPassword" id="confirmPassword" class="topcoat-text-input full" placeholder="Confirm Password" value="" required />
                 <input type="text" name="name" id="name" class="topcoat-text-input full" placeholder="Name" value="" required />
