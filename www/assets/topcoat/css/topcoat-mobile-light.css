@@ -3766,7 +3766,7 @@ Everything below this line should be calculated using the variables above. This 
 
 
 .topcoat-icon--menu-back {
-  background: url("../img/back.svg") no-repeat;
+  background: url("../img/back.png") no-repeat;
   background-size: cover;
 }
 
