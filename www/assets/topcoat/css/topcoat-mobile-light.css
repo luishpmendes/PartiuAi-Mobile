@@ -3757,3 +3757,18 @@ Everything below this line should be calculated using the variables above. This 
 /* Notification */
 
 /* Search */
+
+
+
+
+
+
+
+
+.topcoat-icon--menu-back {
+  background: url("../img/back.svg") no-repeat;
+  background-size: cover;
+}
+
+
+
