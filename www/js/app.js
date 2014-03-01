@@ -18,7 +18,12 @@
                     "PartiuAi", // title
                     'OK'        // buttonName
                 );
-                navigator.notification.vibrate(2000);
+                if (navigator.notification.beep) {
+                    navigator.notification.beep(2);
+                }
+                if (navigator.notification.vibrate) {
+                    navigator.notification.vibrate(2000);
+                }
             };
             window.confirm = function (message) {
                 navigator.notification.confirm (
