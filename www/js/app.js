@@ -12,11 +12,27 @@
     document.addEventListener('deviceready', function () {
         if (navigator.notification) { // Override default HTML alert with native dialog
             window.alert = function (message) {
-                navigator.notification.alert(
-                    "NATIVE " + message,    // message
+                navigator.notification.alert (
+                    message,    // message
                     null,       // callback
                     "PartiuAi", // title
                     'OK'        // buttonName
+                );
+                navigator.notification.beep(2);
+                navigator.notification.vibrate(2000);
+            };
+            window.confirm = function (message) {
+                navigator.notification.confirm (
+                    message,    // message
+                    null,       // callback
+                    "PartiuAi"  // title
+                );
+            };
+            window.prompt = function (message) {
+                navigator.notification.prompt (
+                    message,    // message
+                    null,       // callback
+                    "PartiuAi"  // title
                 );
             };
         }
