@@ -15,7 +15,7 @@
                 navigator.notification.alert(
                     "NATIVE " + message,    // message
                     null,       // callback
-                    "Workshop", // title
+                    "PartiuAi", // title
                     'OK'        // buttonName
                 );
             };
