@@ -27,8 +27,8 @@ var LoginView = function (template) {
     }
 
     this.login = function () {
-        emailInput = $('#email')[0];
-        passwordInput = $('#password')[0];
+        var emailInput = $('#email')[0];
+        var passwordInput = $('#password')[0];
 
         if (!emailInput || !passwordInput) {
             alert('ERROR!');
@@ -39,6 +39,23 @@ var LoginView = function (template) {
         } else {
             window.location.hash = 'home';
         }
+
+        var email = emailInput.value;
+        var password = passwordInput.value;
+
+        var jqxhr = $.ajax({
+            crossDomain: true,
+            data: {
+                username : email,
+                password : password,
+            },
+            type: "POST",
+            url: "http://partiuai.com.br/api-auth/login/",
+        }).done(function(data, textStatus, jqXHR) {
+            alert("Done! data: " + data + " textStatus: " + textStatus + " jqXHR: " + jqXHR);
+        }).fail(function(jqXHR, textStatus, errorThrown) {
+            alert("Fail! jqXHR: " + jqXHR + " textStatus: " + textStatus + " errorThrown: " + errorThrown);
+        });
     }
 
     this.register = function () {
