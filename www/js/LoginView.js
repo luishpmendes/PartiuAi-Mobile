@@ -76,6 +76,7 @@ var LoginView = function (template) {
     }
 
     this.FBlogin = function () {
+        alert("zxcxzc");
         FB.login(function(response) {
             if (response.authResponse) {
                 // The person logged into your app

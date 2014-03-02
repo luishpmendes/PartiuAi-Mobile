@@ -44,6 +44,7 @@
                 appId: '1471555153071551',
             });
             FB.getLoginStatus(updateStatusCallback);
+            alert("asdsad");
         });
     }, false);
 
