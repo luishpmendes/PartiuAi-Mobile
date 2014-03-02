@@ -39,21 +39,18 @@
 
         $.ajaxSetup({ cache: true });
 
-        $.getScript('//connect.facebook.net/en_UK/all.js', function () {
-            alert("gotScript");
-            FB.init({
-                appId: '1471555153071551',
-                nativeInterface: CDV.FB,
-                status: true,
-                cookie: true,
-                xfbml: true,
-                useCachedDialogs: false
-            });
-
-            FB.Event.subscribe('auth.statusChange', login);
-
-            FB.getLoginStatus(login);
+        FB.init({
+            appId: '1471555153071551',
+            nativeInterface: CDV.FB,
+            status: true,
+            cookie: true,
+            xfbml: true,
+            useCachedDialogs: false
         });
+
+        FB.Event.subscribe('auth.statusChange', login);
+
+        FB.getLoginStatus(login);
     }, false);
 
     $(window).on('hashchange', route);
