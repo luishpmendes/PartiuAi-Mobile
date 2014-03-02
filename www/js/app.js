@@ -40,11 +40,20 @@
         $.ajaxSetup({ cache: true });
 
         $.getScript('//connect.facebook.net/en_UK/all.js', function () {
+            alert("gotScript");
             FB.init({
                 appId: '1471555153071551',
+                status: true,
+                cookie: true,
+                xfbml: true,
             });
-            FB.getLoginStatus(updateStatusCallback);
-            alert("asdsad");
+
+            FB.getLoginStatus(function(response) {
+                alert("gotLoginStatus");
+                if (response.status === 'connected') {
+                    window.location.replace('index.html#home'); /* current page will NOT be saved in session history */
+                }
+            });
         });
     }, false);
 

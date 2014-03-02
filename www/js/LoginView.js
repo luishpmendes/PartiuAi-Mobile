@@ -7,7 +7,7 @@ var LoginView = function (template) {
         this.el = $('<div/>');
         this.el.on('ready', this.scroll);
         this.el.on('click', '#loginButton', this.login);
-        this.el.on('click', '#FBloginButton', this.FBogin);
+        this.el.on('click', '#FBloginButton', this.FBlogin);
         this.el.on('click', '#registerButton', this.register);
 
         if(window.localStorage['email'] != undefined && window.localStorage['password'] != undefined) {
@@ -76,12 +76,14 @@ var LoginView = function (template) {
     }
 
     this.FBlogin = function () {
-        alert("zxcxzc");
+        alert("FBlogin");
+
         FB.login(function(response) {
+            alert("FB.login");
             if (response.authResponse) {
-                // The person logged into your app
+                window.location.replace('index.html#home'); /* current page will NOT be saved in session history */
             } else {
-                // The person cancelled the login dialog
+                alert("error");
             }
         });
     }
