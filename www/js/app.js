@@ -43,17 +43,16 @@
             alert("gotScript");
             FB.init({
                 appId: '1471555153071551',
+                nativeInterface: CDV.FB,
                 status: true,
                 cookie: true,
                 xfbml: true,
+                useCachedDialogs: false
             });
 
-            FB.getLoginStatus(function(response) {
-                alert("gotLoginStatus");
-                if (response.status === 'connected') {
-                    window.location.replace('index.html#home'); /* current page will NOT be saved in session history */
-                }
-            });
+            FB.Event.subscribe('auth.statusChange', login);
+
+            FB.getLoginStatus(login);
         });
     }, false);
 
@@ -73,6 +72,16 @@
         } else {
             console.log("login");
             $('body').html(new LoginView(loginTpl).render().el);
+        }
+    }
+
+    function login(response) {
+        if (response.status === 'connected') {
+            alert("FB login");
+            window.location.replace('index.html#home'); /* current page will NOT be saved in session history */
+        } else {
+            alert("FB logout");
+            window.location.replace('index.html'); /* current page will NOT be saved in session history */
         }
     }
 

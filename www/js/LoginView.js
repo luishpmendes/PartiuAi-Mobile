@@ -78,14 +78,7 @@ var LoginView = function (template) {
     this.FBlogin = function () {
         alert("FBlogin");
 
-        FB.login(function(response) {
-            alert("FB.login");
-            if (response.authResponse) {
-                window.location.replace('index.html#home'); /* current page will NOT be saved in session history */
-            } else {
-                alert("error");
-            }
-        });
+        FB.login(null, {scope: 'email'});
     }
 
     this.register = function () {
