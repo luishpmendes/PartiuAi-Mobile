@@ -7,6 +7,7 @@ var LoginView = function (template) {
         this.el = $('<div/>');
         this.el.on('ready', this.scroll);
         this.el.on('click', '#loginButton', this.login);
+        this.el.on('click', '#FBloginButton', this.FBogin);
         this.el.on('click', '#registerButton', this.register);
 
         if(window.localStorage['email'] != undefined && window.localStorage['password'] != undefined) {
@@ -74,7 +75,7 @@ var LoginView = function (template) {
         });
     }
 
-    function FBlogin() {
+    this.FBlogin = function () {
         FB.login(
             function(response) {
                 if (response.session) {
