@@ -68,10 +68,25 @@ var LoginView = function (template) {
             window.localStorage['email'] = email;
             window.localStorage['password'] = password;
 
-            window.location.hash = 'home';
+            window.location.replace('index.html#home'); /* current page will NOT be saved in session history */
         }).fail(function(jqXHR, textStatus, errorThrown) {
             alert("Fail! jqXHR: " + jqXHR + " textStatus: " + textStatus + " errorThrown: " + errorThrown);
         });
+    }
+
+    function FBlogin() {
+        FB.login(
+            function(response) {
+                if (response.session) {
+                    alert('logged in');
+                } else {
+                    alert('not logged in');
+                }
+            },
+            {
+                scope: 'email'
+            }
+        );
     }
 
     this.register = function () {
