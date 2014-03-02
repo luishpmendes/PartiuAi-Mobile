@@ -34,7 +34,17 @@
                 );
             };
         }
+
         FastClick.attach(document.body);
+
+        $.ajaxSetup({ cache: true });
+
+        $.getScript('//connect.facebook.net/en_UK/all.js', function () {
+            FB.init({
+                appId: '1471555153071551',
+            });
+            FB.getLoginStatus(updateStatusCallback);
+        });
     }, false);
 
     $(window).on('hashchange', route);

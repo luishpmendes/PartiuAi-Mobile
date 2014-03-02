@@ -76,18 +76,13 @@ var LoginView = function (template) {
     }
 
     this.FBlogin = function () {
-        FB.login(
-            function(response) {
-                if (response.session) {
-                    alert('logged in');
-                } else {
-                    alert('not logged in');
-                }
-            },
-            {
-                scope: 'email'
+        FB.login(function(response) {
+            if (response.authResponse) {
+                // The person logged into your app
+            } else {
+                // The person cancelled the login dialog
             }
-        );
+        });
     }
 
     this.register = function () {
