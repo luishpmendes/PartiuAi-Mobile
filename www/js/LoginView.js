@@ -6,6 +6,36 @@ var LoginView = function (template) {
         this.el.on('ready', this.scroll);
         this.el.on('click', '#loginButton', this.login);
         this.el.on('click', '#registerButton', this.register);
+
+        /*if(window.localStorage["email"] != undefined && window.localStorage["password"] != undefined) {*/
+//            var email = window.localStorage["email"];
+  //          var password = window.localStorage["password"];
+
+            var email = "email";
+            var password = "password";
+
+
+            var jqxhr = $.ajax({
+                crossDomain: true,
+                data: {
+                    email : email,
+                    password : password,
+                },
+                type: "POST",
+                url: "http://partiuai.com.br/login/",
+            }).done(function(data, textStatus, jqXHR) {
+                alert("Done! data: " + data + " textStatus: " + textStatus + " jqXHR: " + jqXHR);
+
+                window.localStorage["email"] = email;
+                window.localStorage["password"] = password;
+
+                window.location.hash = 'home';
+            }).fail(function(jqXHR, textStatus, errorThrown) {
+                //alert("Fail! jqXHR: " + jqXHR + " textStatus: " + textStatus + " errorThrown: " + errorThrown);
+
+                window.location.hash = 'home';
+            });
+        /*}*/
     };
 
     this.render = function() {
@@ -27,35 +57,38 @@ var LoginView = function (template) {
     }
 
     this.login = function () {
-        var emailInput = $('#email')[0];
-        var passwordInput = $('#password')[0];
+        var emailInput = $('#email');
+        var passwordInput = $('#password');
 
         if (!emailInput || !passwordInput) {
             alert('ERROR!');
-        } else if (!emailInput.value.match(emailInput.pattern)) {
+        } else if (!emailInput.val().match(emailInput.pattern)) {
             alert('Invalid Email!');
-        } else if (passwordInput.value == '') {
+        } else if (passwordInput.val() == '') {
             alert('Invalid Password!');
         } else {
-            window.location.hash = 'home';
+            var email = emailInput.val();
+            var password = passwordInput.val();
+
+            var jqxhr = $.ajax({
+                crossDomain: true,
+                data: {
+                    email : email,
+                    password : password,
+                },
+                type: "POST",
+                url: "http://partiuai.com.br/login/",
+            }).done(function(data, textStatus, jqXHR) {
+                alert("Done! data: " + data + " textStatus: " + textStatus + " jqXHR: " + jqXHR);
+
+                window.localStorage["email"] = email;
+                window.localStorage["password"] = password;
+
+                window.location.hash = 'home';
+            }).fail(function(jqXHR, textStatus, errorThrown) {
+                alert("Fail! jqXHR: " + jqXHR + " textStatus: " + textStatus + " errorThrown: " + errorThrown);
+            });
         }
-
-        var email = emailInput.value;
-        var password = passwordInput.value;
-
-        var jqxhr = $.ajax({
-            crossDomain: true,
-            data: {
-                username : email,
-                password : password,
-            },
-            type: "POST",
-            url: "http://partiuai.com.br/api-auth/login/",
-        }).done(function(data, textStatus, jqXHR) {
-            alert("Done! data: " + data + " textStatus: " + textStatus + " jqXHR: " + jqXHR);
-        }).fail(function(jqXHR, textStatus, errorThrown) {
-            alert("Fail! jqXHR: " + jqXHR + " textStatus: " + textStatus + " errorThrown: " + errorThrown);
-        });
     }
 
     this.register = function () {
