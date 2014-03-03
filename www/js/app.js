@@ -55,16 +55,16 @@
         });
 */
 
-        loadJavaScriptSync('facebook-js-sdk.js');
-        loadJavaScriptSync('cdv-plugin-fb-connect.js');
+        //loadJavaScriptSync('facebook-js-sdk.js');
+        //loadJavaScriptSync('cdv-plugin-fb-connect.js');
 
         FB.init({
             appId: '1471555153071551',
             cookie: true,
             status: true,
             xfbml: true,
-            nativeInterface: CDV.FB,
-            useCachedDialogs: false,
+            //nativeInterface: CDV.FB,
+            //useCachedDialogs: false,
         });
 
     }, false);
