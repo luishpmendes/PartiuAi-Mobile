@@ -57,7 +57,7 @@
 
         //loadJavaScriptSync('facebook-js-sdk.js');
         //loadJavaScriptSync('cdv-plugin-fb-connect.js');
-
+/*
         FB.init({
             appId: '1471555153071551',
             cookie: true,
@@ -66,7 +66,7 @@
             nativeInterface: CDV.FB,
             useCachedDialogs: false,
         });
-
+*/
     }, false);
 
     $(window).on('hashchange', route);
