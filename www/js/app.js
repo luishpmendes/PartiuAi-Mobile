@@ -41,7 +41,7 @@
             cache: true,
             crossDomain: true,
             dataType: 'script',
-            /*url: 'http://connect.facebook.net/en_US/all.js',*/
+            //url: 'http://connect.facebook.net/en_US/all.js',
             url: 'http://connect.facebook.net/en_US/all/debug.js',
         }).done(function(data, textStatus, jqXHR) {
             FB.init({
