@@ -56,8 +56,7 @@ var RegisterView = function (template) {
 
     this.register = function () {
         if (self.validate()) {
-            
-            window.location.hash = 'home';
+            window.location.replace('main.html#home'); /* current page will NOT be saved in session history */
         }
     }
  

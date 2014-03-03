@@ -75,7 +75,7 @@ var LoginView = function (template) {
             window.localStorage['email'] = email;
             window.localStorage['password'] = password;
 
-            window.location.replace('index.html#home'); /* current page will NOT be saved in session history */
+            window.location.replace('main.html#home'); /* current page will NOT be saved in session history */
         }).fail(function(jqXHR, textStatus, errorThrown) {
             alert("Fail! jqXHR: " + jqXHR + " textStatus: " + textStatus + " errorThrown: " + errorThrown);
         });
@@ -85,7 +85,7 @@ var LoginView = function (template) {
         FB.login(
             function(response) {
                 if (response.status == 'connected') {
-                    window.location.replace('index.html#home'); /* current page will NOT be saved in session history */
+                    window.location.replace('main.html#home'); /* current page will NOT be saved in session history */
                 }
             },
             { scope: "email" }
