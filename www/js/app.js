@@ -37,18 +37,21 @@
 
         FastClick.attach(document.body);
 
-        $.ajaxSetup({ cache: true });
-
-        FB.init({
-            appId: '1471555153071551',
-            nativeInterface: CDV.FB,
-            status: true,
-            cookie: true,
-            xfbml: true,
-            useCachedDialogs: false
-        });
-
-        
+        $.ajax({
+            cache: true,
+            crossDomain: true,
+            dataType: "script",
+            url: '//connect.facebook.net/en_UK/all.js',
+        }).done(function(data, textStatus, jqXHR) {
+            FB.init({
+                appId: '1471555153071551',
+                nativeInterface: CDV.FB,
+                status: true,
+                cookie: true,
+                xfbml: true,
+                useCachedDialogs: false
+            });
+        });        
     }, false);
 
     $(window).on('hashchange', route);
