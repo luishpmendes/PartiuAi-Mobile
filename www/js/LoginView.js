@@ -20,9 +20,6 @@ var LoginView = function (template) {
                 if (response.status === 'connected') {
                     alert("FB login");
                     window.location.replace('index.html#home'); /* current page will NOT be saved in session history */
-                } else {
-                    alert("FB logout");
-                    window.location.replace('index.html'); /* current page will NOT be saved in session history */
                 }
             });
         }
@@ -90,6 +87,7 @@ var LoginView = function (template) {
 
         FB.login(
             function(response) {
+                alert(response);
                 if (response.session) {
                     alert('logged in');
                     window.location.replace('index.html#home'); /* current page will NOT be saved in session history */
