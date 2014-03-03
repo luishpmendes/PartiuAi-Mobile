@@ -36,16 +36,19 @@
         }
 
         FastClick.attach(document.body);
-/*
-        FB.init({
-            appId: '1471555153071551',
-            cookie: true,
-            status: true,
-            xfbml: true,
-            nativeInterface: CDV.FB,
-            useCachedDialogs: false,
-        });
-*/
+
+        try {
+            FB.init({
+                appId: '1471555153071551',
+                cookie: true,
+                status: true,
+                xfbml: true,
+                nativeInterface: CDV.FB,
+                useCachedDialogs: false,
+            });
+        } catch (e) {
+            
+        }
     }, false);
 
     $(window).on('hashchange', route);

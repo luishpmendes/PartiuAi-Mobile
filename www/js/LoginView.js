@@ -16,11 +16,15 @@ var LoginView = function (template) {
 
             self.auth(email, password);
         } else {
-            /*FB.getLoginStatus(function (response) {
-                if (response.status == 'connected') {
-                    window.location.replace('main.html#home'); /* current page will NOT be saved in session history */
-                /*}
-            });*/
+            try {
+                FB.getLoginStatus(function (response) {
+                    if (response.status == 'connected') {
+                        window.location.replace('main.html#home'); /* current page will NOT be saved in session history */
+                    }
+                });
+            } catch (e) {
+
+            }
         }
     };
 
@@ -68,7 +72,7 @@ var LoginView = function (template) {
                 password : password,
             },
             type: 'POST',
-            url: 'http://partiuai.com.br/login/',
+            url: 'http://www.partiuai.com.br/login/',
         }).done(function(data, textStatus, jqXHR) {
             alert("Done! data: " + data + " textStatus: " + textStatus + " jqXHR: " + jqXHR);
 
@@ -82,14 +86,18 @@ var LoginView = function (template) {
     }
 
     this.FBlogin = function () {
-        FB.login(
-            function(response) {
-                if (response.status == 'connected') {
-                    window.location.replace('main.html#home'); /* current page will NOT be saved in session history */
-                }
-            },
-            { scope: 'basic_info,email,user_birthday,user_hometown,user_location' }
-        );
+        try {
+            FB.login(
+                function(response) {
+                    if (response.status == 'connected') {
+                        window.location.replace('main.html#home'); /* current page will NOT be saved in session history */
+                    }
+                },
+                { scope: 'basic_info,email,user_birthday,user_hometown,user_location' }
+            );
+        } catch (e) {
+            alert("Erro ao conectar com o Facebook!");
+        }
     }
 
     this.register = function () {
