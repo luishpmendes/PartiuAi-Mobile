@@ -15,6 +15,16 @@ var LoginView = function (template) {
             var password = window.localStorage['password'];
 
             self.auth(email, password);
+        } else {
+            FB.getLoginStatus(function (responde) {
+                if (response.status === 'connected') {
+                    alert("FB login");
+                    window.location.replace('index.html#home'); /* current page will NOT be saved in session history */
+                } else {
+                    alert("FB logout");
+                    window.location.replace('index.html'); /* current page will NOT be saved in session history */
+                }
+            });
         }
     };
 
@@ -78,7 +88,18 @@ var LoginView = function (template) {
     this.FBlogin = function () {
         alert("FBlogin");
 
-        FB.login(null, {scope: 'email'});
+        FB.login(
+            function(response) {
+                if (response.session) {
+                    alert('logged in');
+                    window.location.replace('index.html#home'); /* current page will NOT be saved in session history */
+                } else {
+                    alert('not logged in');
+                    window.location.replace('index.html'); /* current page will NOT be saved in session history */
+                }
+            },
+            { scope: "email" }
+        );
     }
 
     this.register = function () {
