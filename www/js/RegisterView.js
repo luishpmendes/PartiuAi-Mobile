@@ -56,7 +56,7 @@ var RegisterView = function (template) {
 
     this.register = function () {
         if (self.validate()) {
-            window.location.replace('index.html#home'); /* current page will NOT be saved in session history */
+            window.location.replace('main.html#home'); /* current page will NOT be saved in session history */
         }
     }
  
