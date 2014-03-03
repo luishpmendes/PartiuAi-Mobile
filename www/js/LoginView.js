@@ -84,7 +84,6 @@ var LoginView = function (template) {
     this.FBlogin = function () {
         FB.login(
             function(response) {
-                alert("response");
                 if (response.status == 'connected') {
                     window.location.replace('index.html#home'); /* current page will NOT be saved in session history */
                 }

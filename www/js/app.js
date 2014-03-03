@@ -55,6 +55,9 @@
         });
 */
 
+        loadJavaScriptSync('facebook-js-sdk.js');
+        loadJavaScriptSync('cdv-plugin-fb-connect.js');
+
         FB.init({
             appId: '1471555153071551',
             cookie: true,
@@ -70,7 +73,7 @@
 
     /* ---------------------------------- Local Functions ---------------------------------- */
 
-    function route() {
+    function route () {
         var hash = window.location.hash;
 
         if (hash == '#register') {
@@ -83,6 +86,18 @@
             console.log("login");
             $('body').html(new LoginView(loginTpl).render().el);
         }
+    }
+
+    function loadJavaScriptSync (filePath) {
+        var req = new XMLHttpRequest();
+        req.open('GET', filePath, false); // 'false': synchronous.
+        req.send(null);
+
+        var headElement = document.getElementsByTagName('head')[0];
+        var newScriptElement = document.createElement('script');
+        newScriptElement.type = 'text/javascript';
+        newScriptElement.text = req.responseText;
+        headElement.appendChild(newScriptElement);
     }
 
     route();
