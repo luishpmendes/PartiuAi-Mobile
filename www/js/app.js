@@ -63,8 +63,8 @@
             cookie: true,
             status: true,
             xfbml: true,
-            //nativeInterface: CDV.FB,
-            //useCachedDialogs: false,
+            nativeInterface: CDV.FB,
+            useCachedDialogs: false,
         });
 
     }, false);
