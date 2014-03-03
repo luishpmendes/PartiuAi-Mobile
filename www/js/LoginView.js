@@ -84,11 +84,11 @@ var LoginView = function (template) {
     this.FBlogin = function () {
         FB.login(
             function(response) {
-                if (response.status == 'connected') {
+                if (response.authResponse) {
                     window.location.replace('index.html#home'); /* current page will NOT be saved in session history */
                 }
             },
-            { scope: 'email' }
+            { scope: 'basic_info,email,user_birthday,user_hometown,user_location' }
         );
     }
 
