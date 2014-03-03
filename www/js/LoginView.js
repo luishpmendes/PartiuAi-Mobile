@@ -10,6 +10,8 @@ var LoginView = function (template) {
         this.el.on('click', '#FBloginButton', this.FBlogin);
         this.el.on('click', '#registerButton', this.register);
 
+        alert("init");
+
         if(window.localStorage['email'] != undefined && window.localStorage['password'] != undefined) {
             var email = window.localStorage['email'];
             var password = window.localStorage['password'];
@@ -17,6 +19,7 @@ var LoginView = function (template) {
             self.auth(email, password);
         } else {
             try {
+                alert("FB status");
                 FB.getLoginStatus(function (response) {
                     alert(response);
                     alert(response.status);
