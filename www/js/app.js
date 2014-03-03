@@ -37,27 +37,6 @@
 
         FastClick.attach(document.body);
 /*
-        $.ajax({
-            cache: true,
-            crossDomain: true,
-            dataType: 'script',
-            //url: 'http://connect.facebook.net/en_US/all.js',
-            url: 'http://connect.facebook.net/en_US/all/debug.js',
-        }).done(function(data, textStatus, jqXHR) {
-            FB.init({
-                appId: '1471555153071551',
-                cookie: true,
-                status: true,
-                xfbml: true,
-                nativeInterface: CDV.FB,
-                useCachedDialogs: false,
-            });
-        });
-*/
-
-        //loadJavaScriptSync('facebook-js-sdk.js');
-        //loadJavaScriptSync('cdv-plugin-fb-connect.js');
-
         FB.init({
             appId: '1471555153071551',
             cookie: true,
@@ -66,7 +45,7 @@
             nativeInterface: CDV.FB,
             useCachedDialogs: false,
         });
-
+*/
     }, false);
 
     $(window).on('hashchange', route);
@@ -86,18 +65,6 @@
             console.log("login");
             $('body').html(new LoginView(loginTpl).render().el);
         }
-    }
-
-    function loadJavaScriptSync (filePath) {
-        var req = new XMLHttpRequest();
-        req.open('GET', filePath, false); // 'false': synchronous.
-        req.send(null);
-
-        var headElement = document.getElementsByTagName('head')[0];
-        var newScriptElement = document.createElement('script');
-        newScriptElement.type = 'text/javascript';
-        newScriptElement.text = req.responseText;
-        headElement.appendChild(newScriptElement);
     }
 
     route();
