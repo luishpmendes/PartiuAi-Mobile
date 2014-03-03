@@ -18,6 +18,8 @@ var LoginView = function (template) {
         } else {
             try {
                 FB.getLoginStatus(function (response) {
+                    alert(response);
+                    alert(response.status);
                     if (response.status == 'connected') {
                         window.location.replace('main.html#home'); /* current page will NOT be saved in session history */
                     }
