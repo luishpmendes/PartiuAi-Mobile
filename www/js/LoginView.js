@@ -28,7 +28,7 @@ var LoginView = function (template) {
                     }
                 });
             } catch (e) {
-
+                alert("error");
             }
         }
     };
