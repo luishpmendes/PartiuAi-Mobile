@@ -40,9 +40,10 @@
         $.ajax({
             cache: true,
             crossDomain: true,
-            dataType: "script",
+            dataType: 'script',
             url: '//connect.facebook.net/en_UK/all.js',
         }).done(function(data, textStatus, jqXHR) {
+            alert("Done!");
             FB.init({
                 appId: '1471555153071551',
                 nativeInterface: CDV.FB,
@@ -51,7 +52,9 @@
                 xfbml: true,
                 useCachedDialogs: false
             });
-        });        
+        }).fail(function(jqXHR, textStatus, errorThrown) {
+            alert("Fail!");
+        });    
     }, false);
 
     $(window).on('hashchange', route);
