@@ -88,7 +88,7 @@ var LoginView = function (template) {
                     window.location.replace('index.html#home'); /* current page will NOT be saved in session history */
                 }
             },
-            { scope: "email" }
+            { scope: 'email' }
         );
     }
 

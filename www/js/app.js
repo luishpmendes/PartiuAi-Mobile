@@ -41,18 +41,15 @@
             cache: true,
             crossDomain: true,
             dataType: 'script',
-            url: 'http://connect.facebook.net/en_UK/all.js',
+            /*url: 'http://connect.facebook.net/en_US/all.js',*/
+            url: 'http://connect.facebook.net/en_US/all/debug.js',
         }).done(function(data, textStatus, jqXHR) {
-            alert("Done!");
             FB.init({
                 appId: '1471555153071551',
-                status: true,
                 cookie: true,
+                status: true,
                 xfbml: true,
-                useCachedDialogs: false,
             });
-        }).fail(function(jqXHR, textStatus, errorThrown) {
-            alert("Fail!");
         });
     }, false);
 
