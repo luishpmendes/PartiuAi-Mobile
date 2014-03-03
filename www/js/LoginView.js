@@ -16,9 +16,8 @@ var LoginView = function (template) {
 
             self.auth(email, password);
         } else {
-            FB.getLoginStatus(function (responde) {
-                if (response.status === 'connected') {
-                    alert("FB login");
+            FB.getLoginStatus(function (response) {
+                if (response.status == 'connected') {
                     window.location.replace('index.html#home'); /* current page will NOT be saved in session history */
                 }
             });
@@ -83,17 +82,10 @@ var LoginView = function (template) {
     }
 
     this.FBlogin = function () {
-        alert("FBlogin");
-
         FB.login(
             function(response) {
-                alert(response);
-                if (response.session) {
-                    alert('logged in');
+                if (response.status == 'connected') {
                     window.location.replace('index.html#home'); /* current page will NOT be saved in session history */
-                } else {
-                    alert('not logged in');
-                    window.location.replace('index.html'); /* current page will NOT be saved in session history */
                 }
             },
             { scope: "email" }
