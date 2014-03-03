@@ -47,7 +47,19 @@
                 useCachedDialogs: false,
             });
         } catch (e) {
-            
+        }
+
+        if(window.localStorage['email'] != undefined && window.localStorage['password'] != undefined) {
+            window.location.replace('main.html#home'); /* current page will NOT be saved in session history */
+        } else {
+            try {
+                FB.getLoginStatus(function (response) {
+                    if (response.status == 'connected') {
+                        window.location.replace('main.html#home'); /* current page will NOT be saved in session history */
+                    }
+                });
+            } catch (e) {
+            }
         }
     }, false);
 
@@ -59,13 +71,10 @@
         var hash = window.location.hash;
 
         if (hash == '#register') {
-            console.log("register");
             $('body').html(new RegisterView(registerTpl).render().el);            
         } else if (hash == '#home') {
-            console.log("home");
             $('body').html(new HomeView(homeTpl).render().el);            
         } else {
-            console.log("login");
             $('body').html(new LoginView(loginTpl).render().el);
         }
     }

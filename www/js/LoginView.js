@@ -9,23 +9,6 @@ var LoginView = function (template) {
         this.el.on('click', '#loginButton', this.login);
         this.el.on('click', '#FBloginButton', this.FBlogin);
         this.el.on('click', '#registerButton', this.register);
-
-        if(window.localStorage['email'] != undefined && window.localStorage['password'] != undefined) {
-            var email = window.localStorage['email'];
-            var password = window.localStorage['password'];
-
-            self.auth(email, password);
-        } else {
-            try {
-                FB.getLoginStatus(function (response) {
-                    alert("asdads");
-                    if (response.status == 'connected') {
-                        window.location.replace('main.html#home'); /* current page will NOT be saved in session history */
-                    }
-                });
-            } catch (e) {
-            }
-        }
     };
 
     this.render = function() {
@@ -60,29 +43,22 @@ var LoginView = function (template) {
             var email = emailInput.val();
             var password = passwordInput.val();
 
-            self.auth(email, password);
+            var jqxhr = $.ajax({
+                crossDomain: true,
+                data: {
+                    email : email,
+                    password : password,
+                },
+                type: 'POST',
+                url: 'http://www.partiuai.com.br/login/',
+            }).done(function(data, textStatus, jqXHR) {
+                window.localStorage['email'] = email;
+                window.localStorage['password'] = password;
+
+                window.location.replace('main.html#home'); /* current page will NOT be saved in session history */
+            }).fail(function(jqXHR, textStatus, errorThrown) {
+            });
         }
-    }
-
-    this.auth = function (email, password) {
-        var jqxhr = $.ajax({
-            crossDomain: true,
-            data: {
-                email : email,
-                password : password,
-            },
-            type: 'POST',
-            url: 'http://www.partiuai.com.br/login/',
-        }).done(function(data, textStatus, jqXHR) {
-            alert("Done! data: " + data + " textStatus: " + textStatus + " jqXHR: " + jqXHR);
-
-            window.localStorage['email'] = email;
-            window.localStorage['password'] = password;
-
-            window.location.replace('main.html#home'); /* current page will NOT be saved in session history */
-        }).fail(function(jqXHR, textStatus, errorThrown) {
-            alert("Fail! jqXHR: " + jqXHR + " textStatus: " + textStatus + " errorThrown: " + errorThrown);
-        });
     }
 
     this.FBlogin = function () {
