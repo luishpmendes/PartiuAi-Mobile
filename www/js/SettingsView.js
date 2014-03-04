@@ -12,21 +12,38 @@ var SettingsView = function (template) {
     }
 
     this.logout = function () {
-        if (confirm("Deseja mesmo sair?")) {
-            alert("confirmou");
-            window.localStorage.clear();
-            
-            try {
-                FB.logout(function(response) {
+        if (navigator.notification) {
+            navigator.notification.confirm (
+                'Deseja mesmo sair?',
+                function (x) {
+                    if (x == 1) {
+                        window.localStorage.clear();
 
-                });
-            } catch (e) {
+                        try {
+                            FB.logout(function(response) {
 
-            }
+                            });
+                        } catch (e) {
+                        }
 
-            window.location.replace('main.html');
+                        window.location.replace('main.html');
+                    }
+                },
+                'PartiuAí'
+            );
         } else {
-            alert("NAO confirmou");
+            if (confirm('Deseja mesmo sair?')) {
+                window.localStorage.clear();
+                
+                try {
+                    FB.logout(function(response) {
+
+                    });
+                } catch (e) {
+                }
+
+                window.location.replace('main.html');
+            }
         }
     }
 

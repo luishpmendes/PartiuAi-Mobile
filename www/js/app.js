@@ -16,22 +16,8 @@
                 navigator.notification.alert (
                     message,    // message
                     null,       // callback
-                    "PartiuAi", // title
+                    'PartiuAi', // title
                     'OK'        // buttonName
-                );
-            };
-            window.confirm = function (message) {
-                navigator.notification.confirm (
-                    message,    // message
-                    null,       // callback
-                    "PartiuAi"  // title
-                );
-            };
-            window.prompt = function (message) {
-                navigator.notification.prompt (
-                    message,    // message
-                    null,       // callback
-                    "PartiuAi"  // title
                 );
             };
         }
@@ -64,7 +50,7 @@
         }
     }, false);
 
-    document.addEventListener('backbutton', function () {
+    document.addEventListener('backbutton', function (e) {
         var hash = window.location.hash;
 
         if (hash == '' || hash == '#') {
