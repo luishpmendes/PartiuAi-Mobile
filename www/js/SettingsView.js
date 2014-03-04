@@ -13,6 +13,7 @@ var SettingsView = function (template) {
 
     this.logout = function () {
         if (confirm("Deseja mesmo sair?")) {
+            alert("confirmou");
             window.localStorage.clear();
             
             try {
@@ -24,6 +25,8 @@ var SettingsView = function (template) {
             }
 
             window.location.replace('main.html');
+        } else {
+            alert("NAO confirmou");
         }
     }
 

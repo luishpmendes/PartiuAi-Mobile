@@ -69,6 +69,8 @@
 
         if (hash == '' || hash == '#') {
             navigator.app.exitApp();
+        } else {
+            history.go(-1);
         }
     }, false);
 
