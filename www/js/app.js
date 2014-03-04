@@ -51,11 +51,9 @@
     }, false);
 
     document.addEventListener('backbutton', function (e) {
-        alert("history.length: " + history.length);
-
         var hash = window.location.hash;
 
-        if (hash == '' || hash == '#' || history.length <= 1) {
+        if (hash == '' || hash == '#' || hash == 'home' || hash == '#home') {
             navigator.app.exitApp();
         } else {
             history.go(-1);
