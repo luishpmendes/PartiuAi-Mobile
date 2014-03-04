@@ -51,6 +51,8 @@
     }, false);
 
     document.addEventListener('backbutton', function (e) {
+        alert("back button");
+
         var hash = window.location.hash;
 
         if (hash == '' || hash == '#' || history.length <= 1) {
