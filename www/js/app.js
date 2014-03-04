@@ -71,6 +71,7 @@
     /* ---------------------------------- Local Functions ---------------------------------- */
 
     function route () {
+        alert("route");
         var hash = window.location.hash;
 
         if (hash == 'register' || hash == '#register') {
