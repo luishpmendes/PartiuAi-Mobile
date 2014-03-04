@@ -64,7 +64,7 @@
         }
     }, false);
 
-    document.addEventListener('backbutton', this.back, false);
+    //document.addEventListener('backbutton', this.back, false);
 
     $(window).on('hashchange', route);
 
@@ -84,7 +84,7 @@
             $('body').html(new LoginView(loginTpl).render().el);
         }
     }
-
+/*
     function back () {
         var hash = window.location.hash;
 
@@ -92,7 +92,7 @@
             navigator.app.exitApp();
         }
     }
-
+*/
     route();
 
 } ());
