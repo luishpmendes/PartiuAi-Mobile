@@ -3771,4 +3771,8 @@ Everything below this line should be calculated using the variables above. This 
 }
 
 
+.topcoat-icon--menu-settings {
+  background: url("../img/settings.png") no-repeat;
+  background-size: cover;
+}
 
