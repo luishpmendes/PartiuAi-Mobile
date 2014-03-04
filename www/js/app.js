@@ -36,7 +36,7 @@
         } catch (e) {
         }
 
-        if(window.localStorage['email'] != undefined && window.localStorage['password'] != undefined) {
+        if (window.localStorage.getItem('email') != null && window.localStorage.getItem('password') != null) {
             window.location.replace('main.html#home'); /* current page will NOT be saved in session history */
         } else {
             try {

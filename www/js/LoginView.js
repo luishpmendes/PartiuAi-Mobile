@@ -52,8 +52,8 @@ var LoginView = function (template) {
                 type: 'POST',
                 url: 'http://www.partiuai.com.br/login/',
             }).done(function(data, textStatus, jqXHR) {
-                window.localStorage['email'] = email;
-                window.localStorage['password'] = password;
+                window.localStorage.setItem('email') = email;
+                window.localStorage.getItem('password') = password;
 
                 window.location.replace('main.html#home'); /* current page will NOT be saved in session history */
             }).fail(function(jqXHR, textStatus, errorThrown) {
