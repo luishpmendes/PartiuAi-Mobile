@@ -53,7 +53,7 @@
     document.addEventListener('backbutton', function (e) {
         var hash = window.location.hash;
 
-        if (hash == '' || hash == '#') {
+        if (hash == '' || hash == '#' || history.length <= 1) {
             navigator.app.exitApp();
         } else {
             history.go(-1);
