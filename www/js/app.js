@@ -64,7 +64,13 @@
         }
     }, false);
 
-    //document.addEventListener('backbutton', this.back, false);
+    document.addEventListener('backbutton', function () {
+        var hash = window.location.hash;
+
+        if (hash == '' || hash == '#') {
+            navigator.app.exitApp();
+        }
+    }, false);
 
     $(window).on('hashchange', route);
 
@@ -84,15 +90,7 @@
             $('body').html(new LoginView(loginTpl).render().el);
         }
     }
-/*
-    function back () {
-        var hash = window.location.hash;
 
-        if (hash == '' || hash == '#') {
-            navigator.app.exitApp();
-        }
-    }
-*/
     route();
 
 } ());
