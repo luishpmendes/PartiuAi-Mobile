@@ -51,7 +51,7 @@
     }, false);
 
     document.addEventListener('backbutton', function (e) {
-        alert("back button");
+        alert("history.length: " + history.length);
 
         var hash = window.location.hash;
 
