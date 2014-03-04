@@ -51,12 +51,12 @@
         }
 
         if(window.localStorage['email'] != undefined && window.localStorage['password'] != undefined) {
-            window.location.replace('index.html#home'); /* current page will NOT be saved in session history */
+            window.location.replace('main.html#home'); /* current page will NOT be saved in session history */
         } else {
             try {
                 FB.getLoginStatus(function (response) {
                     if (response.status == 'connected') {
-                        window.location.replace('index.html#home'); /* current page will NOT be saved in session history */
+                        window.location.replace('main.html#home'); /* current page will NOT be saved in session history */
                     }
                 });
             } catch (e) {

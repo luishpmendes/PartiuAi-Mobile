@@ -23,7 +23,7 @@ var SettingsView = function (template) {
 
             }
 
-            window.location.replace('index.html');
+            window.location.replace('main.html');
         }
     }
 
@@ -31,7 +31,7 @@ var SettingsView = function (template) {
         this.el.html(template());
         return this;
     }
- 
+
     this.initialize();
 
 }
