@@ -23,7 +23,7 @@ var SettingsView = function (template) {
 
             }
 
-            window.location.replace('main.html');
+            window.location.replace('index.html');
         }
     }
 
