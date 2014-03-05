@@ -6,7 +6,6 @@
     var loginTpl = Handlebars.compile($("#login-tpl").html());
     var registerTpl = Handlebars.compile($("#register-tpl").html());
     var homeTpl = Handlebars.compile($("#home-tpl").html());
-    var settingsTpl = Handlebars.compile($("#settings-tpl").html());
 
     /* --------------------------------- Event Registration -------------------------------- */
 
@@ -65,17 +64,21 @@
     /* ---------------------------------- Local Functions ---------------------------------- */
 
     function route () {
+        var htmlString;
         var hash = window.location.hash;
 
         if (hash == 'register' || hash == '#register') {
-            $('body').html(new RegisterView(registerTpl).render().el);            
+            htmlString = (new RegisterView(registerTpl)).render().el;
         } else if (hash == 'home' || hash == '#home') {
-            $('body').html(new HomeView(homeTpl).render().el);            
-        } else if (hash == 'settings' || hash == '#settings') {
-            $('body').html(new SettingsView(settingsTpl).render().el);            
+            htmlString = (new HomeView(homeTpl)).render().el;
         } else {
-            $('body').html(new LoginView(loginTpl).render().el);
+            htmlString = (new LoginView(loginTpl)).render().el;
         }
+
+        $('body').fadeOut("fast", function () {
+            $('body').html(htmlString);
+            $('body').fadeIn("fast");
+        });
     }
 
     route();

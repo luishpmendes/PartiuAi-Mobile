@@ -33,7 +33,7 @@
             <header class="topcoat-navigation-bar">
                 <div class="topcoat-navigation-bar__item left quarter">
                     <button id="backButton" class="topcoat-icon-button--quiet">
-                        <span class="topcoat-icon topcoat-icon--menu-back"></span>
+                        <span class="topcoat-icon topcoat-icon--back"></span>
                     </button>
                 </div>
                 <div class="topcoat-navigation-bar__item center half">
@@ -57,34 +57,21 @@
                 </div>
 
                 <div class="topcoat-navigation-bar__item right quarter">
-                    <button id="settingsButton" class="topcoat-icon-button--quiet">
-                        <span class="topcoat-icon topcoat-icon--menu-settings"></span>
+                    <button id="menuButton" class="topcoat-icon-button--quiet">
+                        <span class="topcoat-icon topcoat-icon--menu"></span>
                     </button>
                 </div>
             </header>
-            <div class="home">
-                <button class="topcoat-button--large full">Button</button>
-                <button class="topcoat-button--large full">Button</button>
-            </div>
-        </script>
-
-        <script id="settings-tpl" type="text/x-handlebars-template">
-            <header class="topcoat-navigation-bar">
-                <div class="topcoat-navigation-bar__item left quarter">
-                    <button id="backButton" class="topcoat-icon-button--quiet">
-                        <span class="topcoat-icon topcoat-icon--menu-back"></span>
-                    </button>
-                </div>
-                <div class="topcoat-navigation-bar__item center half">
-                    <h1 class="topcoat-navigation-bar__title">Configurações</h1>
-                </div>
-            </header>
-            <div class="topcoat-list settings">
-                <ul class="topcoat-list">
-                    <li class="topcoat-list__item" id="logoutButton">
+            <div class="menu topcoat-list" id="menu" style="display: none;">
+                <ul class="topcoat-list__container">
+                    <li class="topcoat-list__item" id="logout">
                         Logout
-                    </li
+                    </li>
                 </ul>
+            </div>
+            <div class="home">
+                <button class="topcoat-button--large full">Carona Agora!</button>
+                <button class="topcoat-button--large full">Agendar Carona!</button>
             </div>
         </script>
 

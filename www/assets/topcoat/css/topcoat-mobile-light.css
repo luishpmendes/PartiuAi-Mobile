@@ -3765,14 +3765,14 @@ Everything below this line should be calculated using the variables above. This 
 
 
 
-.topcoat-icon--menu-back {
+.topcoat-icon--back {
   background: url("../img/back.png") no-repeat;
   background-size: cover;
 }
 
 
-.topcoat-icon--menu-settings {
-  background: url("../img/settings.png") no-repeat;
+.topcoat-icon--menu {
+  background: url("../img/menu.png") no-repeat;
   background-size: cover;
 }
 

@@ -62,3 +62,9 @@ body {
 .home > button {
     height: 50%;
 }
+
+.menu {
+    z-index: 10;
+    position: absolute;
+    right: 0;
+}
