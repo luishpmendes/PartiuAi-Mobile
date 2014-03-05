@@ -6,6 +6,7 @@
     var loginTpl = Handlebars.compile($("#login-tpl").html());
     var registerTpl = Handlebars.compile($("#register-tpl").html());
     var homeTpl = Handlebars.compile($("#home-tpl").html());
+    var rideNowTpl = Handlebars.compile($("#rideNow-tpl").html());
 
     /* --------------------------------- Event Registration -------------------------------- */
 
@@ -71,6 +72,8 @@
             htmlString = (new RegisterView(registerTpl)).render().el;
         } else if (hash == 'home' || hash == '#home') {
             htmlString = (new HomeView(homeTpl)).render().el;
+        } else if (hash == 'rideNow' || hash == '#rideNow') {
+            htmlString = (new RideNowView(rideNowTpl)).render().el;
         } else {
             htmlString = (new LoginView(loginTpl)).render().el;
         }

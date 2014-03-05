@@ -5,7 +5,7 @@ var LoginView = function (template) {
     this.initialize = function () {
         // Define a div wrapper for the view. The div wrapper is used to attach events.
         this.el = $('<div/>');
-        this.el.on('ready', this.scroll);
+        this.el.on('load', '.content', this.scroll);
         this.el.on('click', '#loginButton', this.login);
         this.el.on('click', '#FBloginButton', this.FBlogin);
         this.el.on('click', '#registerButton', this.register);

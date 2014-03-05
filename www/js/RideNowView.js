@@ -1,16 +1,31 @@
-var HomeView = function (template) {
+var RideNowView = function (template) {
 
     this.initialize = function () {
         // Define a div wrapper for the view. The div wrapper is used to attach events.
         this.el = $('<div/>');
+        this.el.on('load', '#map-canvas', this.loadMap);
+        this.el.on('click', '#backButton', this.back);
         this.el.on('click', '#menuButton', this.menu);
         this.el.on('click', '#logout', this.logout);
-        this.el.on('click', '#nowButton', this.rideNow);
     }
 
     this.render = function() {
         this.el.html(template());
+
         return this;
+    }
+
+    this.loadMap = function () {
+        var mapOptions = {
+            center: new google.maps.LatLng(-34.397, 150.644),
+            zoom: 8
+        };
+
+        var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+    }
+
+    this.back = function () {
+        history.go(-1);
     }
 
     this.menu = function () {
@@ -51,10 +66,6 @@ var HomeView = function (template) {
                 window.location.replace('main.html');
             }
         }
-    }
-
-    this.rideNow = function () {
-        window.location.hash = "rideNow";
     }
  
     this.initialize();
