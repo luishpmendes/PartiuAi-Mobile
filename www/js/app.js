@@ -34,6 +34,7 @@
                 useCachedDialogs: false,
             });
         } catch (e) {
+            alert("Erro ao inicializar o FB");
         }
 
         if (window.localStorage.getItem('email') != null && window.localStorage.getItem('password') != null) {
