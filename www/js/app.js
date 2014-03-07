@@ -65,22 +65,22 @@
     /* ---------------------------------- Local Functions ---------------------------------- */
 
     function route () {
-        var htmlString;
+        var view;
         var hash = window.location.hash;
 
         if (hash == 'register' || hash == '#register') {
-            htmlString = (new RegisterView(registerTpl)).render().el;
+            view = new RegisterView(registerTpl);
         } else if (hash == 'home' || hash == '#home') {
-            htmlString = (new HomeView(homeTpl)).render().el;
+            view = new HomeView(homeTpl);
         } else if (hash == 'rideNow' || hash == '#rideNow') {
-            htmlString = (new RideNowView(rideNowTpl)).render().el;
+            view = new RideNowView(rideNowTpl);
         } else {
-            htmlString = (new LoginView(loginTpl)).render().el;
+            view = new LoginView(loginTpl);
         }
 
         $('body').fadeOut("fast", function () {
-            $('body').html(htmlString);
-            $('body').fadeIn("fast");
+            $('body').html(view.render().el);
+            $('body').fadeIn("fast", view.load);
         });
     }
 

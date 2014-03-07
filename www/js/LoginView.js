@@ -62,40 +62,23 @@ var LoginView = function (template) {
     }
 
     this.FBlogin = function () {
-        /*
         try {
             FB.login(
                 function(response) {
                     if (response.status == 'connected') {
-                        window.location.replace('main.html#home'); /* current page will NOT be saved in session history 
+                        window.location.replace('main.html#home'); /* current page will NOT be saved in session history */
                     }
                 },
                 { scope: 'basic_info,email,user_birthday,user_hometown,user_location' }
             );
         } catch (e) {
         }
-        */
-        var jqxhr = $.ajax({
-            crossDomain: true,
-            type: 'GET',
-            url: 'http://www.partiuai.com.br/login/facebook',
-        }).done(function(data, textStatus, jqXHR) {
-            console.log(data);
-            console.log(textStatus);
-            console.log(jqXHR);
-            alert('ok');
-        }).fail(function(jqXHR, textStatus, errorThrown) {
-            console.log(jqXHR);
-            console.log(textStatus);
-            console.log(errorThrown);
-            alert('error');
-        });        
     }
 
     this.register = function () {
         window.location.hash = 'register';
     }
- 
+
     this.initialize();
 
 }

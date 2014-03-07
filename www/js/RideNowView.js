@@ -1,9 +1,10 @@
 var RideNowView = function (template) {
 
+    self = this;
+
     this.initialize = function () {
         // Define a div wrapper for the view. The div wrapper is used to attach events.
         this.el = $('<div/>');
-        this.el.on('load', this.loadMap);
         this.el.on('click', '#backButton', this.back);
         this.el.on('click', '#menuButton', this.menu);
         this.el.on('click', '#logout', this.logout);
@@ -11,8 +12,11 @@ var RideNowView = function (template) {
 
     this.render = function() {
         this.el.html(template());
-
         return this;
+    }
+
+    this.load = function () {
+        self.loadMap();
     }
 
     this.loadMap = function () {
