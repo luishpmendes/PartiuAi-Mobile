@@ -42,7 +42,7 @@ var LoginView = function (template) {
         } else {
             var email = emailInput.val();
             var password = passwordInput.val();
-
+/*
             var jqxhr = $.ajax({
                 crossDomain: true,
                 data: {
@@ -55,9 +55,11 @@ var LoginView = function (template) {
                 window.localStorage.setItem('email') = email;
                 window.localStorage.getItem('password') = password;
 
-                window.location.replace('main.html#home'); /* current page will NOT be saved in session history */
+                window.location.replace('main.html#home'); /* current page will NOT be saved in session history 
             }).fail(function(jqXHR, textStatus, errorThrown) {
             });
+*/
+            window.location.replace('main.html#home'); /* current page will NOT be saved in session history */
         }
     }
 
@@ -66,6 +68,9 @@ var LoginView = function (template) {
             FB.login(
                 function(response) {
                     if (response.status == 'connected') {
+                        alert(response);
+                        alert(response.authResponse);
+                        alert(response.authResponse.accessToken);
                         window.location.replace('main.html#home'); /* current page will NOT be saved in session history */
                     }
                 },
