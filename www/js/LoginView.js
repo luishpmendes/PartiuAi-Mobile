@@ -25,7 +25,7 @@ var LoginView = function (template) {
             self.iscroll.refresh();
         } else {
             console.log('New iScroll');
-            self.iscroll = new IScroll($('.content', self.el)[0], {
+            self.iscroll = new IScroll($('.scroller', self.el)[0], {
                 bounce: false
             });
         }
