@@ -5,7 +5,6 @@ var RegisterView = function (template) {
     this.initialize = function () {
         // Define a div wrapper for the view. The div wrapper is used to attach events.
         this.el = $('<div/>');
-        this.el.on('load', '.content', this.scroll);
         this.el.on('click', '#backButton', this.back);
         this.el.on('click', '#registerButton', this.register);
     };
@@ -14,6 +13,10 @@ var RegisterView = function (template) {
         this.el.html(template());
         return this;
     };
+
+    this.load = function () {
+        self.scroll();
+    }
 
     this.scroll = function() {
         if (self.iscroll) {

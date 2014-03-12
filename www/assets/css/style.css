@@ -83,5 +83,9 @@ body > div {
 
 .rideNow {
     width: 100%;
-    height: 100%;
+    position: absolute;
+    top: 4.375rem;
+    bottom: 0;
+    left: 0;
+    right: 0;
 }
