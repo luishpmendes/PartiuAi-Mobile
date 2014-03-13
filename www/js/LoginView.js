@@ -38,7 +38,7 @@ var LoginView = function (template) {
 
         if (!emailInput || !passwordInput) {
             alert('ERROR!');
-        } else if (!emailInput.val().match(emailInput.pattern)) {
+        } else if (!emailInput.val().match(emailInput.attr('pattern'))) {
             alert('Invalid Email!');
         } else if (passwordInput.val() == '') {
             alert('Invalid Password!');
