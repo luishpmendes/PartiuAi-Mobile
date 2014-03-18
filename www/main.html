@@ -103,14 +103,19 @@
                     </li>
                 </ul>
             </div>
-            <div class="rideNow" id="map-canvas">
-                
+
+            <div class="rideNow">
+                <div class="search-bar">
+                    <input id="searchbox" type="search" class="topcoat-search-input full" />
+                </div>
+                <div id="map-canvas">
+                </div>
             </div>
         </script>
 
         <!-- JS -->
         <script src="phonegap.js"></script>
-        <script src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
+        <script src="https://maps.googleapis.com/maps/api/js?sensor=false&libraries=places"></script>
         <script src="facebook-js-sdk.js"></script>
         <script src="cdv-plugin-fb-connect.js"></script>
         <script src="lib/fastclick.js"></script>
