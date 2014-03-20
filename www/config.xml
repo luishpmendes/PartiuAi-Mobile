@@ -54,6 +54,7 @@
     <content src="index.html" />
     <access origin="*" />
     <gap:plugin name="org.apache.cordova.dialogs" />
+    <gap:plugin name="org.apache.cordova.geolocation" />
     <gap:plugin name="com.phonegap.plugins.facebookconnect">
         <param name="APP_ID" value="1471555153071551" />
         <param name="APP_NAME" value="PartiuAi" />

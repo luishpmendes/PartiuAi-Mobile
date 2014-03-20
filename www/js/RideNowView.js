@@ -29,7 +29,10 @@ var RideNowView = function (template) {
 
         var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
         var input = document.getElementById('searchbox');
-        var autocomplete = new google.maps.places.Autocomplete(input);
+        var autoCompleteOptions = {
+            componentRestrictions: {country: 'br'}
+        };
+        var autocomplete = new google.maps.places.Autocomplete(input, autoCompleteOptions);
 
         var marker = new google.maps.Marker({
             map: map
