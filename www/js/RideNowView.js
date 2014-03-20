@@ -61,6 +61,8 @@ var RideNowView = function (template) {
                 var geocoder = new google.maps.Geocoder();
                 var latlng = google.maps.LatLng(position.coords.latitude, position.coords.longitude);
 
+                alert(position.coords.latitude + ', ' + position.coords.longitude);
+
                 var request = {
                     location: latlng,
                     radius: '500'
