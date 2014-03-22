@@ -1,4 +1,4 @@
-var RideNowView = function (template) {
+var RideNowDestinationView = function (template) {
 
     self = this;
 
@@ -8,6 +8,7 @@ var RideNowView = function (template) {
         this.el.on('click', '#backButton', this.back);
         this.el.on('click', '#menuButton', this.menu);
         this.el.on('click', '#logout', this.logout);
+        this.el.on('click', '#okButton', this.ok);
     }
 
     this.render = function() {
@@ -148,7 +149,10 @@ var RideNowView = function (template) {
             }
         }
     }
- 
+
+    this.ok = function () {
+    }
+
     this.initialize();
 
 }

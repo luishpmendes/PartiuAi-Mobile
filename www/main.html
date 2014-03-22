@@ -80,7 +80,7 @@
             </div>
         </script>
 
-        <script id="rideNow-tpl" type="text/x-handlebars-template">
+        <script id="rideNowSource-tpl" type="text/x-handlebars-template">
             <header class="topcoat-navigation-bar">
                 <div class="topcoat-navigation-bar__item left quarter">
                     <button id="backButton" class="topcoat-icon-button--quiet">
@@ -88,7 +88,7 @@
                     </button>
                 </div>
                 <div class="topcoat-navigation-bar__item center half">
-                    <h1 class="topcoat-navigation-bar__title">Partiu Aí</h1>
+                    <h1 class="topcoat-navigation-bar__title">Origem</h1>
                 </div>
                 <div class="topcoat-navigation-bar__item right quarter">
                     <button id="menuButton" class="topcoat-icon-button--quiet">
@@ -103,13 +103,46 @@
                     </li>
                 </ul>
             </div>
-
             <div class="rideNow">
                 <div class="search-bar">
                     <input id="searchbox" type="search" class="topcoat-search-input full" />
                 </div>
                 <div id="map-canvas">
                 </div>
+                <button class="topcoat-button--cta full rideNowButton" id="okButton">OK</button>
+            </div>
+        </script>
+
+        <script id="rideNowDestination-tpl" type="text/x-handlebars-template">
+            <header class="topcoat-navigation-bar">
+                <div class="topcoat-navigation-bar__item left quarter">
+                    <button id="backButton" class="topcoat-icon-button--quiet">
+                        <span class="topcoat-icon topcoat-icon--back"></span>
+                    </button>
+                </div>
+                <div class="topcoat-navigation-bar__item center half">
+                    <h1 class="topcoat-navigation-bar__title">Destino</h1>
+                </div>
+                <div class="topcoat-navigation-bar__item right quarter">
+                    <button id="menuButton" class="topcoat-icon-button--quiet">
+                        <span class="topcoat-icon topcoat-icon--menu"></span>
+                    </button>
+                </div>
+            </header>
+            <div class="menu topcoat-list" id="menu" style="display: none;">
+                <ul class="topcoat-list__container">
+                    <li class="topcoat-list__item" id="logout">
+                        Logout
+                    </li>
+                </ul>
+            </div>
+            <div class="rideNow">
+                <div class="search-bar">
+                    <input id="searchbox" type="search" class="topcoat-search-input full" />
+                </div>
+                <div id="map-canvas">
+                </div>
+                <button class="topcoat-button--cta full rideNowButton" id="okButton">OK</button>
             </div>
         </script>
 
@@ -125,7 +158,8 @@
         <script src="js/LoginView.js"></script>
         <script src="js/RegisterView.js"></script>
         <script src="js/HomeView.js"></script>
-        <script src="js/RideNowView.js"></script>
+        <script src="js/RideNowSourceView.js"></script>
+        <script src="js/RideNowDestinationView.js"></script>
         <script src="js/app.js"></script>
     </body>
 </html>

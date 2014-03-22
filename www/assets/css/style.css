@@ -87,7 +87,12 @@ body {
 .rideNow > #map-canvas {
     position: absolute;
     top: 8rem;
-    bottom: 1px;
+    bottom: 3.3rem;
     left: 1px;
     right: 1px;
+}
+
+.rideNowButton {
+    position: absolute;
+    bottom: 1px;
 }

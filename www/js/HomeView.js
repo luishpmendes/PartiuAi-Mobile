@@ -54,7 +54,7 @@ var HomeView = function (template) {
     }
 
     this.rideNow = function () {
-        window.location.hash = "rideNow";
+        window.location.hash = "rideNowSource";
     }
  
     this.initialize();
