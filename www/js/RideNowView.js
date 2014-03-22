@@ -28,14 +28,34 @@ var RideNowView = function (template) {
         };
 
         var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+        var marker = new google.maps.Marker({
+            map: map
+        });
         var input = document.getElementById('searchbox');
         var autoCompleteOptions = {
             componentRestrictions: {country: 'br'}
         };
         var autocomplete = new google.maps.places.Autocomplete(input, autoCompleteOptions);
 
-        var marker = new google.maps.Marker({
-            map: map
+        google.maps.event.addListener(map, 'click', function(e) {
+            marker.setVisible(false);
+            marker.setPosition(e.latLng);
+            marker.setVisible(true);
+
+            var geocoder = new google.maps.Geocoder();
+
+            var request = {
+                location: e.latLng,
+                radius: '500'
+            };
+
+            geocoder.geocode({'latLng': e.latLng}, function(results, status) {
+                if (status == google.maps.GeocoderStatus.OK) {
+                    if (results[0]) {
+                        $('#searchbox').val(results[0].formatted_address)
+                    }
+                }
+            });
         });
 
         google.maps.event.addListener(autocomplete, 'place_changed', function() {
@@ -59,9 +79,7 @@ var RideNowView = function (template) {
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(function (position) {
                 var geocoder = new google.maps.Geocoder();
-                var latlng = google.maps.LatLng(position.coords.latitude, position.coords.longitude);
-
-                alert(position.coords.latitude + ', ' + position.coords.longitude);
+                var latlng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
 
                 var request = {
                     location: latlng,
@@ -79,13 +97,12 @@ var RideNowView = function (template) {
                             marker.setPosition(latlng);
                             marker.setVisible(true);
 
-                            input.val = results[0].long_name;
+                            $('#searchbox').val(results[0].formatted_address)
                         }
                     }
                 });
             });
         }
-
     }
 
     this.back = function () {
