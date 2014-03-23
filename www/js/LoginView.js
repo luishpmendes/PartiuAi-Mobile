@@ -68,7 +68,7 @@ var LoginView = function (template) {
         try {
             FB.login (
                 function(response) {
-                    alert(response.authResponse);
+                    alert(response.authResponse.accessToken);
                     if (response.status == 'connected') {
                         window.location.replace('main.html#home'); /* current page will NOT be saved in session history */
                     }
