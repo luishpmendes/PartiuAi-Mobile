@@ -68,9 +68,18 @@ var LoginView = function (template) {
         try {
             FB.login (
                 function(response) {
-                    alert(response.authResponse.accessToken);
                     if (response.status == 'connected') {
-                        window.location.replace('main.html#home'); /* current page will NOT be saved in session history */
+                        $.ajax({
+                            crossDomain: true,
+                            data: {
+                                accessToken : esponse.authResponse.accessToken
+                            },
+                            type: 'POST',
+                            url: 'http://www.partiuai.com.br/register-by-access-token/facebook/',
+                        }).done(function(data, textStatus, jqXHR) {
+                            window.location.replace('main.html#home'); /* current page will NOT be saved in session history */
+                        }).fail(function(jqXHR, textStatus, errorThrown) {
+                        });
                     }
                 },
                 { scope: 'basic_info,email,user_birthday,user_hometown,user_location' }
