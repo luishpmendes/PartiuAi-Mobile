@@ -59,8 +59,8 @@ var LoginView = function (template) {
                 console.log(data);
                 console.log(textStatus);
                 console.log(jqXHR);
-                window.localStorage.setItem('app_token') = data.app_token;
-                window.localStorage.setItem('username') = data.username;
+                window.localStorage.setItem('app_token', data.app_token);
+                window.localStorage.setItem('username', data.username);
 
                 window.location.replace('main.html#home'); /* current page will NOT be saved in session history */
             }).fail(function(jqXHR, textStatus, errorThrown) {
@@ -87,8 +87,8 @@ var LoginView = function (template) {
                         }).done(function(data, textStatus, jqXHR) {
                             console.log("FB.login done");
                             console.log(data);
-                            window.localStorage.setItem('app_token') = data.app_token;
-                            window.localStorage.setItem('username') = data.username;
+                            window.localStorage.setItem('app_token', data.app_token);
+                            window.localStorage.setItem('username', data.username);
                             console.log(textStatus);
                             console.log(jqXHR);
                             window.location.replace('main.html#home'); /* current page will NOT be saved in session history */
