@@ -45,31 +45,30 @@ var LoginView = function (template) {
         } else {
             var email = emailInput.val();
             var password = passwordInput.val();
-/*
-            var jqxhr = $.ajax({
+
+            $.ajax({
                 crossDomain: true,
                 data: {
-                    email : email,
+                    username : email,
                     password : password,
                 },
                 type: 'POST',
-                url: 'http://www.partiuai.com.br/login/',
+                url: 'http://www.partiuai.com.br/token/',
             }).done(function(data, textStatus, jqXHR) {
                 window.localStorage.setItem('email') = email;
                 window.localStorage.getItem('password') = password;
 
-                window.location.replace('main.html#home'); /* current page will NOT be saved in session history 
+                window.location.replace('main.html#home'); /* current page will NOT be saved in session history */
             }).fail(function(jqXHR, textStatus, errorThrown) {
             });
-*/
-            window.location.replace('main.html#home'); /* current page will NOT be saved in session history */
         }
     }
 
     this.FBlogin = function () {
         try {
-            FB.login(
+            FB.login (
                 function(response) {
+                    alert(response);
                     if (response.status == 'connected') {
                         window.location.replace('main.html#home'); /* current page will NOT be saved in session history */
                     }
