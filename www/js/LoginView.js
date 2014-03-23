@@ -69,6 +69,7 @@ var LoginView = function (template) {
             FB.login (
                 function(response) {
                     console.log("FB.login response");
+                    console.log(response);
                     if (response.status == 'connected') {
                         console.log("FB.login connected");
                         $.ajax({
@@ -77,9 +78,15 @@ var LoginView = function (template) {
                             url: 'http://www.partiuai.com.br/register-by-access-token/facebook/?accessToken='+response.authResponse.accessToken,
                         }).done(function(data, textStatus, jqXHR) {
                             console.log("FB.login done");
+                            console.log(data);
+                            console.log(textStatus);
+                            console.log(jqXHR);
                             window.location.replace('main.html#home'); /* current page will NOT be saved in session history */
                         }).fail(function(jqXHR, textStatus, errorThrown) {
                             console.log("FB.login fail");
+                            console.log(jqXHR);
+                            console.log(textStatus);
+                            console.log(errorThrown);
                         });
                     }
                 },
