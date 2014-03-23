@@ -83,7 +83,7 @@ var LoginView = function (template) {
                         $.ajax({
                             crossDomain: true,
                             type: 'GET',
-                            url: 'http://www.partiuai.com.br/register-by-access-token/facebook/?accessToken='+response.authResponse.accessToken
+                            url: 'http://www.partiuai.com.br/register-by-access-token/facebook/?access_token='+response.authResponse.accessToken,
                         }).done(function(data, textStatus, jqXHR) {
                             console.log("FB.login done");
                             console.log(data);
