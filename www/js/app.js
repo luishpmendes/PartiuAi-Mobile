@@ -37,7 +37,7 @@
         } catch (e) {
         }
 
-        if (window.localStorage.getItem('email') != null && window.localStorage.getItem('password') != null) {
+        if (window.localStorage.getItem('username') != null && window.localStorage.getItem('app_token') != null) {
             window.location.replace('main.html#home'); /* current page will NOT be saved in session history */
         } else {
             try {

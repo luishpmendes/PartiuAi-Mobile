@@ -33,23 +33,23 @@ var LoginView = function (template) {
     }
 
     this.login = function () {
-        var emailInput = $('#email');
+        var usernameInput = $('#username');
         var passwordInput = $('#password');
 
-        if (!emailInput || !passwordInput) {
+        if (!usernameInput || !passwordInput) {
             alert('ERROR!');
-        } else if (!emailInput.val().match(emailInput.attr('pattern'))) {
+        } else if (!usernameInput.val().match(usernameInput.attr('pattern'))) {
             alert('Invalid Email!');
         } else if (passwordInput.val() == '') {
             alert('Invalid Password!');
         } else {
-            var email = emailInput.val();
+            var username = usernameInput.val();
             var password = passwordInput.val();
 
             $.ajax({
                 crossDomain: true,
                 data: {
-                    username : email,
+                    username : username,
                     password : password,
                 },
                 type: 'POST',
@@ -59,8 +59,8 @@ var LoginView = function (template) {
                 console.log(data);
                 console.log(textStatus);
                 console.log(jqXHR);
-                window.localStorage.setItem('email') = email;
-                window.localStorage.getItem('password') = password;
+                window.localStorage.setItem('app_token') = data.app_token;
+                window.localStorage.setItem('username') = data.username;
 
                 window.location.replace('main.html#home'); /* current page will NOT be saved in session history */
             }).fail(function(jqXHR, textStatus, errorThrown) {
@@ -87,7 +87,8 @@ var LoginView = function (template) {
                         }).done(function(data, textStatus, jqXHR) {
                             console.log("FB.login done");
                             console.log(data);
-                            alert(data);
+                            window.localStorage.setItem('app_token') = data.app_token;
+                            window.localStorage.setItem('username') = data.username;
                             console.log(textStatus);
                             console.log(jqXHR);
                             window.location.replace('main.html#home'); /* current page will NOT be saved in session history */
