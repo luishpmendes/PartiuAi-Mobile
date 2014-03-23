@@ -72,7 +72,7 @@ var LoginView = function (template) {
                         $.ajax({
                             crossDomain: true,
                             data: {
-                                accessToken : esponse.authResponse.accessToken
+                                accessToken : response.authResponse.accessToken
                             },
                             type: 'POST',
                             url: 'http://www.partiuai.com.br/register-by-access-token/facebook/',
