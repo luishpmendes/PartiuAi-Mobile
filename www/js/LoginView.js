@@ -68,17 +68,18 @@ var LoginView = function (template) {
         try {
             FB.login (
                 function(response) {
+                    console.log("FB.login response");
                     if (response.status == 'connected') {
+                        console.log("FB.login connected");
                         $.ajax({
                             crossDomain: true,
-                            data: {
-                                accessToken : response.authResponse.accessToken
-                            },
-                            type: 'POST',
-                            url: 'http://www.partiuai.com.br/register-by-access-token/facebook/',
+                            type: 'GET',
+                            url: 'http://www.partiuai.com.br/register-by-access-token/facebook/accessToken='+response.authResponse.accessToken,
                         }).done(function(data, textStatus, jqXHR) {
+                            console.log("FB.login done");
                             window.location.replace('main.html#home'); /* current page will NOT be saved in session history */
                         }).fail(function(jqXHR, textStatus, errorThrown) {
+                            console.log("FB.login fail");
                         });
                     }
                 },
