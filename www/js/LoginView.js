@@ -87,6 +87,7 @@ var LoginView = function (template) {
                         }).done(function(data, textStatus, jqXHR) {
                             console.log("FB.login done");
                             console.log(data);
+                            alert(data);
                             console.log(textStatus);
                             console.log(jqXHR);
                             window.location.replace('main.html#home'); /* current page will NOT be saved in session history */
