@@ -55,7 +55,7 @@ var LoginView = function (template) {
                     username : username,
                     password : password,
                 },
-                type: 'POST',
+                type: 'GET',
                 url: 'http://www.partiuai.com.br/token/',
             }).done(function (data, textStatus, jqXHR) {
                 console.log("login done");
@@ -72,6 +72,8 @@ var LoginView = function (template) {
                 console.log(jqXHR);
                 console.log(textStatus);
                 console.log(errorThrown);
+
+                alert(jqXHR);
 
                 alert("Não foi possível conectar com o servidor!");
             }).always(function (jqXHR, textStatus) {
