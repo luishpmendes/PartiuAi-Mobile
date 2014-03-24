@@ -47,6 +47,9 @@ var LoginView = function (template) {
             var password = passwordInput.val();
 
             $.ajax({
+                beforeSend: function (jqXHR, settings) {
+                    $('body').addClass("loading");
+                },
                 crossDomain: true,
                 data: {
                     username : username,
@@ -54,8 +57,6 @@ var LoginView = function (template) {
                 },
                 type: 'POST',
                 url: 'http://www.partiuai.com.br/token/',
-            }).beforeSend(function (jqXHR, settings) {
-                $('body').addClass("loading");
             }).done(function (data, textStatus, jqXHR) {
                 console.log("login done");
                 console.log(data);
@@ -73,7 +74,7 @@ var LoginView = function (template) {
                 console.log(errorThrown);
 
                 alert("Não foi possível conectar com o servidor!");
-            }).complete(function (jqXHR, textStatus) {
+            }).always(function (jqXHR, textStatus) {
                 $('body').removeClass("loading");
             });
         }
