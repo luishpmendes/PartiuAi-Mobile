@@ -55,7 +55,7 @@ var LoginView = function (template) {
                     username : username,
                     password : password,
                 },
-                type: 'GET',
+                type: 'POST',
                 url: 'http://www.partiuai.com.br/token/',
             }).done(function (data, textStatus, jqXHR) {
                 console.log("login done");
