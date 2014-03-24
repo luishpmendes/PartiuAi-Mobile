@@ -54,20 +54,27 @@ var LoginView = function (template) {
                 },
                 type: 'POST',
                 url: 'http://www.partiuai.com.br/token/',
-            }).done(function(data, textStatus, jqXHR) {
+            }).beforeSend(function (jqXHR, settings) {
+                $('body').addClass("loading");
+            }).done(function (data, textStatus, jqXHR) {
                 console.log("login done");
                 console.log(data);
                 console.log(textStatus);
                 console.log(jqXHR);
+                
                 window.localStorage.setItem('app_token', data.app_token);
                 window.localStorage.setItem('username', data.username);
 
                 window.location.replace('main.html#home'); /* current page will NOT be saved in session history */
-            }).fail(function(jqXHR, textStatus, errorThrown) {
+            }).fail(function (jqXHR, textStatus, errorThrown) {
                 console.log("login fail");
                 console.log(jqXHR);
                 console.log(textStatus);
                 console.log(errorThrown);
+
+                alert("Não foi possível conectar com o servidor!");
+            }).complete(function (jqXHR, textStatus) {
+                $('body').removeClass("loading");
             });
         }
     }

@@ -15,6 +15,28 @@ body {
     height: 100%;
 }
 
+.spinner {
+    display:    none;
+    position:   fixed;
+    z-index:    1000;
+    top:        0;
+    left:       0;
+    height:     100%;
+    width:      100%;
+    background: rgba( 250, 250, 250, 0.5 ) 
+                url('../img/spinner.gif') 
+                50% 50% 
+                no-repeat;
+}
+
+body.loading {
+    overflow: hidden;   
+}
+
+body.loading .spinner {
+    display: block;
+}
+
 .scroller {
     overflow: auto;
     -webkit-overflow-scrolling: touch;
