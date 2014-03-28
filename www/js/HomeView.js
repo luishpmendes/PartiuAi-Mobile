@@ -5,7 +5,7 @@ var HomeView = function (template) {
         this.el = $('<div/>');
         this.el.on('click', '#menuButton', this.menu);
         this.el.on('click', '#logout', this.logout);
-        this.el.on('click', '#nowButton', this.rideNow);
+        this.el.on('click', '#hitchARideButton', this.hitchARide);
     }
 
     this.render = function() {
@@ -24,6 +24,9 @@ var HomeView = function (template) {
                 function (x) {
                     if (x == 1) {
                         $.ajax({
+                            beforeSend: function (jqXHR, settings) {
+                                $('body').addClass("loading");
+                            },
                             crossDomain: true,
                             headers: {
                                 'Authorization': 'Token' + window.localStorage.getItem('app_token')
@@ -42,6 +45,8 @@ var HomeView = function (template) {
                             console.log(jqXHR);
                             console.log(textStatus);
                             console.log(errorThrown);
+                        }).always(function (jqXHR, textStatus) {
+                            $('body').removeClass("loading");
                         });
 
                         window.localStorage.clear();
@@ -55,11 +60,14 @@ var HomeView = function (template) {
 */
                     }
                 },
-                'PartiuAí'
+                'Partiu Aí'
             );
         } else {
             if (confirm('Deseja mesmo sair?')) {
                 $.ajax({
+                    beforeSend: function (jqXHR, settings) {
+                        $('body').addClass("loading");
+                    },
                     crossDomain: true,
                     headers: {
                         'Authorization': 'Token' + window.localStorage.getItem('app_token')
@@ -78,6 +86,8 @@ var HomeView = function (template) {
                     console.log(jqXHR);
                     console.log(textStatus);
                     console.log(errorThrown);
+                }).always(function (jqXHR, textStatus) {
+                    $('body').removeClass("loading");
                 });
 /*
                 try {
@@ -91,8 +101,8 @@ var HomeView = function (template) {
         }
     }
 
-    this.rideNow = function () {
-        window.location.hash = "rideNowSource";
+    this.hitchARide = function () {
+        window.location.hash = "hitchARide";
     }
  
     this.initialize();

@@ -79,6 +79,12 @@ body.loading .spinner {
     height: 100%;
 }
 
+.menu {
+    z-index: 10;
+    position: absolute;
+    right: 0;
+}
+
 .home {
     position: absolute;
     top: 4.375rem;
@@ -92,11 +98,28 @@ body.loading .spinner {
     height: 50%;
 }
 
-.menu {
-    z-index: 10;
-    position: absolute;
-    right: 0;
+.hitchARide {
+    padding: 10px;
 }
+
+.hitchARide > input {
+    margin-bottom: 10px;
+}
+
+.hitchARide > button {
+    margin-top: 10px;
+}
+
+.datepicker {
+    max-width: 48%;
+    float: left;
+}
+
+.timepicker {
+    max-width: 48%;
+    float: right;
+}
+
 
 .rideNow {
     width: 100%;

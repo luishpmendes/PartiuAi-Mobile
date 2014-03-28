@@ -6,6 +6,7 @@
     var loginTpl = Handlebars.compile($("#login-tpl").html());
     var registerTpl = Handlebars.compile($("#register-tpl").html());
     var homeTpl = Handlebars.compile($("#home-tpl").html());
+    var hitchARideTpl = Handlebars.compile($("#hitchARide-tpl").html());
     var rideNowSourceTpl = Handlebars.compile($("#rideNowSource-tpl").html());
     var rideNowDestinationTpl = Handlebars.compile($("#rideNowDestination-tpl").html());
 
@@ -73,6 +74,8 @@
             view = new RegisterView(registerTpl);
         } else if (hash == 'home' || hash == '#home') {
             view = new HomeView(homeTpl);
+        } else if (hash == 'hitchARide' || hash == '#hitchARide') {
+            view = new HitchARideView(hitchARideTpl);
         } else if (hash == 'rideNowSource' || hash == '#rideNowSource') {
             view = new RideNowSourceView(rideNowSourceTpl);
         } else if (hash == 'rideNowDestination' || hash == '#rideNowDestination') {

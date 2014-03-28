@@ -91,6 +91,9 @@ var LoginView = function (template) {
                     if (response.status == 'connected') {
                         console.log("FB.login connected");
                         $.ajax({
+                            beforeSend: function (jqXHR, settings) {
+                                $('body').addClass("loading");
+                            },
                             crossDomain: true,
                             type: 'GET',
                             url: 'http://www.partiuai.com.br/register-by-access-token/facebook/?access_token='+response.authResponse.accessToken,
@@ -107,6 +110,12 @@ var LoginView = function (template) {
                             console.log(jqXHR);
                             console.log(textStatus);
                             console.log(errorThrown);
+
+                            alert(jqXHR);
+
+                            alert("Não foi possível conectar com o servidor!");
+                        }).always(function (jqXHR, textStatus) {
+                            $('body').removeClass("loading");
                         });
                     }
                 },
