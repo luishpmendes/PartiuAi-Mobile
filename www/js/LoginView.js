@@ -1,8 +1,11 @@
+console.log("LoginView.js");
+
 var LoginView = function (template) {
 
     self = this;
 
     this.initialize = function () {
+        console.log("LoginView initialize");
         // Define a div wrapper for the view. The div wrapper is used to attach events.
         this.el = $('<div/>');
         this.el.on('load', '.scroller', this.scroll);
@@ -12,14 +15,17 @@ var LoginView = function (template) {
     };
 
     this.render = function() {
+        console.log("LoginView render");
         this.el.html(template());
         return this;
     };
 
     this.load = function () {
+        console.log("LoginView load");
     }
 
     this.scroll = function () {
+        console.log("LoginView scroll");
         if (self.iscroll) {
             console.log('Refresh iScroll');
             self.iscroll.refresh();
@@ -33,6 +39,7 @@ var LoginView = function (template) {
     }
 
     this.login = function () {
+        console.log("LoginView login");
         var usernameInput = $('#username');
         var passwordInput = $('#password');
 
@@ -83,6 +90,7 @@ var LoginView = function (template) {
     }
 
     this.FBlogin = function () {
+        console.log("LoginView FBlogin");
         try {
             FB.login (
                 function(response) {
@@ -126,6 +134,7 @@ var LoginView = function (template) {
     }
 
     this.register = function () {
+        console.log("LoginView register");
         window.location.hash = 'register';
     }
 

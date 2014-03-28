@@ -1,8 +1,11 @@
+console.log("RideNowSourceView.js");
+
 var RideNowSourceView = function (template) {
 
     self = this;
 
     this.initialize = function () {
+        console.log("RideNowSourceView initialize");
         // Define a div wrapper for the view. The div wrapper is used to attach events.
         this.el = $('<div/>');
         this.el.on('click', '#backButton', this.back);
@@ -12,15 +15,18 @@ var RideNowSourceView = function (template) {
     }
 
     this.render = function() {
+        console.log("RideNowSourceView render");
         this.el.html(template());
         return this;
     }
 
     this.load = function () {
+        console.log("RideNowSourceView load");
         self.loadMap();
     }
 
     this.loadMap = function () {
+        console.log("RideNowSourceView loadMap");
         var mapOptions = {
             center: new google.maps.LatLng(-22.816252, -47.069836),
             zoom: 13,
@@ -107,14 +113,17 @@ var RideNowSourceView = function (template) {
     }
 
     this.back = function () {
+        console.log("RideNowSourceView back");
         history.go(-1);
     }
 
     this.menu = function () {
+        console.log("RideNowSourceView menu");
         $('#menu').toggle('fast');
     }
 
     this.logout = function () {
+        console.log("RideNowSourceView logout");
         if (navigator.notification) {
             navigator.notification.confirm (
                 'Deseja mesmo sair?',
@@ -199,6 +208,7 @@ var RideNowSourceView = function (template) {
     }
 
     this.ok = function () {
+        console.log("RideNowSourceView ok");
         window.location.hash = "rideNowDestination";
     }
 

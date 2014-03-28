@@ -1,6 +1,9 @@
+console.log("HitchARideView.js");
+
 var HitchARideView = function (template) {
 
     this.initialize = function () {
+        console.log("HitchARideView initialize");
         // Define a div wrapper for the view. The div wrapper is used to attach events.
         this.el = $('<div/>');
         this.el.on('click', '#menuButton', this.menu);
@@ -8,20 +11,24 @@ var HitchARideView = function (template) {
     }
 
     this.render = function() {
+        console.log("HitchARideView render");
         this.el.html(template());
         return this;
     }
 
     this.load = function () {
+        console.log("HitchARideView load");
         $('.datepicker').pickadate();
         $('.timepicker').pickatime()
     }
 
     this.menu = function () {
+        console.log("HitchARideView menu");
         $('#menu').toggle('fast');
     }
 
     this.logout = function () {
+        console.log("HitchARideView logout");
         if (navigator.notification) {
             navigator.notification.confirm (
                 'Deseja mesmo sair?',

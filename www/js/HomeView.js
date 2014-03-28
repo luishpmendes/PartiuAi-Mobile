@@ -1,6 +1,9 @@
+console.log("HomeView.js");
+
 var HomeView = function (template) {
 
     this.initialize = function () {
+        console.log("HomeView initialize");
         // Define a div wrapper for the view. The div wrapper is used to attach events.
         this.el = $('<div/>');
         this.el.on('click', '#menuButton', this.menu);
@@ -9,15 +12,18 @@ var HomeView = function (template) {
     }
 
     this.render = function() {
+        console.log("HomeView render");
         this.el.html(template());
         return this;
     }
 
     this.menu = function () {
+        console.log("HomeView menu");
         $('#menu').toggle('fast');
     }
 
     this.logout = function () {
+        console.log("HomeView logout");
         if (navigator.notification) {
             navigator.notification.confirm (
                 'Deseja mesmo sair?',
@@ -102,6 +108,7 @@ var HomeView = function (template) {
     }
 
     this.hitchARide = function () {
+        console.log("HomeView hitchARide");
         window.location.hash = "hitchARide";
     }
  

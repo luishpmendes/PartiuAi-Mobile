@@ -1,3 +1,5 @@
+console.log("app.js");
+
 // We use an "Immediate Function" to initialize the application to avoid leaving anything behind in the global scope
 (function () {
 
@@ -12,7 +14,16 @@
 
     /* --------------------------------- Event Registration -------------------------------- */
 
-    document.addEventListener('deviceready', function () {
+    document.addEventListener('deviceready', onDeviceReady, false);
+
+    document.addEventListener('backbutton', onBackButton, false);
+
+    $(window).on('hashchange', route);
+
+    /* ---------------------------------- Local Functions ---------------------------------- */
+
+    function onDeviceReady () {
+        console.log("app.js onDeviceReady");
         if (navigator.notification) { // Override default HTML alert with native dialog
             window.alert = function (message) {
                 navigator.notification.alert (
@@ -36,6 +47,8 @@
                 useCachedDialogs: false,
             });
         } catch (e) {
+            console.log("FB.init exception");
+            console.log(e);
         }
 
         if (window.localStorage.getItem('username') != null && window.localStorage.getItem('app_token') != null) {
@@ -48,11 +61,14 @@
                     }
                 });
             } catch (e) {
+                console.log("FB.getLoginStatus exception");
+                console.log(e);
             }
         }
-    }, false);
+    }
 
-    document.addEventListener('backbutton', function (e) {
+    function onBackButton () {
+        console.log("app.js onBackButton");
         var hash = window.location.hash;
 
         if (hash == '' || hash == '#' || hash == 'home' || hash == '#home') {
@@ -60,13 +76,10 @@
         } else {
             history.go(-1);
         }
-    }, false);
-
-    $(window).on('hashchange', route);
-
-    /* ---------------------------------- Local Functions ---------------------------------- */
+    }
 
     function route () {
+        console.log("app.js route");
         var view;
         var hash = window.location.hash;
 

@@ -1,8 +1,11 @@
+console.log("RegisterView.js");
+
 var RegisterView = function (template) {
 
     self = this;
 
     this.initialize = function () {
+        console.log("RegisterView initialize");
         // Define a div wrapper for the view. The div wrapper is used to attach events.
         this.el = $('<div/>');
         this.el.on('load', '.scroller', this.scroll);
@@ -11,14 +14,17 @@ var RegisterView = function (template) {
     };
 
     this.render = function() {
+        console.log("RegisterView render");
         this.el.html(template());
         return this;
     };
 
     this.load = function () {
+        console.log("RegisterView load");
     }
 
     this.scroll = function() {
+        console.log("RegisterView scroll");
         if (self.iscroll) {
             console.log('Refresh iScroll');
             self.iscroll.refresh();
@@ -32,10 +38,12 @@ var RegisterView = function (template) {
     }
 
     this.back = function () {
+        console.log("RegisterView back");
         history.go(-1);
     }
 
     this.validate = function () {
+        console.log("RegisterView validate");
         emailInput = $('#email')[0];
         passwordInput = $('#password')[0];
         confirmPasswordInput = $('#confirmPassword')[0];
@@ -58,6 +66,7 @@ var RegisterView = function (template) {
     }
 
     this.register = function () {
+        console.log("RegisterView register");
         if (self.validate()) {
             window.location.replace('main.html#home'); /* current page will NOT be saved in session history */
         }
