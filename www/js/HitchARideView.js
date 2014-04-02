@@ -1,33 +1,16 @@
 console.log("HitchARideView.js");
 
-var HitchARideView = function (template) {
+function HitchARideView (template) {
+    View.call(this, template);
 
-    this.initialize = function () {
-        console.log("HitchARideView initialize");
-        // Define a div wrapper for the view. The div wrapper is used to attach events.
-        this.el = $('<div/>');
-        this.el.on('click', '#menuButton', this.menu);
-        this.el.on('click', '#logout', this.logout);
-    }
+    console.log("HitchARideView");
 
-    this.render = function() {
-        console.log("HitchARideView render");
-        this.el.html(template());
-        return this;
-    }
-
-    this.load = function () {
-        console.log("HitchARideView load");
-        $('.datepicker').pickadate();
-        $('.timepicker').pickatime()
-    }
-
-    this.menu = function () {
+    function menu () {
         console.log("HitchARideView menu");
         $('#menu').toggle('fast');
     }
 
-    this.logout = function () {
+    function logout () {
         console.log("HitchARideView logout");
         if (navigator.notification) {
             navigator.notification.confirm (
@@ -111,7 +94,14 @@ var HitchARideView = function (template) {
             }
         }
     }
- 
-    this.initialize();
 
+    this.el.on('click', '#menuButton', menu);
+    this.el.on('click', '#logout', logout);
 }
+
+// inherit View
+HitchARideView.prototype = new View();
+// correct the constructor pointer because it points to View
+HitchARideView.prototype.constructor = HitchARideView;
+// set super class
+HitchARideView.prototype.parent = View.prototype;

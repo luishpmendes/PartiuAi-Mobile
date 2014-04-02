@@ -99,7 +99,9 @@ console.log("app.js");
 
         $('body').fadeOut("fast", function () {
             $('body').html(view.render().el);
-            $('body').fadeIn("fast", view.load);
+            $('body').fadeIn("fast", function () {
+                view.load();
+            });
         });
     }
 

@@ -1,28 +1,16 @@
 console.log("HomeView.js");
 
-var HomeView = function (template) {
+function HomeView (template) {
+    View.call(this, template);
 
-    this.initialize = function () {
-        console.log("HomeView initialize");
-        // Define a div wrapper for the view. The div wrapper is used to attach events.
-        this.el = $('<div/>');
-        this.el.on('click', '#menuButton', this.menu);
-        this.el.on('click', '#logout', this.logout);
-        this.el.on('click', '#hitchARideButton', this.hitchARide);
-    }
+    console.log("HomeView");
 
-    this.render = function() {
-        console.log("HomeView render");
-        this.el.html(template());
-        return this;
-    }
-
-    this.menu = function () {
+    function menu () {
         console.log("HomeView menu");
         $('#menu').toggle('fast');
     }
 
-    this.logout = function () {
+    function logout () {
         console.log("HomeView logout");
         if (navigator.notification) {
             navigator.notification.confirm (
@@ -107,11 +95,19 @@ var HomeView = function (template) {
         }
     }
 
-    this.hitchARide = function () {
+    function hitchARide () {
         console.log("HomeView hitchARide");
         window.location.hash = "hitchARide";
     }
- 
-    this.initialize();
 
+    this.el.on('click', '#menuButton', menu);
+    this.el.on('click', '#logout', logout);
+    this.el.on('click', '#hitchARideButton', hitchARide);
 }
+
+// inherit View
+HomeView.prototype = new View();
+// correct the constructor pointer because it points to View
+HomeView.prototype.constructor = HomeView;
+// set super class
+HomeView.prototype.parent = View.prototype;

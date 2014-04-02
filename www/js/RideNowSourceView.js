@@ -1,28 +1,108 @@
 console.log("RideNowSourceView.js");
 
-var RideNowSourceView = function (template) {
+function RideNowSourceView (template) {
+    View.call(this, template);
 
-    self = this;
+    console.log("RideNowSourceView");
 
-    this.initialize = function () {
-        console.log("RideNowSourceView initialize");
-        // Define a div wrapper for the view. The div wrapper is used to attach events.
-        this.el = $('<div/>');
-        this.el.on('click', '#backButton', this.back);
-        this.el.on('click', '#menuButton', this.menu);
-        this.el.on('click', '#logout', this.logout);
-        this.el.on('click', '#okButton', this.ok);
+    function back () {
+        console.log("RideNowSourceView back");
+        history.go(-1);
     }
 
-    this.render = function() {
-        console.log("RideNowSourceView render");
-        this.el.html(template());
-        return this;
+    function menu () {
+        console.log("RideNowSourceView menu");
+        $('#menu').toggle('fast');
     }
 
-    this.load = function () {
-        console.log("RideNowSourceView load");
-        self.loadMap();
+    function logout () {
+        console.log("RideNowSourceView logout");
+        if (navigator.notification) {
+            navigator.notification.confirm (
+                'Deseja mesmo sair?',
+                function (x) {
+                    if (x == 1) {
+                        $.ajax({
+                            beforeSend: function (jqXHR, settings) {
+                                $('body').addClass("loading");
+                            },
+                            crossDomain: true,
+                            headers: {
+                                'Authorization': 'Token' + window.localStorage.getItem('app_token')
+                            },
+                            type: 'GET',
+                            url: 'http://www.partiuai.com.br/accounts/logout/',
+                        }).done(function(data, textStatus, jqXHR) {
+                            console.log("FB.login done");
+                            console.log(data);
+                            console.log(textStatus);
+                            console.log(jqXHR);
+                            window.localStorage.clear();
+                            window.location.replace('main.html'); /* current page will NOT be saved in session history */
+                        }).fail(function(jqXHR, textStatus, errorThrown) {
+                            console.log("FB.login fail");
+                            console.log(jqXHR);
+                            console.log(textStatus);
+                            console.log(errorThrown);
+                        }).always(function (jqXHR, textStatus) {
+                            $('body').removeClass("loading");
+                        });
+
+                        window.localStorage.clear();
+/*
+                        try {
+                            FB.logout(function(response) {
+
+                            });
+                        } catch (e) {
+                        }
+*/
+                    }
+                },
+                'Partiu Aí'
+            );
+        } else {
+            if (confirm('Deseja mesmo sair?')) {
+                $.ajax({
+                    beforeSend: function (jqXHR, settings) {
+                        $('body').addClass("loading");
+                    },
+                    crossDomain: true,
+                    headers: {
+                        'Authorization': 'Token' + window.localStorage.getItem('app_token')
+                    },
+                    type: 'GET',
+                    url: 'http://www.partiuai.com.br/accounts/logout/',
+                }).done(function(data, textStatus, jqXHR) {
+                    console.log("FB.login done");
+                    console.log(data);
+                    console.log(textStatus);
+                    console.log(jqXHR);
+                    window.localStorage.clear();
+                    window.location.replace('main.html'); /* current page will NOT be saved in session history */
+                }).fail(function(jqXHR, textStatus, errorThrown) {
+                    console.log("FB.login fail");
+                    console.log(jqXHR);
+                    console.log(textStatus);
+                    console.log(errorThrown);
+                }).always(function (jqXHR, textStatus) {
+                    $('body').removeClass("loading");
+                });
+/*
+                try {
+                    FB.logout(function(response) {
+
+                    });
+                } catch (e) {
+                }
+*/
+            }
+        }
+    }
+
+    function ok () {
+        console.log("RideNowSourceView ok");
+        window.location.hash = "rideNowDestination";
     }
 
     this.loadMap = function () {
@@ -112,106 +192,20 @@ var RideNowSourceView = function (template) {
         }
     }
 
-    this.back = function () {
-        console.log("RideNowSourceView back");
-        history.go(-1);
-    }
+    this.el.on('click', '#backButton', this.back);
+    this.el.on('click', '#menuButton', this.menu);
+    this.el.on('click', '#logout', this.logout);
+    this.el.on('click', '#okButton', this.ok);
+}
 
-    this.menu = function () {
-        console.log("RideNowSourceView menu");
-        $('#menu').toggle('fast');
-    }
+// inherit View
+RideNowSourceView.prototype = new View();
+// correct the constructor pointer because it points to View
+RideNowSourceView.prototype.constructor = RideNowSourceView;
+// set super class
+RideNowSourceView.prototype.parent = View.prototype;
 
-    this.logout = function () {
-        console.log("RideNowSourceView logout");
-        if (navigator.notification) {
-            navigator.notification.confirm (
-                'Deseja mesmo sair?',
-                function (x) {
-                    if (x == 1) {
-                        $.ajax({
-                            beforeSend: function (jqXHR, settings) {
-                                $('body').addClass("loading");
-                            },
-                            crossDomain: true,
-                            headers: {
-                                'Authorization': 'Token' + window.localStorage.getItem('app_token')
-                            },
-                            type: 'GET',
-                            url: 'http://www.partiuai.com.br/accounts/logout/',
-                        }).done(function(data, textStatus, jqXHR) {
-                            console.log("FB.login done");
-                            console.log(data);
-                            console.log(textStatus);
-                            console.log(jqXHR);
-                            window.localStorage.clear();
-                            window.location.replace('main.html'); /* current page will NOT be saved in session history */
-                        }).fail(function(jqXHR, textStatus, errorThrown) {
-                            console.log("FB.login fail");
-                            console.log(jqXHR);
-                            console.log(textStatus);
-                            console.log(errorThrown);
-                        }).always(function (jqXHR, textStatus) {
-                            $('body').removeClass("loading");
-                        });
-
-                        window.localStorage.clear();
-/*
-                        try {
-                            FB.logout(function(response) {
-
-                            });
-                        } catch (e) {
-                        }
-*/
-                    }
-                },
-                'Partiu Aí'
-            );
-        } else {
-            if (confirm('Deseja mesmo sair?')) {
-                $.ajax({
-                    beforeSend: function (jqXHR, settings) {
-                        $('body').addClass("loading");
-                    },
-                    crossDomain: true,
-                    headers: {
-                        'Authorization': 'Token' + window.localStorage.getItem('app_token')
-                    },
-                    type: 'GET',
-                    url: 'http://www.partiuai.com.br/accounts/logout/',
-                }).done(function(data, textStatus, jqXHR) {
-                    console.log("FB.login done");
-                    console.log(data);
-                    console.log(textStatus);
-                    console.log(jqXHR);
-                    window.localStorage.clear();
-                    window.location.replace('main.html'); /* current page will NOT be saved in session history */
-                }).fail(function(jqXHR, textStatus, errorThrown) {
-                    console.log("FB.login fail");
-                    console.log(jqXHR);
-                    console.log(textStatus);
-                    console.log(errorThrown);
-                }).always(function (jqXHR, textStatus) {
-                    $('body').removeClass("loading");
-                });
-/*
-                try {
-                    FB.logout(function(response) {
-
-                    });
-                } catch (e) {
-                }
-*/
-            }
-        }
-    }
-
-    this.ok = function () {
-        console.log("RideNowSourceView ok");
-        window.location.hash = "rideNowDestination";
-    }
-
-    this.initialize();
-
+RideNowSourceView.prototype.load = function () {
+    this.parent.load.call(this);
+    this.loadMap();
 }

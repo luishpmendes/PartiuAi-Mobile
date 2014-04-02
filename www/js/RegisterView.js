@@ -1,29 +1,11 @@
 console.log("RegisterView.js");
 
-var RegisterView = function (template) {
+function RegisterView (template) {
+    View.call(this, template);
 
-    self = this;
+    console.log("RegisterView");
 
-    this.initialize = function () {
-        console.log("RegisterView initialize");
-        // Define a div wrapper for the view. The div wrapper is used to attach events.
-        this.el = $('<div/>');
-        this.el.on('load', '.scroller', this.scroll);
-        this.el.on('click', '#backButton', this.back);
-        this.el.on('click', '#registerButton', this.register);
-    };
-
-    this.render = function() {
-        console.log("RegisterView render");
-        this.el.html(template());
-        return this;
-    };
-
-    this.load = function () {
-        console.log("RegisterView load");
-    }
-
-    this.scroll = function() {
+    function scroll () {
         console.log("RegisterView scroll");
         if (self.iscroll) {
             console.log('Refresh iScroll');
@@ -37,15 +19,15 @@ var RegisterView = function (template) {
         return true;
     }
 
-    this.back = function () {
+    function back () {
         console.log("RegisterView back");
         history.go(-1);
     }
 
-    this.validate = function () {
+    function validate () {
         console.log("RegisterView validate");
-        emailInput = $('#email')[0];
-        passwordInput = $('#password')[0];
+        emailInput = $('#username')[0];
+        passwordInput = $('#password');
         confirmPasswordInput = $('#confirmPassword')[0];
         nameInput = $('#name')[0];
 
@@ -65,13 +47,21 @@ var RegisterView = function (template) {
         return false;
     }
 
-    this.register = function () {
+    function register () {
         console.log("RegisterView register");
-        if (self.validate()) {
+        if (validate()) {
             window.location.replace('main.html#home'); /* current page will NOT be saved in session history */
         }
     }
- 
-    this.initialize();
 
+    this.el.on('load', '.scroller', scroll);
+    this.el.on('click', '#backButton', back);
+    this.el.on('click', '#registerButton', register);
 }
+
+// inherit View
+RegisterView.prototype = new View();
+// correct the constructor pointer because it points to View
+RegisterView.prototype.constructor = RegisterView;
+// set super class
+RegisterView.prototype.parent = View.prototype;
