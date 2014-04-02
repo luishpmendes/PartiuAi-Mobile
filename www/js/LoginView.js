@@ -1,30 +1,11 @@
 console.log("LoginView.js");
 
-var LoginView = function (template) {
+function LoginView (template) {
+    View.call(this, template);
 
-    self = this;
+    console.log("LoginView");
 
-    this.initialize = function () {
-        console.log("LoginView initialize");
-        // Define a div wrapper for the view. The div wrapper is used to attach events.
-        this.el = $('<div/>');
-        this.el.on('load', '.scroller', this.scroll);
-        this.el.on('click', '#loginButton', this.login);
-        this.el.on('click', '#FBloginButton', this.FBlogin);
-        this.el.on('click', '#registerButton', this.register);
-    };
-
-    this.render = function() {
-        console.log("LoginView render");
-        this.el.html(template());
-        return this;
-    };
-
-    this.load = function () {
-        console.log("LoginView load");
-    }
-
-    this.scroll = function () {
+    function scroll () {
         console.log("LoginView scroll");
         if (self.iscroll) {
             console.log('Refresh iScroll');
@@ -38,7 +19,7 @@ var LoginView = function (template) {
         return true;
     }
 
-    this.login = function () {
+    function login () {
         console.log("LoginView login");
         var usernameInput = $('#username');
         var passwordInput = $('#password');
@@ -89,7 +70,7 @@ var LoginView = function (template) {
         }
     }
 
-    this.FBlogin = function () {
+    function FBlogin () {
         console.log("LoginView FBlogin");
         try {
             FB.login (
@@ -133,11 +114,17 @@ var LoginView = function (template) {
         }
     }
 
-    this.register = function () {
+    function register () {
         console.log("LoginView register");
         window.location.hash = 'register';
     }
 
-    this.initialize();
-
+    this.el.on('load', '.scroller', scroll);
+    this.el.on('click', '#loginButton', login);
+    this.el.on('click', '#FBloginButton', FBlogin);
+    this.el.on('click', '#registerButton', register);
 }
+
+LoginView.prototype = new View();
+
+LoginView.prototype.constructor = LoginView;
