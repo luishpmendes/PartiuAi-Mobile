@@ -7,7 +7,7 @@ function View (template) {
     this.el = $('<div/>');
 
     this.scroll = function () {
-        console.log("LoginView scroll");
+        console.log("View scroll");
         if (self.iscroll) {
             console.log('Refresh iScroll');
             self.iscroll.refresh();
