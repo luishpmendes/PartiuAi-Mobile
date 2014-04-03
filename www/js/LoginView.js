@@ -5,20 +5,6 @@ function LoginView (template) {
 
     console.log("LoginView");
 
-    function scroll () {
-        console.log("LoginView scroll");
-        if (self.iscroll) {
-            console.log('Refresh iScroll');
-            self.iscroll.refresh();
-        } else {
-            console.log('New iScroll');
-            self.iscroll = new IScroll($('.scroller', self.el)[0], {
-                bounce: false
-            });
-        }
-        return true;
-    }
-
     function login () {
         console.log("LoginView login");
         var usernameInput = $('#username');
@@ -119,7 +105,7 @@ function LoginView (template) {
         window.location.hash = 'register';
     }
 
-    this.el.on('load', '.scroller', scroll);
+    this.el.on('load', '.scroller', this.scroll);
     this.el.on('click', '#loginButton', login);
     this.el.on('click', '#FBloginButton', FBlogin);
     this.el.on('click', '#registerButton', register);

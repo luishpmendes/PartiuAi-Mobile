@@ -5,25 +5,6 @@ function RegisterView (template) {
 
     console.log("RegisterView");
 
-    function scroll () {
-        console.log("RegisterView scroll");
-        if (self.iscroll) {
-            console.log('Refresh iScroll');
-            self.iscroll.refresh();
-        } else {
-            console.log('New iScroll');
-            self.iscroll = new IScroll($('.scroller', self.el)[0], {
-                bounce: false
-            });
-        }
-        return true;
-    }
-
-    function back () {
-        console.log("RegisterView back");
-        history.go(-1);
-    }
-
     function validate () {
         console.log("RegisterView validate");
         emailInput = $('#username')[0];
@@ -54,8 +35,8 @@ function RegisterView (template) {
         }
     }
 
-    this.el.on('load', '.scroller', scroll);
-    this.el.on('click', '#backButton', back);
+    this.el.on('load', '.scroller', this.scroll);
+    this.el.on('click', '#backButton', this.back);
     this.el.on('click', '#registerButton', register);
 }
 
