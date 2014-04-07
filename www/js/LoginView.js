@@ -67,6 +67,8 @@ function LoginView (template) {
                     console.log(response);
                     if (response.status == 'connected') {
                         console.log("FB.login connected");
+                        console.log(this.serverURL + 'register-by-access-token/facebook/?access_token=');
+                        console.log(response.authResponse.accessToken);
                         $.ajax({
                             beforeSend: function (jqXHR, settings) {
                                 $('body').addClass("loading");
