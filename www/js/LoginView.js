@@ -30,7 +30,7 @@ function LoginView (template) {
                     password : password,
                 },
                 type: 'POST',
-                url: 'http://www.partiuai.com.br/token/',
+                url: this.serverURL + 'token/',
             }).done(function (data, textStatus, jqXHR) {
                 console.log("login done");
                 console.log(data);
@@ -71,7 +71,7 @@ function LoginView (template) {
                             },
                             crossDomain: true,
                             type: 'GET',
-                            url: 'http://www.partiuai.com.br/register-by-access-token/facebook/?access_token='+response.authResponse.accessToken,
+                            url: this.serverURL + 'register-by-access-token/facebook/?access_token='+response.authResponse.accessToken,
                         }).done(function(data, textStatus, jqXHR) {
                             console.log("FB.login done");
                             console.log(data);

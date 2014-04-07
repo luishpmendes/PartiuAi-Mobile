@@ -4,6 +4,7 @@ function View (template) {
     console.log("View");
 
     this.template = template;
+    this.serverURL = 'http://www.partiuai.com.br/';
     this.el = $('<div/>');
 
     this.scroll = function () {
@@ -46,7 +47,7 @@ function View (template) {
                                 'Authorization': 'Token' + window.localStorage.getItem('app_token')
                             },
                             type: 'GET',
-                            url: 'http://www.partiuai.com.br/accounts/logout/',
+                            url: this.serverURL + 'logout/',
                         }).done(function(data, textStatus, jqXHR) {
                             console.log("FB.login done");
                             console.log(data);
@@ -87,7 +88,7 @@ function View (template) {
                         'Authorization': 'Token' + window.localStorage.getItem('app_token')
                     },
                     type: 'GET',
-                    url: 'http://www.partiuai.com.br/accounts/logout/',
+                    url: this.serverURL + 'logout/',
                 }).done(function(data, textStatus, jqXHR) {
                     console.log("FB.login done");
                     console.log(data);
