@@ -50,7 +50,7 @@ function View (template) {
                                 'Authorization': 'Token' + window.localStorage.getItem('app_token')
                             },
                             type: 'GET',
-                            url: this.serverURL + 'logout/',
+                            url: self.serverURL + 'logout/',
                         }).done(function(data, textStatus, jqXHR) {
                             console.log("FB.login done");
                             console.log(data);

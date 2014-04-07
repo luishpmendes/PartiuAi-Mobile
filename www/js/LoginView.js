@@ -32,7 +32,7 @@ function LoginView (template) {
                     password : password,
                 },
                 type: 'POST',
-                url: this.serverURL + 'token/',
+                url: self.serverURL + 'token/',
             }).done(function (data, textStatus, jqXHR) {
                 console.log("login done");
                 console.log(data);
@@ -67,7 +67,7 @@ function LoginView (template) {
                     console.log(response);
                     if (response.status == 'connected') {
                         console.log("FB.login connected");
-                        console.log(this.serverURL + 'register-by-access-token/facebook/?access_token=');
+                        console.log(self.serverURL + 'register-by-access-token/facebook/?access_token=');
                         console.log(response.authResponse.accessToken);
                         $.ajax({
                             beforeSend: function (jqXHR, settings) {
@@ -75,7 +75,7 @@ function LoginView (template) {
                             },
                             crossDomain: true,
                             type: 'GET',
-                            url: this.serverURL + 'register-by-access-token/facebook/?access_token='+response.authResponse.accessToken,
+                            url: self.serverURL + 'register-by-access-token/facebook/?access_token='+response.authResponse.accessToken,
                         }).done(function(data, textStatus, jqXHR) {
                             console.log("FB.login done");
                             console.log(data);
