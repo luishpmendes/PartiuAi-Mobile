@@ -35,6 +35,35 @@ console.log("app.js");
             };
         }
 
+        try {
+            FB.init({
+                appId: '1471555153071551',
+                cookie: true,
+                status: true,
+                xfbml: true,
+                nativeInterface: CDV.FB,
+                useCachedDialogs: false,
+            });
+        } catch (e) {
+            console.log("FB.init exception");
+            console.log(e);
+        }
+
+        if (window.localStorage.getItem('username') != null && window.localStorage.getItem('app_token') != null) {
+            window.location.replace('main.html#home'); /* current page will NOT be saved in session history */
+        } else {
+            try {
+                FB.getLoginStatus(function (response) {
+                    if (response.status == 'connected') {
+                        window.location.replace('main.html#home'); /* current page will NOT be saved in session history */
+                    }
+                });
+            } catch (e) {
+                console.log("FB.getLoginStatus exception");
+                console.log(e);
+            }
+        }
+
         FastClick.attach(document.body);
     }
 
@@ -74,35 +103,6 @@ console.log("app.js");
                 view.load();
             });
         });
-    }
-
-    try {
-        FB.init({
-            appId: '1471555153071551',
-            cookie: true,
-            status: true,
-            xfbml: true,
-            nativeInterface: CDV.FB,
-            useCachedDialogs: false,
-        });
-    } catch (e) {
-        console.log("FB.init exception");
-        console.log(e);
-    }
-
-    if (window.localStorage.getItem('username') != null && window.localStorage.getItem('app_token') != null) {
-        window.location.replace('main.html#home'); /* current page will NOT be saved in session history */
-    } else {
-        try {
-            FB.getLoginStatus(function (response) {
-                if (response.status == 'connected') {
-                    window.location.replace('main.html#home'); /* current page will NOT be saved in session history */
-                }
-            });
-        } catch (e) {
-            console.log("FB.getLoginStatus exception");
-            console.log(e);
-        }
     }
 
     route();
