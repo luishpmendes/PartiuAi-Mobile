@@ -5,9 +5,23 @@ function HitchARideView (template) {
 
     console.log("HitchARideView");
 
+    self = this;
+
+    function source () {
+        console.log("HitchARideView source");
+        window.location.hash = "sourceLocationSelector";
+    }
+
+    function destination () {
+        console.log("HitchARideView destination");
+        window.location.hash = "destinationLocationSelector";
+    }
+
     this.el.on('click', '#backButton', this.back);
     this.el.on('click', '#menuButton', this.menu);
     this.el.on('click', '#logout', this.logout);
+    this.el.on('click', '#source', source);
+    this.el.on('click', '#destination', destination);
 }
 
 // inherit View
@@ -16,3 +30,16 @@ HitchARideView.prototype = new View();
 HitchARideView.prototype.constructor = HitchARideView;
 // set super class
 HitchARideView.prototype.parent = View.prototype;
+
+HitchARideView.prototype.load = function () {
+    this.parent.load.call(this);
+
+    console.log("HitchARideView load");
+    
+    if (window.localStorage.getItem('sourceLocation') != null) {
+        $("#source").val(JSON.parse(window.localStorage.getItem('sourceLocation')).name);
+    }
+    if (window.localStorage.getItem('destinationLocation') != null) {
+        $("#destination").val(JSON.parse(window.localStorage.getItem('destinationLocation')).name);
+    }
+}

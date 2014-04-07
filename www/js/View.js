@@ -3,8 +3,11 @@ console.log("View.js");
 function View (template) {
     console.log("View");
 
+    self = this;
+
     this.template = template;
     this.serverURL = 'http://www.partiuai.com.br/';
+    //this.serverURL = 'http://127.0.0.1:8000/';
     this.el = $('<div/>');
 
     this.scroll = function () {

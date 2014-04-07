@@ -9,6 +9,7 @@ console.log("app.js");
     var registerTpl = Handlebars.compile($('#register-tpl').html());
     var homeTpl = Handlebars.compile($('#home-tpl').html());
     var hitchARideTpl = Handlebars.compile($('#hitchARide-tpl').html());
+    var locationSelectorTpl = Handlebars.compile($('#locationSelector-tpl').html());
     var rideNowSourceTpl = Handlebars.compile($('#rideNowSource-tpl').html());
     var rideNowDestinationTpl = Handlebars.compile($('#rideNowDestination-tpl').html());
 
@@ -89,6 +90,10 @@ console.log("app.js");
             view = new HomeView(homeTpl);
         } else if (hash == 'hitchARide' || hash == '#hitchARide') {
             view = new HitchARideView(hitchARideTpl);
+        } else if (hash == 'sourceLocationSelector' || hash == '#sourceLocationSelector') {
+            view = new LocationSelectorView(locationSelectorTpl, 0);
+        } else if (hash == 'destinationLocationSelector' || hash == '#destinationLocationSelector') {
+            view = new LocationSelectorView(locationSelectorTpl, 1);
         } else if (hash == 'rideNowSource' || hash == '#rideNowSource') {
             view = new RideNowSourceView(rideNowSourceTpl);
         } else if (hash == 'rideNowDestination' || hash == '#rideNowDestination') {

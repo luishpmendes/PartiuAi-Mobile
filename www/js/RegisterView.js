@@ -5,6 +5,8 @@ function RegisterView (template) {
 
     console.log("RegisterView");
 
+    self = this;
+
     function validate () {
         console.log("RegisterView validate");
         emailInput = $('#username')[0];

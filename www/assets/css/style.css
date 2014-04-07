@@ -121,6 +121,28 @@ body.loading .spinner {
 }
 
 
+.locationSelector {
+    width: 100%;
+}
+
+.locationSelector > .search-bar {
+    padding: 0.3125rem;
+}
+
+.locationSelector > #map-canvas {
+    position: absolute;
+    top: 8rem;
+    bottom: 3.3rem;
+    left: 1px;
+    right: 1px;
+}
+
+.locationSelectorButton {
+    position: absolute;
+    bottom: 1px;
+}
+
+
 .rideNow {
     width: 100%;
 }
