@@ -37,9 +37,11 @@ HitchARideView.prototype.load = function () {
     console.log("HitchARideView load");
 
     $('#date').pickadate({
+        editable: true,
         format: 'dd/mm/yyyy'
     });
     $('#time').pickatime({
+        editable: true,
         format: 'H:i'
     });
     
