@@ -35,6 +35,13 @@ HitchARideView.prototype.load = function () {
     this.parent.load.call(this);
 
     console.log("HitchARideView load");
+
+    $('#date').pickadate({
+        format: 'dd/mm/yyyy'
+    });
+    $('#time').pickatime({
+        format: 'H:i'
+    });
     
     if (window.localStorage.getItem('sourceLocation') != null) {
         $("#source").val(JSON.parse(window.localStorage.getItem('sourceLocation')).name);
