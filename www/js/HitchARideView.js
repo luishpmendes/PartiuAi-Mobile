@@ -62,7 +62,7 @@ function HitchARideView (template) {
                     offers: false
                 },
                 type: 'POST',
-                url: self.serverURL + 'rides/',
+                url: self.serverURL + 'api/rides/',
             }).done(function (data, textStatus, jqXHR) {
                 console.log("hitchARide done");
                 console.log(data);
