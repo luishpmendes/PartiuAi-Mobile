@@ -46,6 +46,13 @@ function HitchARideView (template) {
         if (validate()) {
             var originLocation = JSON.parse(window.localStorage.getItem('originLocation'));
             var destinationLocation = JSON.parse(window.localStorage.getItem('destinationLocation'));
+            var year = $('#date').val().split('/')[2];
+            var month = $('#date').val().split('/')[1];
+            var day = $('#date').val().split('/')[0];
+            var hour = $('#time').val().split(':')[1];
+            var minute = $('#time').val().split(':')[0];
+            console.log("url: " + self.serverURL + 'api/rides/');
+
             $.ajax({
                 beforeSend: function (jqXHR, settings) {
                     $('body').addClass("loading");
@@ -54,12 +61,15 @@ function HitchARideView (template) {
                 data: {
                     orig_lat: originLocation.position.latitude, 
                     orig_long: originLocation.position.longitude, 
-                    orig_address: originLocation.position.name, 
+                    orig_address: originLocation.name, 
                     dest_lat: destinationLocation.position.latitude, 
                     dest_long: destinationLocation.position.longitude, 
-                    dest_address: destinationLocation.position.name, 
-                    date_time: null, /* AAAA-MM-DDTHH:mm:ss.000Z */
-                    offers: false
+                    dest_address: destinationLocation.name, 
+                    date_time: year + '-' + month + '-' + day + 'T' + hour + ':' + minute + ':00.000Z', /* AAAA-MM-DDTHH:mm:ss.000Z */
+                    offers: false,
+                },
+                headers: {
+                    'Authorization': 'Token' + window.localStorage.getItem('app_token')
                 },
                 type: 'POST',
                 url: self.serverURL + 'api/rides/',
@@ -85,6 +95,7 @@ function HitchARideView (template) {
             }).always(function (jqXHR, textStatus) {
                 $('body').removeClass("loading");
             });
+
         }
     }
 
