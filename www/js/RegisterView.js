@@ -9,10 +9,10 @@ function RegisterView (template) {
 
     function validate () {
         console.log("RegisterView validate");
-        emailInput = $('#username')[0];
-        passwordInput = $('#password');
-        confirmPasswordInput = $('#confirmPassword')[0];
-        nameInput = $('#name')[0];
+        var emailInput = $('#username')[0];
+        var passwordInput = $('#password')[0];
+        var confirmPasswordInput = $('#confirmPassword')[0];
+        var nameInput = $('#name')[0];
 
         if (!emailInput || !passwordInput || !confirmPasswordInput || !nameInput) {
             alert('ERROR!');

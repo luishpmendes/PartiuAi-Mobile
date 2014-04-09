@@ -111,12 +111,10 @@ body.loading .spinner {
 }
 
 .datepicker {
-    max-width: 48%;
     float: left;
 }
 
 .timepicker {
-    max-width: 48%;
     float: right;
 }
 

@@ -9,7 +9,7 @@ function LocationSelectorView (template, type) {
 
     this.type = type;
 
-    this.sourceType = 0;
+    this.originType = 0;
     this.destinationType = 1;
 
     var marker;
@@ -17,8 +17,8 @@ function LocationSelectorView (template, type) {
     this.ok = function () {
         console.log("LocationSelectorView ok");
 
-        if (self.type == self.sourceType) {
-            window.localStorage.setItem('sourceLocation', JSON.stringify({
+        if (self.type == self.originType) {
+            window.localStorage.setItem('originLocation', JSON.stringify({
                 'name': $('#searchbox').val(),
                 'position': {
                     'latitude': marker.getPosition().lat(),
@@ -96,9 +96,9 @@ function LocationSelectorView (template, type) {
             marker.setVisible(true);
         });
 
-        if (self.type == self.sourceType && window.localStorage.getItem('sourceLocation') != null) {
+        if (self.type == self.originType && window.localStorage.getItem('originLocation') != null) {
             marker.setVisible(false);
-            var location = new google.maps.LatLng(JSON.parse(window.localStorage.getItem('sourceLocation')).position.latitude, JSON.parse(window.localStorage.getItem('sourceLocation')).position.longitude);
+            var location = new google.maps.LatLng(JSON.parse(window.localStorage.getItem('originLocation')).position.latitude, JSON.parse(window.localStorage.getItem('originLocation')).position.longitude);
             map.setCenter(location);
             map.setZoom(17);
             marker.setPosition(location);
@@ -157,9 +157,9 @@ LocationSelectorView.prototype.load = function () {
 
     console.log("LocationSelectorView load");
 
-    if (this.type == this.sourceType) {
-        if (window.localStorage.getItem('sourceLocation') != null) {
-            $("#searchbox").val(JSON.parse(window.localStorage.getItem('sourceLocation')).name);
+    if (this.type == this.originType) {
+        if (window.localStorage.getItem('originLocation') != null) {
+            $("#searchbox").val(JSON.parse(window.localStorage.getItem('originLocation')).name);
         }
     } else if (this.type == this.destinationType) {
         if (window.localStorage.getItem('destinationLocation') != null) {

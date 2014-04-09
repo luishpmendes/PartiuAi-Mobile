@@ -90,7 +90,7 @@ console.log("app.js");
             view = new HomeView(homeTpl);
         } else if (hash == 'hitchARide' || hash == '#hitchARide') {
             view = new HitchARideView(hitchARideTpl);
-        } else if (hash == 'sourceLocationSelector' || hash == '#sourceLocationSelector') {
+        } else if (hash == 'originLocationSelector' || hash == '#originLocationSelector') {
             view = new LocationSelectorView(locationSelectorTpl, 0);
         } else if (hash == 'destinationLocationSelector' || hash == '#destinationLocationSelector') {
             view = new LocationSelectorView(locationSelectorTpl, 1);
