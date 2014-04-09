@@ -128,4 +128,29 @@ View.prototype.render = function() {
 
 View.prototype.load = function () {
     console.log("View load");
+
+    $('.quarter').each(function (index) {
+        $(this).outerWidth($(this).parent().width() * (1/4));
+    });
+
+    $('.half').each(function (index) {
+        $(this).outerWidth($(this).parent().width() * (1/2));
+    });
+
+    $('.three-quarters').each(function (index) {
+        $(this).outerWidth($(this).parent().width() * (3/4));
+    });
+
+    $('.third').each(function (index) {
+        $(this).outerWidth($(this).parent().width() * (1/3));
+    });
+
+    $('.two-thirds').each(function (index) {
+        $(this).outerWidth($(this).parent().width() * (2/3));
+    });
+
+    $('.full').each(function (index) {
+        $(this).outerWidth($(this).parent().width());
+    });
+
 }
