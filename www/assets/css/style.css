@@ -139,25 +139,3 @@ body.loading .spinner {
     position: absolute;
     bottom: 1px;
 }
-
-
-.rideNow {
-    width: 100%;
-}
-
-.rideNow > .search-bar {
-    padding: 0.3125rem;
-}
-
-.rideNow > #map-canvas {
-    position: absolute;
-    top: 8rem;
-    bottom: 3.3rem;
-    left: 1px;
-    right: 1px;
-}
-
-.rideNowButton {
-    position: absolute;
-    bottom: 1px;
-}
