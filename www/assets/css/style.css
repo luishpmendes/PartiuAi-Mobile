@@ -43,6 +43,14 @@ body.loading .spinner {
     position: absolute;
 }
 
+.floatLeft {
+    float: left;
+}
+
+.floatRight {
+    float: right;
+}
+
 .login {
     top: 4.375rem;
     left: 0px;
@@ -138,4 +146,8 @@ body.loading .spinner {
 .locationSelectorButton {
     position: absolute;
     bottom: 1px;
+}
+
+.rideFound {
+    padding: 10px;
 }

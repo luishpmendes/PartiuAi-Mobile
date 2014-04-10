@@ -10,6 +10,7 @@ console.log("app.js");
     var homeTpl = Handlebars.compile($('#home-tpl').html());
     var hitchARideTpl = Handlebars.compile($('#hitchARide-tpl').html());
     var locationSelectorTpl = Handlebars.compile($('#locationSelector-tpl').html());
+    var rideFoundTpl = Handlebars.compile($('#rideFound-tpl').html());
 
     /* --------------------------------- Event Registration -------------------------------- */
 
@@ -92,6 +93,8 @@ console.log("app.js");
             view = new LocationSelectorView(locationSelectorTpl, 0);
         } else if (hash == 'destinationLocationSelector' || hash == '#destinationLocationSelector') {
             view = new LocationSelectorView(locationSelectorTpl, 1);
+        } else if (hash == 'rideFound' || hash == '#rideFound') {
+            view = new RideFoundView(rideFoundTpl);
         } else {
             view = new LoginView(loginTpl);
         }

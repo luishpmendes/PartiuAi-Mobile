@@ -3776,3 +3776,14 @@ Everything below this line should be calculated using the variables above. This 
   background-size: cover;
 }
 
+
+.topcoat-icon--checkmark {
+  background: url("../img/checkmark.png") no-repeat;
+  background-size: cover;
+}
+
+
+.topcoat-icon--cancel {
+  background: url("../img/cancel.png") no-repeat;
+  background-size: cover;
+}

@@ -82,7 +82,7 @@ function HitchARideView (template) {
                 window.localStorage.setItem('app_token', data.app_token);
                 window.localStorage.setItem('username', data.username);
 
-                window.location.replace('main.html#home'); /* current page will NOT be saved in session history */
+                window.location.hash = "rideFound";
             }).fail(function (jqXHR, textStatus, errorThrown) {
                 console.log("hitchARide fail");
                 console.log(jqXHR);
@@ -96,6 +96,7 @@ function HitchARideView (template) {
                 $('body').removeClass("loading");
             });
 
+            window.location.hash = "rideFound";
         }
     }
 
