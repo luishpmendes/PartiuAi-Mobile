@@ -14,6 +14,11 @@ function LocationSelectorView (template, type) {
 
     var marker;
 
+    function selectAll () {
+        console.log("LocationSelectorView selectAll");
+        $('#searchbox').select();
+    }
+
     this.ok = function () {
         console.log("LocationSelectorView ok");
 
@@ -143,6 +148,7 @@ function LocationSelectorView (template, type) {
     this.el.on('click', '#menuButton', this.menu);
     this.el.on('click', '#logout', this.logout);
     this.el.on('click', '#okButton', this.ok);
+    this.el.on('click', '#searchbox', selectAll);
 }
 
 // inherit View
