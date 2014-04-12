@@ -52,7 +52,7 @@ function HitchARideView (template) {
             var hour = $('#time').val().split(':')[1];
             var minute = $('#time').val().split(':')[0];
             console.log("url: " + self.serverURL + 'api/rides/');
-
+/*
             $.ajax({
                 beforeSend: function (jqXHR, settings) {
                     $('body').addClass("loading");
@@ -65,7 +65,7 @@ function HitchARideView (template) {
                     dest_lat: destinationLocation.position.latitude, 
                     dest_long: destinationLocation.position.longitude, 
                     dest_address: destinationLocation.name, 
-                    date_time: year + '-' + month + '-' + day + 'T' + hour + ':' + minute + ':00.000Z', /* AAAA-MM-DDTHH:mm:ss.000Z */
+                    date_time: year + '-' + month + '-' + day + 'T' + hour + ':' + minute + ':00.000Z', // AAAA-MM-DDTHH:mm:ss.000Z
                     offers: false,
                 },
                 headers: {
@@ -95,7 +95,7 @@ function HitchARideView (template) {
             }).always(function (jqXHR, textStatus) {
                 $('body').removeClass("loading");
             });
-
+*/
             window.location.hash = "rideFound";
         }
     }
