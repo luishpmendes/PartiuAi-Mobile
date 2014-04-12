@@ -51,6 +51,10 @@ body.loading .spinner {
     float: right;
 }
 
+.middle {
+    vertical-align: middle;
+}
+
 .login {
     top: 4.375rem;
     left: 0px;
