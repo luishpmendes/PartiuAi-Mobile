@@ -6,7 +6,6 @@ console.log("app.js");
     /* ---------------------------------- Local Variables ---------------------------------- */
 
     var loginTpl = Handlebars.compile($('#login-tpl').html());
-    var registerTpl = Handlebars.compile($('#register-tpl').html());
     var homeTpl = Handlebars.compile($('#home-tpl').html());
     var hitchARideTpl = Handlebars.compile($('#hitchARide-tpl').html());
     var locationSelectorTpl = Handlebars.compile($('#locationSelector-tpl').html());
@@ -83,9 +82,7 @@ console.log("app.js");
         var view;
         var hash = window.location.hash;
 
-        if (hash == 'register' || hash == '#register') {
-            view = new RegisterView(registerTpl);
-        } else if (hash == 'home' || hash == '#home') {
+        if (hash == 'home' || hash == '#home') {
             view = new HomeView(homeTpl);
         } else if (hash == 'hitchARide' || hash == '#hitchARide') {
             view = new HitchARideView(hitchARideTpl);

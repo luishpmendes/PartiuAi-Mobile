@@ -153,4 +153,8 @@ View.prototype.load = function () {
         $(this).outerWidth($(this).parent().width());
     });
 
+    $('.vCenter').each(function (index) {
+        $(this).css('top', $(this).parent().height()/2);
+        $(this).css('margin-top', -$(this).outerHeight()/2);
+    });
 }

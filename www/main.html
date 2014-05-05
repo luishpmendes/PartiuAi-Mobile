@@ -22,39 +22,8 @@
                     <h1 class="topcoat-navigation-bar__title">Login</h1>
                 </div>
             </header>
-            <div class="login scroller">
-                <input type="email" name="username" id="username" class="topcoat-text-input full" placeholder="Email" pattern="[^ @]*@[^ @]*" value="" required />
-                <input type="password" name="password" id="password" class="topcoat-text-input full" placeholder="Senha" value="" required />
-                <button class="topcoat-button--cta full" id="loginButton">Entrar</button>
-                <button class="topcoat-button--cta full" id="FBloginButton">Entrar com o Facebook</button>
-                <button class="topcoat-button--cta full" id="registerButton">Cadastre-se</button>
-            </div>
-            <div class="spinner"></div>
-        </script>
-
-        <script id="register-tpl" type="text/x-handlebars-template">
-            <header class="topcoat-navigation-bar">
-                <div class="topcoat-navigation-bar__item left quarter">
-                    <button id="backButton" class="topcoat-icon-button--quiet">
-                        <span class="topcoat-icon topcoat-icon--back"></span>
-                    </button>
-                </div>
-                <div class="topcoat-navigation-bar__item center half">
-                    <h1 class="topcoat-navigation-bar__title">Cadastro</h1>
-                </div>
-            </header>
-            <div class="register scroller">
-                <input type="email" name="username" id="username" class="topcoat-text-input full" placeholder="Email" pattern="[^ @]*@[^ @]*" value="" required />
-                <input type="password" name="password" id="password" class="topcoat-text-input full" placeholder="Senha" value="" required />
-                <input type="password" name="confirmPassword" id="confirmPassword" class="topcoat-text-input full" placeholder="Confirme a Senha" value="" required />
-                <input type="text" name="name" id="name" class="topcoat-text-input full" placeholder="Nome" value="" required />
-                <input type="text" name="test" id="test" class="topcoat-text-input full" placeholder="Test" value="" required />
-                <input type="text" name="test2" id="test2" class="topcoat-text-input full" placeholder="Test2" value="" required />
-                <input type="text" name="test3" id="test3" class="topcoat-text-input full" placeholder="Test2" value="" required />
-                <input type="text" name="test4" id="test4" class="topcoat-text-input full" placeholder="Test2" value="" required />
-                <input type="text" name="test5" id="test5" class="topcoat-text-input full" placeholder="Test2" value="" required />
-                <input type="text" name="test6" id="test6" class="topcoat-text-input full" placeholder="Test2" value="" required />
-                <button class="topcoat-button--cta full" id="registerButton">Cadastrar</button>
+            <div class="login">
+                <button class="topcoat-button--cta full vCenter" id="FBloginButton">Entrar com o Facebook</button>
             </div>
             <div class="spinner"></div>
         </script>
@@ -220,7 +189,6 @@
         <script src="assets/pickadate/js/translations/pt_BR.js"></script>
         <script src="js/View.js"></script>
         <script src="js/LoginView.js"></script>
-        <script src="js/RegisterView.js"></script>
         <script src="js/HomeView.js"></script>
         <script src="js/HitchARideView.js"></script>
         <script src="js/LocationSelectorView.js"></script>

@@ -55,36 +55,18 @@ body.loading .spinner {
     vertical-align: middle;
 }
 
+.vCenter {
+    top: 50%;
+    margin-top: -50%;
+}
+
 .login {
+    position: absolute;
     top: 4.375rem;
     left: 0px;
     right: 0px;
     bottom: 0px;
     padding: 10px;
-}
-
-.login > input {
-    margin-bottom: 10px;
-}
-
-.login > button {
-    margin-top: 10px;
-}
-
-.register {
-    top: 4.375rem;
-    left: 0px;
-    right: 0px;
-    bottom: 0px;
-    padding: 10px;   
-}
-
-.register > input {
-    margin-bottom: 10px;
-}
-
-.register > button {
-    margin-top: 10px;
 }
 
 .back-menu-button {
