@@ -7,7 +7,7 @@ function HomeView (template) {
 
     function hitchARide () {
         console.log("HomeView hitchARide");
-        window.location.hash = "hitchARide";
+        window.location.hash = "hitchARideDestination";
     }
 
     this.el.on('click', '#menuButton', this.menu);
@@ -21,3 +21,4 @@ HomeView.prototype = new View();
 HomeView.prototype.constructor = HomeView;
 // set super class
 HomeView.prototype.parent = View.prototype;
+
