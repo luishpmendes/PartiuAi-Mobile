@@ -137,3 +137,4 @@ HitchARideView.prototype.load = function () {
         $("#destination").val(JSON.parse(window.localStorage.getItem('destinationLocation')).name);
     }
 }
+
