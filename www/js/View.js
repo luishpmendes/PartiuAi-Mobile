@@ -52,18 +52,20 @@ function View (template) {
                             type: 'GET',
                             url: self.serverURL + 'logout/',
                         }).done(function(data, textStatus, jqXHR) {
-                            console.log("FB.login done");
+                            console.log("logout done");
                             console.log(data);
                             console.log(textStatus);
                             console.log(jqXHR);
-                            window.localStorage.clear();
-                            window.location.replace('main.html'); /* current page will NOT be saved in session history */
                         }).fail(function(jqXHR, textStatus, errorThrown) {
-                            console.log("FB.login fail");
+                            console.log("logout fail");
                             console.log(jqXHR);
                             console.log(textStatus);
                             console.log(errorThrown);
                         }).always(function (jqXHR, textStatus) {
+                            /* tenho que verificar se este request tá OK */
+                            window.localStorage.clear();
+                            window.location.replace('main.html'); /* current page will NOT be saved in session history */
+
                             $('body').removeClass("loading");
                         });
 
@@ -93,18 +95,20 @@ function View (template) {
                     type: 'GET',
                     url: this.serverURL + 'logout/',
                 }).done(function(data, textStatus, jqXHR) {
-                    console.log("FB.login done");
+                    console.log("logout done");
                     console.log(data);
                     console.log(textStatus);
                     console.log(jqXHR);
-                    window.localStorage.clear();
-                    window.location.replace('main.html'); /* current page will NOT be saved in session history */
                 }).fail(function(jqXHR, textStatus, errorThrown) {
-                    console.log("FB.login fail");
+                    console.log("logout fail");
                     console.log(jqXHR);
                     console.log(textStatus);
                     console.log(errorThrown);
                 }).always(function (jqXHR, textStatus) {
+                    /* tenho que verificar se este request tá OK */
+                    window.localStorage.clear();
+                    window.location.replace('main.html'); /* current page will NOT be saved in session history */
+
                     $('body').removeClass("loading");
                 });
 /*
