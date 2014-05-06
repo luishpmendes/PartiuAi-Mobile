@@ -162,3 +162,4 @@ View.prototype.load = function () {
         $(this).css('margin-top', -$(this).outerHeight()/2);
     });
 }
+
