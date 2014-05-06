@@ -9,8 +9,10 @@ function LocationSelectorView (template, type) {
 
     this.type = type;
 
-    this.originType = 0;
-    this.destinationType = 1;
+    this.hitchARideOriginType = 0;
+    this.hitchARideDestinationType = 1;
+    this.offerARideOriginType = 2;
+    this.offerARideDestinationType = 3;
 
     var marker;
 
@@ -22,16 +24,33 @@ function LocationSelectorView (template, type) {
     this.ok = function () {
         console.log("LocationSelectorView ok");
 
-        if (self.type == self.originType) {
-            window.localStorage.setItem('originLocation', JSON.stringify({
+        if (self.type == self.hitchARideOriginType) {
+            window.localStorage.setItem('hitchARideOriginLocation', JSON.stringify({
                 'name': $('#searchbox').val(),
                 'position': {
                     'latitude': marker.getPosition().lat(),
                     'longitude': marker.getPosition().lng()
                 }
             }));
-        } else if (self.type == self.destinationType) {
-            window.localStorage.setItem('destinationLocation', JSON.stringify({
+        } else if (self.type == self.hitchARideDestinationType) {
+            window.localStorage.setItem('hitchARideDestinationLocation', JSON.stringify({
+                'name': $('#searchbox').val(),
+                'position': {
+                    'latitude': marker.getPosition().lat(),
+                    'longitude': marker.getPosition().lng()
+                }
+            }));
+            window.location.hash = "hitchARidePrice";
+        } else if (self.type == self.offerARideOriginType) {
+            window.localStorage.setItem('offerARideOriginLocation', JSON.stringify({
+                'name': $('#searchbox').val(),
+                'position': {
+                    'latitude': marker.getPosition().lat(),
+                    'longitude': marker.getPosition().lng()
+                }
+            }));
+        } else if (self.type == self.offerARideDestinationType) {
+            window.localStorage.setItem('offerARideDestinationLocation', JSON.stringify({
                 'name': $('#searchbox').val(),
                 'position': {
                     'latitude': marker.getPosition().lat(),
@@ -40,7 +59,7 @@ function LocationSelectorView (template, type) {
             }));
         }
 
-        history.go(-1);
+        //history.go(-1);
     }
 
     this.loadMap = function () {
@@ -101,46 +120,87 @@ function LocationSelectorView (template, type) {
             marker.setVisible(true);
         });
 
-        if (self.type == self.originType && window.localStorage.getItem('originLocation') != null) {
+        if (self.type == self.hitchARideOriginType && window.localStorage.getItem('hitchARideOriginLocation') != null) {
             marker.setVisible(false);
-            var location = new google.maps.LatLng(JSON.parse(window.localStorage.getItem('originLocation')).position.latitude, JSON.parse(window.localStorage.getItem('originLocation')).position.longitude);
+            var location = new google.maps.LatLng(JSON.parse(window.localStorage.getItem('hitchARideOriginLocation')).position.latitude, JSON.parse(window.localStorage.getItem('hitchARideOriginLocation')).position.longitude);
             map.setCenter(location);
             map.setZoom(17);
             marker.setPosition(location);
             marker.setVisible(true);
-        } else if (self.type == self.destinationType && window.localStorage.getItem('destinationLocation') != null) {
+            $('body').removeClass("loading");
+        } else if (self.type == self.hitchARideDestinationType && window.localStorage.getItem('hitchARideDestinationLocation') != null) {
             marker.setVisible(false);
-            var location = new google.maps.LatLng(JSON.parse(window.localStorage.getItem('destinationLocation')).position.latitude, JSON.parse(window.localStorage.getItem('destinationLocation')).position.longitude);
+            var location = new google.maps.LatLng(JSON.parse(window.localStorage.getItem('hitchARideDestinationLocation')).position.latitude, JSON.parse(window.localStorage.getItem('hitchARideDestinationLocation')).position.longitude);
             map.setCenter(location);
             map.setZoom(17);
             marker.setPosition(location);
             marker.setVisible(true);
-        } else if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(function (position) {
-                var geocoder = new google.maps.Geocoder();
-                var latlng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+            $('body').removeClass("loading");
+        } else if (self.type == self.offerARideOriginType && window.localStorage.getItem('offerARideOriginLocation') != null) {
+            marker.setVisible(false);
+            var location = new google.maps.LatLng(JSON.parse(window.localStorage.getItem('offerARideOriginLocation')).position.latitude, JSON.parse(window.localStorage.getItem('offerARideOriginLocation')).position.longitude);
+            map.setCenter(location);
+            map.setZoom(17);
+            marker.setPosition(location);
+            marker.setVisible(true);
+            $('body').removeClass("loading");
+        } else if (self.type == self.offerARideDestinationType && window.localStorage.getItem('offerARideDestinationLocation') != null) {
+            marker.setVisible(false);
+            var location = new google.maps.LatLng(JSON.parse(window.localStorage.getItem('offerARideDestinationLocation')).position.latitude, JSON.parse(window.localStorage.getItem('offerARideDestinationLocation')).position.longitude);
+            map.setCenter(location);
+            map.setZoom(17);
+            marker.setPosition(location);
+            marker.setVisible(true);
+            $('body').removeClass("loading");
+        } else if ((self.type == self.hitchARideOriginType || self.type == self.offerARideOriginType) && navigator && navigator.geolocation && navigator.geolocation.getCurrentPosition) {
+            navigator.geolocation.getCurrentPosition(
+                function (position) {
+                    var geocoder = new google.maps.Geocoder();
+                    var latlng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
 
-                var request = {
-                    location: latlng,
-                    radius: '500'
-                };
+                    var request = {
+                        location: latlng,
+                        radius: '500'
+                    };
+                    
+                    geocoder.geocode({'latLng': latlng}, function(results, status) {
+                        if (status == google.maps.GeocoderStatus.OK) {
+                            if (results[0]) {
+                                marker.setVisible(false);
+                                
+                                map.setCenter(latlng);
+                                map.setZoom(17);  // Why 17? Because it looks good.
 
-                geocoder.geocode({'latLng': latlng}, function(results, status) {
-                    if (status == google.maps.GeocoderStatus.OK) {
-                        if (results[0]) {
-                            marker.setVisible(false);
-                            
-                            map.setCenter(latlng);
-                            map.setZoom(17);  // Why 17? Because it looks good.
+                                marker.setPosition(latlng);
+                                marker.setVisible(true);
 
-                            marker.setPosition(latlng);
-                            marker.setVisible(true);
-
-                            $('#searchbox').val(results[0].formatted_address)
+                                $('#searchbox').val(results[0].formatted_address)
+                            }
                         }
-                    }
-                });
-            });
+                        $('body').removeClass("loading");
+                    });
+                },
+                function (positionError) {
+                    $('body').removeClass("loading");
+                }
+            );
+        } else if ((self.type == self.hitchARideDestinationType || self.type == self.offerARideDestinationType) && navigator && navigator.geolocation && navigator.geolocation.getCurrentPosition) {
+            navigator.geolocation.getCurrentPosition(
+                function (position) {
+                    var latlng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+
+                    marker.setVisible(false);
+                    map.setCenter(latlng);
+
+                    $('body').removeClass("loading");
+                },
+                function (positionError) {
+                    $('body').removeClass("loading");
+                },
+                {
+                    enableHighAccuracy: false
+                }
+            );
         }
     }
 
@@ -162,16 +222,27 @@ LocationSelectorView.prototype.load = function () {
     this.parent.load.call(this);
 
     console.log("LocationSelectorView load");
+    
+    $('body').addClass("loading");
 
-    if (this.type == this.originType) {
-        if (window.localStorage.getItem('originLocation') != null) {
-            $("#searchbox").val(JSON.parse(window.localStorage.getItem('originLocation')).name);
+    if (this.type == this.hitchARideOriginType) {
+        if (window.localStorage.getItem('hitchARideOriginLocation') != null) {
+            $("#searchbox").val(JSON.parse(window.localStorage.getItem('hitchARideOriginLocation')).name);
         }
-    } else if (this.type == this.destinationType) {
-        if (window.localStorage.getItem('destinationLocation') != null) {
-            $("#searchbox").val(JSON.parse(window.localStorage.getItem('destinationLocation')).name);
+    } else if (this.type == this.hitchARideDestinationType) {
+        if (window.localStorage.getItem('hitchARideDestinationLocation') != null) {
+            $("#searchbox").val(JSON.parse(window.localStorage.getItem('hitchARideDestinationLocation')).name);
+        }
+    } else if (this.type == this.offerARideOriginType) {
+        if (window.localStorage.getItem('offerARideOriginLocation') != null) {
+            $("#searchbox").val(JSON.parse(window.localStorage.getItem('offerARideOriginLocation')).name);
+        }
+    } else if (this.type == this.offerARideDestinationType) {
+        if (window.localStorage.getItem('offerARideDestinationLocation') != null) {
+            $("#searchbox").val(JSON.parse(window.localStorage.getItem('offerARideDestinationLocation')).name);
         }
     }
 
     this.loadMap();
 }
+
