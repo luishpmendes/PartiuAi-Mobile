@@ -19,3 +19,4 @@ RideFoundView.prototype = new View();
 RideFoundView.prototype.constructor = RideFoundView;
 // set super class
 RideFoundView.prototype.parent = View.prototype;
+
