@@ -56,6 +56,8 @@ body.loading .spinner {
 }
 
 .vCenter {
+    display: inline-block;
+    position: relative;
     top: 50%;
     margin-top: -50%;
 }
@@ -135,5 +137,14 @@ body.loading .spinner {
 }
 
 .rideFound {
+    padding: 10px;
+}
+
+.hitchARideSearching {
+    position: absolute;
+    top: 4.375rem;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
     padding: 10px;
 }

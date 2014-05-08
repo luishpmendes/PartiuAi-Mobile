@@ -7,10 +7,19 @@ function RideFoundView (template) {
 
     self = this;
 
+    function ok () {
+
+    }
+
+    function cancel () {
+        history.go(-1);
+    }
 
     this.el.on('click', '#backButton', this.back);
     this.el.on('click', '#menuButton', this.menu);
     this.el.on('click', '#logout', this.logout);
+    this.el.on('click', '#ok', ok);
+    this.el.on('click', '#cancel', cancel);
 }
 
 // inherit View
@@ -19,4 +28,3 @@ RideFoundView.prototype = new View();
 RideFoundView.prototype.constructor = RideFoundView;
 // set super class
 RideFoundView.prototype.parent = View.prototype;
-

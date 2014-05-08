@@ -150,6 +150,38 @@
             <div class="spinner"></div>
         </script>
 
+        <script id="hitchARideSearching-tpl" type="text/x-handlebars-template">
+            <header class="topcoat-navigation-bar">
+                <div class="topcoat-navigation-bar__item left quarter">
+                    <button id="backButton" class="topcoat-icon-button--quiet">
+                        <span class="topcoat-icon topcoat-icon--back"></span>
+                    </button>
+                </div>
+                <div class="topcoat-navigation-bar__item center half">
+                    <h1 class="topcoat-navigation-bar__title">Partiu Aí</h1>
+                </div>
+                <div class="topcoat-navigation-bar__item right quarter">
+                    <button id="menuButton" class="topcoat-icon-button--quiet">
+                        <span class="topcoat-icon topcoat-icon--menu"></span>
+                    </button>
+                </div>
+            </header>
+            <div class="menu topcoat-list" id="menu" style="display: none;">
+                <ul class="topcoat-list__container">
+                    <li class="topcoat-list__item" id="logout">
+                        Logout
+                    </li>
+                </ul>
+            </div>
+            <div class="hitchARideSearching">
+                <div class="full center vCenter">
+                    <p>Procurando motorista...</p>
+                    <h1 id="countdown" class="center">10</h1>
+                </div>
+            </div>
+            <div class="spinner"></div>
+        </script>
+
         <script id="rideFound-tpl" type="text/x-handlebars-template">
             <header class="topcoat-navigation-bar">
                 <div class="topcoat-navigation-bar__item left quarter">
@@ -211,6 +243,7 @@
         <script src="lib/handlebars.js"></script>
         <script src="lib/iscroll.js"></script>
         <script src="lib/jquery.js"></script>
+        <script src="lib/jquery.timer.js"></script>
         <script src="assets/pickadate/js/legacy.js"></script>
         <script src="assets/pickadate/js/picker.js"></script>
         <script src="assets/pickadate/js/picker.date.js"></script>
@@ -222,8 +255,8 @@
         <script src="js/HitchARideView.js"></script>
         <script src="js/LocationSelectorView.js"></script>
         <script src="js/HitchARidePriceView.js"></script>
+        <script src="js/HitchARideSearchingView.js"></script>
         <script src="js/RideFoundView.js"></script>
         <script src="js/app.js"></script>
     </body>
 </html>
-

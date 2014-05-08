@@ -40,7 +40,7 @@ function LocationSelectorView (template, type) {
                     'longitude': marker.getPosition().lng()
                 }
             }));
-            window.location.hash = "hitchARidePrice";
+            window.location.hash = "hitchARideSearching";
         } else if (self.type == self.offerARideOriginType) {
             window.localStorage.setItem('offerARideOriginLocation', JSON.stringify({
                 'name': $('#searchbox').val(),
@@ -65,7 +65,7 @@ function LocationSelectorView (template, type) {
     this.loadMap = function () {
         console.log("LocationSelectorView loadMap");
         var mapOptions = {
-            center: new google.maps.LatLng(-22.816252, -47.069836),
+            center: new google.maps.LatLng(-22.9099384, -47.06263319999999),
             zoom: 13,
             streetViewControl: false,
             mapTypeControl: false,
@@ -245,4 +245,3 @@ LocationSelectorView.prototype.load = function () {
 
     this.loadMap();
 }
-
