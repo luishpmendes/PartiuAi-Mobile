@@ -61,4 +61,3 @@ function LoginView (template) {
 LoginView.prototype = new View();
 
 LoginView.prototype.constructor = LoginView;
-

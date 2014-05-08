@@ -21,4 +21,3 @@ HomeView.prototype = new View();
 HomeView.prototype.constructor = HomeView;
 // set super class
 HomeView.prototype.parent = View.prototype;
-
