@@ -19,9 +19,15 @@ function HitchARideSearchingView (template) {
         }
     });
 
+    function cancel () {
+        self.timer.stop();
+        self.back();
+    }
+
     this.el.on('click', '#backButton', this.back);
     this.el.on('click', '#menuButton', this.menu);
     this.el.on('click', '#logout', this.logout);
+    this.el.on('click', '#cancel', cancel);
 }
 
 // inherit View
