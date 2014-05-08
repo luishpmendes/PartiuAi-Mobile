@@ -12,7 +12,7 @@ function RideFoundView (template) {
     }
 
     function cancel () {
-        history.go(-1);
+        self.back();
     }
 
     this.el.on('click', '#backButton', this.back);
