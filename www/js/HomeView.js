@@ -13,6 +13,7 @@ function HomeView (template) {
     this.el.on('click', '#menuButton', this.menu);
     this.el.on('click', '#logout', this.logout);
     this.el.on('click', '#hitchARideButton', hitchARide);
+    this.el.on('click', '#offerARideButton', hitchARide);
 }
 
 // inherit View
