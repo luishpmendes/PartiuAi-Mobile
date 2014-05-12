@@ -9,6 +9,7 @@ function LoginView (template) {
 
     function FBlogin () {
         console.log("LoginView FBlogin");
+        /*
         try {
             FB.login (
                 function(response) {
@@ -32,7 +33,7 @@ function LoginView (template) {
                             console.log(jqXHR);
                             window.localStorage.setItem('app_token', data.app_token);
                             window.localStorage.setItem('username', data.username);
-                            window.location.replace('main.html#home'); /* current page will NOT be saved in session history */
+                            window.location.replace('main.html#home'); /* current page will NOT be saved in session history * /
                         }).fail(function(jqXHR, textStatus, errorThrown) {
                             console.log("FB.login fail");
                             console.log(jqXHR);
@@ -53,6 +54,10 @@ function LoginView (template) {
             console.log("LoginView FBlogin catch");
             console.log(e);
         }
+        */
+        window.localStorage.setItem('app_token', 'data.app_token');
+        window.localStorage.setItem('username', 'data.username');
+        window.location.replace('main.html#home'); /* current page will NOT be saved in session history */
     }
 
     this.el.on('click', '#FBloginButton', FBlogin);
