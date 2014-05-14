@@ -244,12 +244,4 @@ LocationSelectorView.prototype.load = function () {
     }
 
     this.loadMap();
-
-    $('.pac-container').on('touchstart', function(e) {
-        e.preventDefault();
-    });
-
-    $('.pac-item').on('touchstart', function(e) {
-        e.preventDefault();
-    });
 }
