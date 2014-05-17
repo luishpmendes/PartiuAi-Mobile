@@ -133,28 +133,28 @@ View.prototype.render = function() {
 View.prototype.load = function () {
     console.log("View load");
 
-    $('.quarter').each(function (index) {
-        $(this).outerWidth($(this).parent().width() * (1/4));
-    });
-
-    $('.half').each(function (index) {
-        $(this).outerWidth($(this).parent().width() * (1/2));
+    $('.full').each(function (index) {
+        $(this).innerWidth($(this).parent().width());
     });
 
     $('.three-quarters').each(function (index) {
-        $(this).outerWidth($(this).parent().width() * (3/4));
-    });
-
-    $('.third').each(function (index) {
-        $(this).outerWidth($(this).parent().width() * (1/3));
+        $(this).innerWidth($(this).parent().width() * (3/4));
     });
 
     $('.two-thirds').each(function (index) {
-        $(this).outerWidth($(this).parent().width() * (2/3));
+        $(this).innerWidth($(this).parent().width() * (2/3));
     });
 
-    $('.full').each(function (index) {
-        $(this).outerWidth($(this).parent().width());
+    $('.half').each(function (index) {
+        $(this).innerWidth($(this).parent().width() * (1/2));
+    });
+
+    $('.third').each(function (index) {
+        $(this).innerWidth($(this).parent().width() * (1/3));
+    });
+
+    $('.quarter').each(function (index) {
+        $(this).innerWidth($(this).parent().width() * (1/4));
     });
 
     $('.vCenter').each(function (index) {
