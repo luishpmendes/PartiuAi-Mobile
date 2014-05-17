@@ -25,7 +25,7 @@
  * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-/*
+
 ;(function($) {
 	$.timer = function(func, time, autostart) {	
 	 	this.set = function(func, time, autostart) {
@@ -108,4 +108,4 @@
 	 		return this;
 	 	}
 	};
-})(jQuery);*/
+})(jQuery);
