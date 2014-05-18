@@ -40,7 +40,7 @@ function LocationSelectorView (template, type) {
                     'longitude': marker.getPosition().lng()
                 }
             }));
-            window.location.hash = "hitchARideSearching";
+            window.location.hash = "hitchARidePrice";
         } else if (self.type == self.offerARideOriginType) {
             window.localStorage.setItem('offerARideOriginLocation', JSON.stringify({
                 'name': $('#searchbox').val(),

@@ -146,9 +146,19 @@
                     </li>
                 </ul>
             </div>
-            <div class="hitchARidePrice">
-                
+            <div class="hitchARidePrice center">
+                <p>Quando está disposto a pagar?</p>
+                <button id="minus" class="topcoat-icon-button">
+                    <span class="topcoat-icon topcoat-icon--minus"></span>
+                </button>
+                <input type="number" name="price" id="price" class="topcoat-text-input center" value="3" pattern="^(0|[1-9][0-9]*)$" readonly />
+                <button id="plus" class="topcoat-icon-button">
+                    <span class="topcoat-icon topcoat-icon--plus"></span>
+                </button>
             </div>
+            <footer class="navigation-bar footer">
+                <button class="topcoat-button--cta full center vCenter" id="ok">OK</button>
+            </footer>
             <div class="spinner"></div>
         </script>
 
@@ -267,6 +277,7 @@
         <script src="js/HomeView.js"></script>
         <script src="js/HitchARideView.js"></script>
         <script src="js/LocationSelectorView.js"></script>
+        <script src="js/HitchARidePriceView.js"></script>
         <script src="js/HitchARideSearchingView.js"></script>
         <script src="js/RideFoundView.js"></script>
         <script src="js/app.js"></script>

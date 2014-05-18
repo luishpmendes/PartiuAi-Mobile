@@ -9,6 +9,7 @@ console.log("app.js");
     var homeTpl = Handlebars.compile($('#home-tpl').html());
     var hitchARideTpl = Handlebars.compile($('#hitchARide-tpl').html());
     var locationSelectorTpl = Handlebars.compile($('#locationSelector-tpl').html());
+    var hitchARidePriceTpl = Handlebars.compile($('#hitchARidePrice-tpl').html());
     var hitchARideSearchingTpl = Handlebars.compile($('#hitchARideSearching-tpl').html());
     var rideFoundTpl = Handlebars.compile($('#rideFound-tpl').html());
 
@@ -89,6 +90,8 @@ console.log("app.js");
             view = new HitchARideView(hitchARideTpl);
         } else if (hash == 'hitchARideDestination' || hash == '#hitchARideDestination') {
             view = new LocationSelectorView(locationSelectorTpl, 1);
+        } else if (hash == 'hitchARidePrice' || hash == '#hitchARidePrice') {
+            view = new HitchARidePriceView(hitchARidePriceTpl);
         } else if (hash == 'hitchARideSearching' || hash == '#hitchARideSearching') {
             view = new HitchARideSearchingView(hitchARideSearchingTpl);
         } else if (hash == 'rideFound' || hash == '#rideFound') {

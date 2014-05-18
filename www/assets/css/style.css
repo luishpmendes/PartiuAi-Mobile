@@ -148,7 +148,12 @@ body.loading .spinner {
     right: 1px;
 }
 
-.rideFound {
+.hitchARidePrice {
+    position: absolute;
+    top: 4.375rem;
+    left: 0px;
+    right: 0px;
+    bottom: 3rem;
     padding: 10px;
 }
 
@@ -158,5 +163,9 @@ body.loading .spinner {
     left: 0px;
     right: 0px;
     bottom: 3rem;
+    padding: 10px;
+}
+
+.rideFound {
     padding: 10px;
 }

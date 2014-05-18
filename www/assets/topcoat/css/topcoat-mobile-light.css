@@ -3787,3 +3787,15 @@ Everything below this line should be calculated using the variables above. This 
   background: url("../../img/cancel.png") no-repeat;
   background-size: cover;
 }
+
+
+.topcoat-icon--minus {
+  background: url("../img/minus.png") no-repeat;
+  background-size: cover;
+}
+
+
+.topcoat-icon--plus {
+  background: url("../img/plus.png") no-repeat;
+  background-size: cover;
+}
