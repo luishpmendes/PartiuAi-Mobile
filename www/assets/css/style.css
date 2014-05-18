@@ -143,7 +143,7 @@ body.loading .spinner {
 .locationSelector > #map-canvas {
     position: absolute;
     top: 3.625rem;
-    bottom: 0rem;
+    bottom: 0px;
     left: 1px;
     right: 1px;
 }
@@ -168,4 +168,20 @@ body.loading .spinner {
 
 .rideFound {
     padding: 10px;
+}
+
+.waitDriver {
+    position: absolute;
+    top: 4.375rem;
+    bottom: 4.375rem;
+    left: 0px;
+    right: 0px;
+}
+
+.waitDriver > #map-canvas {
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    left: 1px;
+    right: 1px;
 }

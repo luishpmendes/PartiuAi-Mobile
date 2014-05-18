@@ -8,7 +8,7 @@ function RideFoundView (template) {
     self = this;
 
     function ok () {
-
+        window.location.hash = 'waitDriver';
     }
 
     function cancel () {

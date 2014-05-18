@@ -12,6 +12,7 @@ console.log("app.js");
     var hitchARidePriceTpl = Handlebars.compile($('#hitchARidePrice-tpl').html());
     var hitchARideSearchingTpl = Handlebars.compile($('#hitchARideSearching-tpl').html());
     var rideFoundTpl = Handlebars.compile($('#rideFound-tpl').html());
+    var waitDriverTpl = Handlebars.compile($('#waitDriver-tpl').html());
 
     /* --------------------------------- Event Registration -------------------------------- */
 
@@ -96,6 +97,8 @@ console.log("app.js");
             view = new HitchARideSearchingView(hitchARideSearchingTpl);
         } else if (hash == 'rideFound' || hash == '#rideFound') {
             view = new RideFoundView(rideFoundTpl);
+        } else if (hash == 'waitDriver' || hash == '#waitDriver') {
+            view = new WaitDriverView(waitDriverTpl);
         } else {
             view = new LoginView(loginTpl);
         }
@@ -115,10 +118,6 @@ console.log("app.js");
                     });
                 }
             });
-
-            /*$('body').fadeIn("fast", function () {
-                view.load();
-            });*/
         });
     }
 
