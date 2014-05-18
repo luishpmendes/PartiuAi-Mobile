@@ -5,8 +5,11 @@ function HomeView (template) {
 
     console.log("HomeView");
 
+    self = this;
+
     function hitchARide () {
         console.log("HomeView hitchARide");
+
         window.location.hash = "hitchARideDestination";
     }
 

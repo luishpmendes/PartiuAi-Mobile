@@ -5,8 +5,11 @@ function HitchARidePriceView (template) {
 
     console.log("HitchARidePriceView");
 
+    self = this;
+
     function minus () {
         console.log("HitchARidePriceView minus");
+
         if ($('#price').val() > 0) {
             $('#price').val($('#price').val()-1);
         }
@@ -14,11 +17,13 @@ function HitchARidePriceView (template) {
 
     function plus () {
         console.log("HitchARidePriceView plus");
+
         $('#price').val($('#price').val()-(-1));
     }
 
     function ok () {
         console.log("HitchARidePriceView ok");
+
         window.location.hash = 'hitchARideSearching';
     }
 

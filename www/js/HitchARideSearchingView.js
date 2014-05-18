@@ -10,6 +10,8 @@ function HitchARideSearchingView (template) {
     this.counter = 10;
 
     this.timer = $.timer(function () {
+        console.log("HitchARideSearchingView timer");
+
         $('#countdown').html(--self.counter);
 
         if (self.counter <= 0) {
@@ -20,6 +22,8 @@ function HitchARideSearchingView (template) {
     });
 
     function cancel () {
+        console.log("HitchARideSearchingView cancel");
+
         self.timer.stop();
         self.back();
     }

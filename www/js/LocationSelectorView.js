@@ -3,9 +3,9 @@ console.log("LocationSelectorView.js");
 function LocationSelectorView (template, type) {
     View.call(this, template);
 
-    self = this;
-
     console.log("LocationSelectorView");
+
+    self = this;
 
     this.type = type;
 
@@ -18,6 +18,7 @@ function LocationSelectorView (template, type) {
 
     function selectAll () {
         console.log("LocationSelectorView selectAll");
+
         $('#searchbox').select();
     }
 
@@ -59,11 +60,12 @@ function LocationSelectorView (template, type) {
             }));
         }
 
-        //history.go(-1);
+        //self.back();
     }
 
     this.loadMap = function () {
         console.log("LocationSelectorView loadMap");
+
         var mapOptions = {
             center: new google.maps.LatLng(-22.9099384, -47.06263319999999),
             zoom: 13,

@@ -9,16 +9,19 @@ function HitchARideView (template) {
 
     function origin () {
         console.log("HitchARideView origin");
+
         window.location.hash = "originLocationSelector";
     }
 
     function destination () {
         console.log("HitchARideView destination");
+
         window.location.hash = "destinationLocationSelector";
     }
 
     function validate () {
         console.log("HitchARideView validate");
+
         originInput = $('#origin')[0];
         destinationInput = $('#destination')[0];
         dateInput = $('#date')[0];
