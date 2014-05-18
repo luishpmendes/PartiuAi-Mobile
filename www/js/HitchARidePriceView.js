@@ -6,17 +6,20 @@ function HitchARidePriceView (template) {
     console.log("HitchARidePriceView");
 
     function minus () {
+        console.log("HitchARidePriceView minus");
         if ($('#price').val() > 0) {
             $('#price').val($('#price').val()-1);
         }
     }
 
     function plus () {
+        console.log("HitchARidePriceView plus");
         $('#price').val($('#price').val()-(-1));
     }
 
     function ok () {
-        window.location.hash = "hitchARideSearching";
+        console.log("HitchARidePriceView ok");
+        window.location.hash = 'hitchARideSearching';
     }
 
     this.el.on('click', '#menuButton', this.menu);
