@@ -28,7 +28,7 @@ function HitchARideSearchingView (template) {
         self.back();
     }
 
-    this.el.on('click', '#backButton', this.cancel);
+    this.el.on('click', '#backButton', cancel);
     this.el.on('click', '#menuButton', this.menu);
     this.el.on('click', '#logout', this.logout);
     this.el.on('click', '#cancel', cancel);
