@@ -14,6 +14,7 @@ console.log("app.js");
     var rideFoundTpl = Handlebars.compile($('#rideFound-tpl').html());
     var waitDriverTpl = Handlebars.compile($('#waitDriver-tpl').html());
     var passengerTrackerTpl = Handlebars.compile($('#passengerTracker-tpl').html());
+    var rateDriverTpl = Handlebars.compile($('#rateDriver-tpl').html());
 
     /* --------------------------------- Event Registration -------------------------------- */
 
@@ -102,6 +103,8 @@ console.log("app.js");
             view = new WaitDriverView(waitDriverTpl);
         } else if (hash == 'passengerTracker' || hash == '#passengerTracker') {
             view = new PassengerTrackerView(passengerTrackerTpl);
+        } else if (hash == 'rateDriver' || hash == '#rateDriver') {
+            view = new RateDriverView(rateDriverTpl);
         } else {
             view = new LoginView(loginTpl);
         }

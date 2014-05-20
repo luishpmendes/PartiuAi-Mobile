@@ -72,13 +72,13 @@ function PassengerTrackerView (template) {
 
     function ok () {
         console.log("PassengerTrackerView ok");
-        window.location.hash = "";
+        window.location.hash = 'rateDriver';
     }
 
     this.el.on('click', '#backButton', this.back);
     this.el.on('click', '#menuButton', this.menu);
     this.el.on('click', '#logout', this.logout);
-    this.el.on('click', '#ok', ok);
+    this.el.on('click', '#okButton', ok);
 }
 
 // inherit View

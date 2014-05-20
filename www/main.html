@@ -326,6 +326,48 @@
             <div class="spinner"></div>
         </script>
 
+        <script id="rateDriver-tpl" type="text/x-handlebars-template">
+            <header class="topcoat-navigation-bar">
+                <div class="topcoat-navigation-bar__item left quarter">
+                    <button id="backButton" class="topcoat-icon-button--quiet">
+                        <span class="topcoat-icon topcoat-icon--back"></span>
+                    </button>
+                </div>
+                <div class="topcoat-navigation-bar__item center half">
+                    <h1 class="topcoat-navigation-bar__title">Partiu Aí</h1>
+                </div>
+                <div class="topcoat-navigation-bar__item right quarter">
+                    <button id="menuButton" class="topcoat-icon-button--quiet">
+                        <span class="topcoat-icon topcoat-icon--menu"></span>
+                    </button>
+                </div>
+            </header>
+            <div class="menu topcoat-list" id="menu" style="display: none;">
+                <ul class="topcoat-list__container">
+                    <li class="topcoat-list__item" id="logout">
+                        Logout
+                    </li>
+                </ul>
+            </div>
+            <div class="rateDriver scroller full center">
+                <p>Como foi sua experiência?</p>
+                <img src="assets/img/driver.png" />
+                <p>Roberta Valezio</p>
+                <div class="full middle">
+                    <img src="assets/img/favorite.png" />
+                    <img src="assets/img/favorite.png" />
+                    <img src="assets/img/favorite.png" />
+                    <img src="assets/img/favorite.png" />
+                    <img src="assets/img/favorite.png" />
+                </div>
+                <button class="topcoat-button--cta">Compartilhe no Facebook</button>
+            </div>
+            <footer class="navigation-bar footer">
+                <button class="topcoat-button--cta full center vCenter" id="okButton">OK</button>
+            </footer>
+            <div class="spinner"></div>
+        </script>
+
         <!-- JS -->
         <script src="phonegap.js"></script>
         <script src="https://maps.googleapis.com/maps/api/js?sensor=false&libraries=places"></script>
@@ -351,6 +393,7 @@
         <script src="js/RideFoundView.js"></script>
         <script src="js/WaitDriverView.js"></script>
         <script src="js/PassengerTrackerView.js"></script>
+        <script src="js/RateDriverView.js"></script>
         <script src="js/app.js"></script>
     </body>
 </html>
