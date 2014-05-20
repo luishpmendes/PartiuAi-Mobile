@@ -152,7 +152,6 @@
                     <span class="topcoat-icon topcoat-icon--minus"></span>
                 </button>
                 <input type="number" name="price" id="price" class="topcoat-text-input center" value="3" pattern="^(0|[1-9][0-9]*)$" readonly />
-                <input type="datetime" />
                 <button id="plus" class="topcoat-icon-button">
                     <span class="topcoat-icon topcoat-icon--plus"></span>
                 </button>
@@ -286,7 +285,43 @@
                 </div>
             </div>
             <footer class="navigation-bar footer">
-                <button class="topcoat-button--cta full center vCenter" id="okButton">OK</button>
+                <button class="topcoat-button--cta full center vCenter" id="okButton">Começou!</button>
+            </footer>
+            <div class="spinner"></div>
+        </script>
+
+        <script id="passengerTracker-tpl" type="text/x-handlebars-template">
+            <header class="topcoat-navigation-bar">
+                <div class="topcoat-navigation-bar__item left quarter">
+                    <button id="backButton" class="topcoat-icon-button--quiet">
+                        <span class="topcoat-icon topcoat-icon--back"></span>
+                    </button>
+                </div>
+                <div class="topcoat-navigation-bar__item center half">
+                    <h1 class="topcoat-navigation-bar__title">Partiu Aí</h1>
+                </div>
+                <div class="topcoat-navigation-bar__item right quarter">
+                    <button id="menuButton" class="topcoat-icon-button--quiet">
+                        <span class="topcoat-icon topcoat-icon--menu"></span>
+                    </button>
+                </div>
+            </header>
+            <div class="menu topcoat-list" id="menu" style="display: none;">
+                <ul class="topcoat-list__container">
+                    <li class="topcoat-list__item" id="logout">
+                        Logout
+                    </li>
+                </ul>
+            </div>
+            <div class="passengerTracker">
+                <div class="help-bar">
+                    <button class="topcoat-button full" id="helpButton">Socorro!</button>
+                </div>
+                <div id="map-canvas">
+                </div>
+            </div>
+            <footer class="navigation-bar footer">
+                <button class="topcoat-button--cta full center vCenter" id="okButton">Terminou!</button>
             </footer>
             <div class="spinner"></div>
         </script>
@@ -315,6 +350,7 @@
         <script src="js/HitchARideSearchingView.js"></script>
         <script src="js/RideFoundView.js"></script>
         <script src="js/WaitDriverView.js"></script>
+        <script src="js/PassengerTrackerView.js"></script>
         <script src="js/app.js"></script>
     </body>
 </html>

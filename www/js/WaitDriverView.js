@@ -102,13 +102,13 @@ function WaitDriverView (template) {
 
     function ok () {
         console.log("WaitDriverView ok");
-        window.location.hash = "";
+        window.location.hash = "passengerTracker";
     }
 
     this.el.on('click', '#backButton', this.back);
     this.el.on('click', '#menuButton', this.menu);
     this.el.on('click', '#logout', this.logout);
-    this.el.on('click', '#ok', ok);
+    this.el.on('click', '#okButton', ok);
 }
 
 // inherit View

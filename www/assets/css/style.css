@@ -185,3 +185,23 @@ body.loading .spinner {
     left: 1px;
     right: 1px;
 }
+
+.passengerTracker {
+    position: absolute;
+    top: 4.375rem;
+    bottom: 4.375rem;
+    left: 0px;
+    right: 0px;
+}
+
+.passengerTracker > .help-bar {
+    padding: 0.3125rem;
+}
+
+.passengerTracker > #map-canvas {
+    position: absolute;
+    top: 3.625rem;
+    bottom: 0px;
+    left: 1px;
+    right: 1px;
+}

@@ -13,6 +13,7 @@ console.log("app.js");
     var hitchARideSearchingTpl = Handlebars.compile($('#hitchARideSearching-tpl').html());
     var rideFoundTpl = Handlebars.compile($('#rideFound-tpl').html());
     var waitDriverTpl = Handlebars.compile($('#waitDriver-tpl').html());
+    var passengerTrackerTpl = Handlebars.compile($('#passengerTracker-tpl').html());
 
     /* --------------------------------- Event Registration -------------------------------- */
 
@@ -99,6 +100,8 @@ console.log("app.js");
             view = new RideFoundView(rideFoundTpl);
         } else if (hash == 'waitDriver' || hash == '#waitDriver') {
             view = new WaitDriverView(waitDriverTpl);
+        } else if (hash == 'passengerTracker' || hash == '#passengerTracker') {
+            view = new PassengerTrackerView(passengerTrackerTpl);
         } else {
             view = new LoginView(loginTpl);
         }
