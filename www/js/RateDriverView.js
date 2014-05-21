@@ -8,18 +8,14 @@ function RateDriverView (template) {
     self = this;
 
     function ok () {
-        window.location.hash = '';
-    }
-
-    function cancel () {
-        self.back();
+        console.log("RateDriverView ok");
+        window.location.hash = 'scheduleARide';
     }
 
     this.el.on('click', '#backButton', this.back);
     this.el.on('click', '#menuButton', this.menu);
     this.el.on('click', '#logout', this.logout);
-    this.el.on('click', '#ok', ok);
-    this.el.on('click', '#cancel', cancel);
+    this.el.on('click', '#okButton', ok);
 }
 
 // inherit View

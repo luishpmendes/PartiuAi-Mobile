@@ -54,39 +54,6 @@
             <div class="spinner"></div>
         </script>
 
-        <script id="hitchARide-tpl" type="text/x-handlebars-template">
-            <header class="topcoat-navigation-bar">
-                <div class="topcoat-navigation-bar__item left quarter">
-                    <button id="backButton" class="topcoat-icon-button--quiet">
-                        <span class="topcoat-icon topcoat-icon--back"></span>
-                    </button>
-                </div>
-                <div class="topcoat-navigation-bar__item center half">
-                    <h1 class="topcoat-navigation-bar__title">Partiu Aí</h1>
-                </div>
-                <div class="topcoat-navigation-bar__item right quarter">
-                    <button id="menuButton" class="topcoat-icon-button--quiet">
-                        <span class="topcoat-icon topcoat-icon--menu"></span>
-                    </button>
-                </div>
-            </header>
-            <div class="menu topcoat-list" id="menu" style="display: none;">
-                <ul class="topcoat-list__container">
-                    <li class="topcoat-list__item" id="logout">
-                        Logout
-                    </li>
-                </ul>
-            </div>
-            <div class="hitchARide">
-                <input class="topcoat-text-input full" type="text" name="origin" id="origin" value="" placeholder="Origem" readonly />
-                <input class="topcoat-text-input full" type="text" name="destination" id="destination" value="" placeholder="Destino" readonly />
-                <input class="topcoat-text-input half datepicker" type="date" name="date" id="date" pattern="(0[1-9]|1[0-9]|2[0-9]|3[01])/(0[1-9]|1[012])/[0-9]{4}" value="" placeholder="Data" />
-                <input class="topcoat-text-input half timepicker" type="time" name="time" id="time" pattern="(0[0-9]|1[0-9]|2[0-3])(:[0-5][0-9])" value="" placeholder="Horário" />
-                <button class="topcoat-button--large--cta full" id="hitchARideButton">Pedir Carona!</button>
-            </div>
-            <div class="spinner"></div>
-        </script>
-
         <script id="locationSelector-tpl" type="text/x-handlebars-template">
             <header class="topcoat-navigation-bar">
                 <div class="topcoat-navigation-bar__item left quarter">
@@ -368,6 +335,49 @@
             <div class="spinner"></div>
         </script>
 
+        <script id="scheduleARide-tpl" type="text/x-handlebars-template">
+            <header class="topcoat-navigation-bar">
+                <div class="topcoat-navigation-bar__item left quarter">
+                    <button id="backButton" class="topcoat-icon-button--quiet">
+                        <span class="topcoat-icon topcoat-icon--back"></span>
+                    </button>
+                </div>
+                <div class="topcoat-navigation-bar__item center half">
+                    <h1 class="topcoat-navigation-bar__title">Partiu Aí</h1>
+                </div>
+                <div class="topcoat-navigation-bar__item right quarter">
+                    <button id="menuButton" class="topcoat-icon-button--quiet">
+                        <span class="topcoat-icon topcoat-icon--menu"></span>
+                    </button>
+                </div>
+            </header>
+            <div class="menu topcoat-list" id="menu" style="display: none;">
+                <ul class="topcoat-list__container">
+                    <li class="topcoat-list__item" id="logout">
+                        Logout
+                    </li>
+                </ul>
+            </div>
+            <div class="scheduleARide">
+                <p class="center">Agende sua próxima viagem</p>
+                <input class="topcoat-text-input full" type="text" name="origin" id="origin" value="" placeholder="Origem" readonly />
+                <input class="topcoat-text-input full" type="text" name="destination" id="destination" value="" placeholder="Destino" readonly />
+                <input class="topcoat-text-input half datepicker" type="date" name="date" id="date" pattern="(0[1-9]|1[0-9]|2[0-9]|3[01])/(0[1-9]|1[012])/[0-9]{4}" value="" placeholder="Data" />
+                <input class="topcoat-text-input half timepicker" type="time" name="time" id="time" pattern="(0[0-9]|1[0-9]|2[0-3])(:[0-5][0-9])" value="" placeholder="Horário" />
+                <div class="half center floatLeft">
+                    <button id="ok" class="topcoat-icon-button--large">
+                        <span class="topcoat-icon--large topcoat-icon--checkmark"></span>
+                    </button>
+                </div>
+                <div class="half center floatRight">
+                    <button id="cancel" class="topcoat-icon-button--large">
+                        <span class="topcoat-icon--large topcoat-icon--cancel"></span>
+                    </button>
+                </div>
+            </div>
+            <div class="spinner"></div>
+        </script>
+
         <!-- JS -->
         <script src="phonegap.js"></script>
         <script src="https://maps.googleapis.com/maps/api/js?sensor=false&libraries=places"></script>
@@ -386,7 +396,6 @@
         <script src="js/View.js"></script>
         <script src="js/LoginView.js"></script>
         <script src="js/HomeView.js"></script>
-        <script src="js/HitchARideView.js"></script>
         <script src="js/LocationSelectorView.js"></script>
         <script src="js/HitchARidePriceView.js"></script>
         <script src="js/HitchARideSearchingView.js"></script>
@@ -394,6 +403,7 @@
         <script src="js/WaitDriverView.js"></script>
         <script src="js/PassengerTrackerView.js"></script>
         <script src="js/RateDriverView.js"></script>
+        <script src="js/ScheduleARideView.js"></script>
         <script src="js/app.js"></script>
     </body>
 </html>

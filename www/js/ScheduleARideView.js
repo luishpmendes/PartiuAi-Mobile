@@ -1,26 +1,26 @@
-console.log("HitchARideView.js");
+console.log("ScheduleARideView.js");
 
-function HitchARideView (template) {
+function ScheduleARideView (template) {
     View.call(this, template);
 
-    console.log("HitchARideView");
+    console.log("ScheduleARideView");
 
     self = this;
 
     function origin () {
-        console.log("HitchARideView origin");
+        console.log("ScheduleARideView origin");
 
-        window.location.hash = "originLocationSelector";
+        window.location.hash = "scheduleARideOrigin";
     }
 
     function destination () {
-        console.log("HitchARideView destination");
+        console.log("ScheduleARideView destination");
 
-        window.location.hash = "destinationLocationSelector";
+        window.location.hash = "scheduleARideDestination";
     }
 
     function validate () {
-        console.log("HitchARideView validate");
+        console.log("ScheduleARideView validate");
 
         originInput = $('#origin')[0];
         destinationInput = $('#destination')[0];
@@ -29,9 +29,9 @@ function HitchARideView (template) {
 
         if (!originInput || !destinationInput || !dateInput || !timeInput) {
             alert('ERROR!');
-        } else if (originInput == "" || window.localStorage.getItem('originLocation') == null) {
+        } else if (originInput == "" || window.localStorage.getItem('passengerScheduleARideOriginLocation') == null) {
             alert('Selecione um local de origem!');
-        } else if (destinationInput == "" || window.localStorage.getItem('destinationLocation') == null) {
+        } else if (destinationInput == "" || window.localStorage.getItem('passengerScheduleARideDestinationLocation') == null) {
             alert('Selecione um local de destino!');
         } else if (!dateInput.value.match(dateInput.pattern)) {
             alert('Selecione uma data válida!');
@@ -43,8 +43,8 @@ function HitchARideView (template) {
         return false;
     }
 
-    function hitchARide () {
-        console.log("HitchARideView hitchARide");
+    function ok () {
+        console.log("ScheduleARideView ok");
 
         if (validate()) {
             var originLocation = JSON.parse(window.localStorage.getItem('originLocation'));
@@ -99,8 +99,12 @@ function HitchARideView (template) {
                 $('body').removeClass("loading");
             });
 */
-            window.location.hash = "rideFound";
+            window.location.hash = "home";
         }
+    }
+
+    function cancel () {
+        window.location.hash = "home";
     }
 
     this.el.on('click', '#backButton', this.back);
@@ -108,20 +112,21 @@ function HitchARideView (template) {
     this.el.on('click', '#logout', this.logout);
     this.el.on('click', '#origin', origin);
     this.el.on('click', '#destination', destination);
-    this.el.on('click', '#hitchARideButton', hitchARide);
+    this.el.on('click', '#ok', ok);
+    this.el.on('click', '#cancel', cancel);
 }
 
 // inherit View
-HitchARideView.prototype = new View();
+ScheduleARideView.prototype = new View();
 // correct the constructor pointer because it points to View
-HitchARideView.prototype.constructor = HitchARideView;
+ScheduleARideView.prototype.constructor = ScheduleARideView;
 // set super class
-HitchARideView.prototype.parent = View.prototype;
+ScheduleARideView.prototype.parent = View.prototype;
 
-HitchARideView.prototype.load = function () {
+ScheduleARideView.prototype.load = function () {
     this.parent.load.call(this);
 
-    console.log("HitchARideView load");
+    console.log("ScheduleARideView load");
 
     $('#date').outerWidth(($('#date').parent().width() - 10) * (1/2));
     $('#time').outerWidth(($('#time').parent().width() - 10) * (1/2));
@@ -133,10 +138,10 @@ HitchARideView.prototype.load = function () {
         format: 'HH:i'
     });
     
-    if (window.localStorage.getItem('originLocation') != null) {
-        $("#origin").val(JSON.parse(window.localStorage.getItem('originLocation')).name);
+    if (window.localStorage.getItem('passengerScheduleARideOriginLocation') != null) {
+        $("#origin").val(JSON.parse(window.localStorage.getItem('passengerScheduleARideOriginLocation')).name);
     }
-    if (window.localStorage.getItem('destinationLocation') != null) {
-        $("#destination").val(JSON.parse(window.localStorage.getItem('destinationLocation')).name);
+    if (window.localStorage.getItem('passengerScheduleARideDestinationLocation') != null) {
+        $("#destination").val(JSON.parse(window.localStorage.getItem('passengerScheduleARideDestinationLocation')).name);
     }
 }

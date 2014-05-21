@@ -7,7 +7,6 @@ console.log("app.js");
 
     var loginTpl = Handlebars.compile($('#login-tpl').html());
     var homeTpl = Handlebars.compile($('#home-tpl').html());
-    var hitchARideTpl = Handlebars.compile($('#hitchARide-tpl').html());
     var locationSelectorTpl = Handlebars.compile($('#locationSelector-tpl').html());
     var hitchARidePriceTpl = Handlebars.compile($('#hitchARidePrice-tpl').html());
     var hitchARideSearchingTpl = Handlebars.compile($('#hitchARideSearching-tpl').html());
@@ -15,6 +14,7 @@ console.log("app.js");
     var waitDriverTpl = Handlebars.compile($('#waitDriver-tpl').html());
     var passengerTrackerTpl = Handlebars.compile($('#passengerTracker-tpl').html());
     var rateDriverTpl = Handlebars.compile($('#rateDriver-tpl').html());
+    var scheduleARideTpl = Handlebars.compile($('#scheduleARide-tpl').html());
 
     /* --------------------------------- Event Registration -------------------------------- */
 
@@ -89,8 +89,6 @@ console.log("app.js");
 
         if (hash == 'home' || hash == '#home') {
             view = new HomeView(homeTpl);
-        } else if (hash == 'hitchARide' || hash == '#hitchARide') {
-            view = new HitchARideView(hitchARideTpl);
         } else if (hash == 'hitchARideDestination' || hash == '#hitchARideDestination') {
             view = new LocationSelectorView(locationSelectorTpl, 1);
         } else if (hash == 'hitchARidePrice' || hash == '#hitchARidePrice') {
@@ -105,6 +103,12 @@ console.log("app.js");
             view = new PassengerTrackerView(passengerTrackerTpl);
         } else if (hash == 'rateDriver' || hash == '#rateDriver') {
             view = new RateDriverView(rateDriverTpl);
+        } else if (hash == 'scheduleARide' || hash == '#scheduleARide') {
+            view = new ScheduleARideView(scheduleARideTpl);
+        } else if (hash == 'scheduleARideOrigin' || hash == '#scheduleARideOrigin') {
+            view = new LocationSelectorView(locationSelectorTpl, 4);
+        } else if (hash == 'scheduleARideDestination' || hash == '#scheduleARideDestination') {
+            view = new LocationSelectorView(locationSelectorTpl, 5);
         } else {
             view = new LoginView(loginTpl);
         }

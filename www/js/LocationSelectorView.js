@@ -13,6 +13,8 @@ function LocationSelectorView (template, type) {
     this.hitchARideDestinationType = 1;
     this.offerARideOriginType = 2;
     this.offerARideDestinationType = 3;
+    this.passengerScheduleARideOriginType = 4;
+    this.passengerScheduleARideDestinationType = 5;
 
     var marker;
 
@@ -58,6 +60,24 @@ function LocationSelectorView (template, type) {
                     'longitude': marker.getPosition().lng()
                 }
             }));
+        } else if (self.type == self.passengerScheduleARideOriginType) {
+            window.localStorage.setItem('passengerScheduleARideOriginLocation', JSON.stringify({
+                'name': $('#searchbox').val(),
+                'position': {
+                    'latitude': marker.getPosition().lat(),
+                    'longitude': marker.getPosition().lng()
+                }
+            }));
+            self.back();
+        } else if (self.type == self.passengerScheduleARideDestinationType) {
+            window.localStorage.setItem('passengerScheduleARideDestinationLocation', JSON.stringify({
+                'name': $('#searchbox').val(),
+                'position': {
+                    'latitude': marker.getPosition().lat(),
+                    'longitude': marker.getPosition().lng()
+                }
+            }));
+            self.back();
         }
 
         //self.back();
@@ -154,6 +174,22 @@ function LocationSelectorView (template, type) {
             marker.setPosition(location);
             marker.setVisible(true);
             $('body').removeClass("loading");
+        } else if (self.type == self.passengerScheduleARideOriginType && window.localStorage.getItem('passengerScheduleARideOriginLocation') != null) {
+            marker.setVisible(false);
+            var location = new google.maps.LatLng(JSON.parse(window.localStorage.getItem('passengerScheduleARideOriginLocation')).position.latitude, JSON.parse(window.localStorage.getItem('passengerScheduleARideOriginLocation')).position.longitude);
+            map.setCenter(location);
+            map.setZoom(17);
+            marker.setPosition(location);
+            marker.setVisible(true);
+            $('body').removeClass("loading");
+        } else if (self.type == self.passengerScheduleARideDestinationType && window.localStorage.getItem('passengerScheduleARideDestinationLocation') != null) {
+            marker.setVisible(false);
+            var location = new google.maps.LatLng(JSON.parse(window.localStorage.getItem('passengerScheduleARideDestinationLocation')).position.latitude, JSON.parse(window.localStorage.getItem('passengerScheduleARideDestinationLocation')).position.longitude);
+            map.setCenter(location);
+            map.setZoom(17);
+            marker.setPosition(location);
+            marker.setVisible(true);
+            $('body').removeClass("loading");
         } else if ((self.type == self.hitchARideOriginType || self.type == self.offerARideOriginType) && navigator && navigator.geolocation && navigator.geolocation.getCurrentPosition) {
             navigator.geolocation.getCurrentPosition(
                 function (position) {
@@ -186,7 +222,7 @@ function LocationSelectorView (template, type) {
                     $('body').removeClass("loading");
                 }
             );
-        } else if ((self.type == self.hitchARideDestinationType || self.type == self.offerARideDestinationType) && navigator && navigator.geolocation && navigator.geolocation.getCurrentPosition) {
+        } else if ((self.type == self.hitchARideDestinationType || self.type == self.offerARideDestinationType || self.type == self.passengerScheduleARideOriginType || self.type == self.passengerScheduleARideDestinationType) && navigator && navigator.geolocation && navigator.geolocation.getCurrentPosition) {
             navigator.geolocation.getCurrentPosition(
                 function (position) {
                     var latlng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
@@ -242,6 +278,14 @@ LocationSelectorView.prototype.load = function () {
     } else if (this.type == this.offerARideDestinationType) {
         if (window.localStorage.getItem('offerARideDestinationLocation') != null) {
             $("#searchbox").val(JSON.parse(window.localStorage.getItem('offerARideDestinationLocation')).name);
+        }
+    } else if (this.type == this.passengerScheduleARideOriginType) {
+        if (window.localStorage.getItem('passengerScheduleARideOriginLocation') != null) {
+            $("#searchbox").val(JSON.parse(window.localStorage.getItem('passengerScheduleARideOriginLocation')).name);
+        }
+    } else if (this.type == this.passengerScheduleARideDestinationType) {
+        if (window.localStorage.getItem('passengerScheduleARideDestinationLocation') != null) {
+            $("#searchbox").val(JSON.parse(window.localStorage.getItem('passengerScheduleARideDestinationLocation')).name);
         }
     }
 

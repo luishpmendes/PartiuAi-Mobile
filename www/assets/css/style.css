@@ -107,27 +107,6 @@ body.loading .spinner {
     height: 50%;
 }
 
-.hitchARide {
-    padding: 10px;
-}
-
-.hitchARide > input {
-    margin-bottom: 10px;
-}
-
-.hitchARide > button {
-    margin-top: 10px;
-}
-
-.datepicker {
-    float: left;
-}
-
-.timepicker {
-    float: right;
-}
-
-
 .locationSelector {
     position: absolute;
     top: 4.375rem;
@@ -208,4 +187,24 @@ body.loading .spinner {
 
 .rateDriver {
     padding: 10px;
+}
+
+.scheduleARide {
+    padding: 10px;
+}
+
+.scheduleARide > input {
+    margin-bottom: 10px;
+}
+
+.scheduleARide > button {
+    margin-top: 10px;
+}
+
+.datepicker {
+    float: left;
+}
+
+.timepicker {
+    float: right;
 }
