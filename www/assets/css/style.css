@@ -211,3 +211,21 @@ body.loading .spinner {
 .timepicker {
     float: right;
 }
+
+
+.newcss {
+    color: white;
+}
+
+.newcss-button {
+    border-color: white;
+    border-width: 4px;
+}
+
+.newcss-claro {
+    background-color: #EEC7CB;
+}
+
+.newcss-escuro {
+    background-color: #D1626D;
+}
