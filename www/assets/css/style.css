@@ -224,6 +224,10 @@ body.loading .spinner {
     position: relative;
 }
 
+.newcss-button:hover{
+    background-color: #D1626D;
+}
+
 .newcss-claro {
     background-color: #EEC7CB;
 }

@@ -13,7 +13,7 @@
         <link type="text/css" rel="stylesheet" href="assets/pickadate/css/default.time.css" />
         <link type="text/css" rel="stylesheet" href="assets/css/style.css" />
     </head>
-    <body>
+    <body class="newcss-claro">
         <!-- TEMPLATES -->
         <script id="login-tpl" type="text/x-handlebars-template">
             <div id="fb-root"></div>
@@ -47,7 +47,7 @@
                     </li>
                 </ul>
             </div>
-            <div class="home newcss-claro">
+            <div class="home">
                 <button class="topcoat-button--large full newcss newcss-button newcss-escuro" id="hitchARideButton">Pedir Carona!</button>
                 <br /><br />
                 <button class="topcoat-button--large full newcss newcss-button newcss-escuro" id="offerARideButton">Oferecer Carona!</button>
@@ -56,14 +56,14 @@
         </script>
 
         <script id="locationSelector-tpl" type="text/x-handlebars-template">
-            <header class="topcoat-navigation-bar">
+            <header class="topcoat-navigation-bar newcss-escuro">
                 <div class="topcoat-navigation-bar__item left quarter">
                     <button id="backButton" class="topcoat-icon-button--quiet">
                         <span class="topcoat-icon topcoat-icon--back"></span>
                     </button>
                 </div>
                 <div class="topcoat-navigation-bar__item center half">
-                    <h1 class="topcoat-navigation-bar__title">Partiu Aí</h1>
+                    <h1 class="topcoat-navigation-bar__title newcss">Partiu Aí</h1>
                 </div>
                 <div class="topcoat-navigation-bar__item right quarter">
                     <button id="menuButton" class="topcoat-icon-button--quiet">
@@ -85,21 +85,21 @@
                 <div id="map-canvas">
                 </div>
             </div>
-            <footer class="navigation-bar footer">
+            <footer class="navigation-bar footer newcss-escuro">
                 <button class="topcoat-button--cta full center vCenter" id="okButton">OK</button>
             </footer>
             <div class="spinner"></div>
         </script>
 
         <script id="hitchARidePrice-tpl" type="text/x-handlebars-template">
-            <header class="topcoat-navigation-bar">
+            <header class="topcoat-navigation-bar newcss-escuro">
                 <div class="topcoat-navigation-bar__item left quarter">
                     <button id="backButton" class="topcoat-icon-button--quiet">
                         <span class="topcoat-icon topcoat-icon--back"></span>
                     </button>
                 </div>
                 <div class="topcoat-navigation-bar__item center half">
-                    <h1 class="topcoat-navigation-bar__title">Partiu Aí</h1>
+                    <h1 class="topcoat-navigation-bar__title newcss">Partiu Aí</h1>
                 </div>
                 <div class="topcoat-navigation-bar__item right quarter">
                     <button id="menuButton" class="topcoat-icon-button--quiet">
@@ -116,29 +116,29 @@
             </div>
             <div class="hitchARidePrice center">
                 <p>Quando está disposto a pagar?</p>
-                <button id="minus" class="topcoat-icon-button">
+                <button id="minus" class="topcoat-icon-button newcss-escuro">
                     <span class="topcoat-icon topcoat-icon--minus"></span>
                 </button>
                 <input type="number" name="price" id="price" class="topcoat-text-input center" value="3" pattern="^(0|[1-9][0-9]*)$" readonly />
-                <button id="plus" class="topcoat-icon-button">
+                <button id="plus" class="topcoat-icon-button newcss-escuro">
                     <span class="topcoat-icon topcoat-icon--plus"></span>
                 </button>
             </div>
-            <footer class="navigation-bar footer">
+            <footer class="navigation-bar footer newcss-escuro">
                 <button class="topcoat-button--cta full center vCenter" id="ok">OK</button>
             </footer>
             <div class="spinner"></div>
         </script>
 
         <script id="hitchARideSearching-tpl" type="text/x-handlebars-template">
-            <header class="topcoat-navigation-bar">
+            <header class="topcoat-navigation-bar newcss-escuro">
                 <div class="topcoat-navigation-bar__item left quarter">
                     <button id="backButton" class="topcoat-icon-button--quiet">
                         <span class="topcoat-icon topcoat-icon--back"></span>
                     </button>
                 </div>
                 <div class="topcoat-navigation-bar__item center half">
-                    <h1 class="topcoat-navigation-bar__title">Partiu Aí</h1>
+                    <h1 class="topcoat-navigation-bar__title newcss">Partiu Aí</h1>
                 </div>
                 <div class="topcoat-navigation-bar__item right quarter">
                     <button id="menuButton" class="topcoat-icon-button--quiet">
@@ -159,21 +159,21 @@
                     <h1 id="countdown" class="center">10</h1>
                 </div>
             </div>
-            <footer class="navigation-bar footer">
+            <footer class="navigation-bar footer newcss-escuro">
                 <button class="topcoat-button--cta full center vCenter" id="cancel">Cancelar</button>
             </footer>
             <div class="spinner"></div>
         </script>
 
         <script id="rideFound-tpl" type="text/x-handlebars-template">
-            <header class="topcoat-navigation-bar">
+            <header class="topcoat-navigation-bar newcss-escuro">
                 <div class="topcoat-navigation-bar__item left quarter">
                     <button id="backButton" class="topcoat-icon-button--quiet">
                         <span class="topcoat-icon topcoat-icon--back"></span>
                     </button>
                 </div>
                 <div class="topcoat-navigation-bar__item center half">
-                    <h1 class="topcoat-navigation-bar__title">Partiu Aí</h1>
+                    <h1 class="topcoat-navigation-bar__title newcss">Partiu Aí</h1>
                 </div>
                 <div class="topcoat-navigation-bar__item right quarter">
                     <button id="menuButton" class="topcoat-icon-button--quiet">
@@ -212,12 +212,12 @@
                     (19) 99999-9999
                 </div>
                 <div class="half center floatLeft">
-                    <button id="ok" class="topcoat-icon-button--large">
+                    <button id="ok" class="topcoat-icon-button--large newcss-escuro">
                         <span class="topcoat-icon--large topcoat-icon--checkmark"></span>
                     </button>
                 </div>
                 <div class="half center floatRight">
-                    <button id="cancel" class="topcoat-icon-button--large">
+                    <button id="cancel" class="topcoat-icon-button--large newcss-escuro">
                         <span class="topcoat-icon--large topcoat-icon--cancel"></span>
                     </button>
                 </div>
@@ -226,14 +226,14 @@
         </script>
 
         <script id="waitDriver-tpl" type="text/x-handlebars-template">
-            <header class="topcoat-navigation-bar">
+            <header class="topcoat-navigation-bar newcss-escuro">
                 <div class="topcoat-navigation-bar__item left quarter">
                     <button id="backButton" class="topcoat-icon-button--quiet">
                         <span class="topcoat-icon topcoat-icon--back"></span>
                     </button>
                 </div>
                 <div class="topcoat-navigation-bar__item center half">
-                    <h1 class="topcoat-navigation-bar__title">Partiu Aí</h1>
+                    <h1 class="topcoat-navigation-bar__title newcss">Partiu Aí</h1>
                 </div>
                 <div class="topcoat-navigation-bar__item right quarter">
                     <button id="menuButton" class="topcoat-icon-button--quiet">
@@ -252,21 +252,21 @@
                 <div id="map-canvas">
                 </div>
             </div>
-            <footer class="navigation-bar footer">
+            <footer class="navigation-bar footer newcss-escuro">
                 <button class="topcoat-button--cta full center vCenter" id="okButton">Começou!</button>
             </footer>
             <div class="spinner"></div>
         </script>
 
         <script id="passengerTracker-tpl" type="text/x-handlebars-template">
-            <header class="topcoat-navigation-bar">
+            <header class="topcoat-navigation-bar newcss-escuro">
                 <div class="topcoat-navigation-bar__item left quarter">
                     <button id="backButton" class="topcoat-icon-button--quiet">
                         <span class="topcoat-icon topcoat-icon--back"></span>
                     </button>
                 </div>
                 <div class="topcoat-navigation-bar__item center half">
-                    <h1 class="topcoat-navigation-bar__title">Partiu Aí</h1>
+                    <h1 class="topcoat-navigation-bar__title newcss">Partiu Aí</h1>
                 </div>
                 <div class="topcoat-navigation-bar__item right quarter">
                     <button id="menuButton" class="topcoat-icon-button--quiet">
@@ -281,28 +281,28 @@
                     </li>
                 </ul>
             </div>
-            <div class="passengerTracker">
+            <div class="passengerTracker newcss-claro">
                 <div class="help-bar">
                     <button class="topcoat-button full" id="helpButton">Socorro!</button>
                 </div>
                 <div id="map-canvas">
                 </div>
             </div>
-            <footer class="navigation-bar footer">
+            <footer class="navigation-bar footer newcss-escuro">
                 <button class="topcoat-button--cta full center vCenter" id="okButton">Terminou!</button>
             </footer>
             <div class="spinner"></div>
         </script>
 
         <script id="rateDriver-tpl" type="text/x-handlebars-template">
-            <header class="topcoat-navigation-bar">
+            <header class="topcoat-navigation-bar newcss-escuro">
                 <div class="topcoat-navigation-bar__item left quarter">
                     <button id="backButton" class="topcoat-icon-button--quiet">
                         <span class="topcoat-icon topcoat-icon--back"></span>
                     </button>
                 </div>
                 <div class="topcoat-navigation-bar__item center half">
-                    <h1 class="topcoat-navigation-bar__title">Partiu Aí</h1>
+                    <h1 class="topcoat-navigation-bar__title newcss">Partiu Aí</h1>
                 </div>
                 <div class="topcoat-navigation-bar__item right quarter">
                     <button id="menuButton" class="topcoat-icon-button--quiet">
@@ -317,7 +317,7 @@
                     </li>
                 </ul>
             </div>
-            <div class="rateDriver scroller full center">
+            <div class="rateDriver scroller full center newcss-claro">
                 <p>Como foi sua experiência?</p>
                 <img src="assets/img/driver.png" />
                 <p>Roberta Valezio</p>
@@ -330,21 +330,21 @@
                 </div>
                 <button class="topcoat-button--cta">Compartilhe no Facebook</button>
             </div>
-            <footer class="navigation-bar footer">
+            <footer class="navigation-bar footer newcss-escuro">
                 <button class="topcoat-button--cta full center vCenter" id="okButton">OK</button>
             </footer>
             <div class="spinner"></div>
         </script>
 
         <script id="scheduleARide-tpl" type="text/x-handlebars-template">
-            <header class="topcoat-navigation-bar">
+            <header class="topcoat-navigation-bar newcss-escuro">
                 <div class="topcoat-navigation-bar__item left quarter">
                     <button id="backButton" class="topcoat-icon-button--quiet">
                         <span class="topcoat-icon topcoat-icon--back"></span>
                     </button>
                 </div>
                 <div class="topcoat-navigation-bar__item center half">
-                    <h1 class="topcoat-navigation-bar__title">Partiu Aí</h1>
+                    <h1 class="topcoat-navigation-bar__title newcss">Partiu Aí</h1>
                 </div>
                 <div class="topcoat-navigation-bar__item right quarter">
                     <button id="menuButton" class="topcoat-icon-button--quiet">
@@ -359,19 +359,19 @@
                     </li>
                 </ul>
             </div>
-            <div class="scheduleARide">
+            <div class="scheduleARide newcss-claro">
                 <p class="center">Agende sua próxima viagem</p>
                 <input class="topcoat-text-input full" type="text" name="origin" id="origin" value="" placeholder="Origem" readonly />
                 <input class="topcoat-text-input full" type="text" name="destination" id="destination" value="" placeholder="Destino" readonly />
                 <input class="topcoat-text-input half datepicker" type="date" name="date" id="date" pattern="(0[1-9]|1[0-9]|2[0-9]|3[01])/(0[1-9]|1[012])/[0-9]{4}" value="" placeholder="Data" />
                 <input class="topcoat-text-input half timepicker" type="time" name="time" id="time" pattern="(0[0-9]|1[0-9]|2[0-3])(:[0-5][0-9])" value="" placeholder="Horário" />
                 <div class="half center floatLeft">
-                    <button id="ok" class="topcoat-icon-button--large">
+                    <button id="ok" class="topcoat-icon-button--large newcss-escuro">
                         <span class="topcoat-icon--large topcoat-icon--checkmark"></span>
                     </button>
                 </div>
                 <div class="half center floatRight">
-                    <button id="cancel" class="topcoat-icon-button--large">
+                    <button id="cancel" class="topcoat-icon-button--large newcss-escuro">
                         <span class="topcoat-icon--large topcoat-icon--cancel"></span>
                     </button>
                 </div>
