@@ -134,27 +134,27 @@ View.prototype.load = function () {
     console.log("View load");
 
     $('.full').each(function (index) {
-        $(this).innerWidth($(this).parent().width());
+        $(this).outerWidth($(this).parent().width());
     });
 
     $('.three-quarters').each(function (index) {
-        $(this).innerWidth($(this).parent().width() * (3/4));
+        $(this).outerWidth($(this).parent().width() * (3/4));
     });
 
     $('.two-thirds').each(function (index) {
-        $(this).innerWidth($(this).parent().width() * (2/3));
+        $(this).outerWidth($(this).parent().width() * (2/3));
     });
 
     $('.half').each(function (index) {
-        $(this).innerWidth($(this).parent().width() * (1/2));
+        $(this).outerWidth($(this).parent().width() * (1/2));
     });
 
     $('.third').each(function (index) {
-        $(this).innerWidth($(this).parent().width() * (1/3));
+        $(this).outerWidth($(this).parent().width() * (1/3));
     });
 
     $('.quarter').each(function (index) {
-        $(this).innerWidth($(this).parent().width() * (1/4));
+        $(this).outerWidth($(this).parent().width() * (1/4));
     });
 
     $('.vCenter').each(function (index) {
