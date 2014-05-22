@@ -16,6 +16,40 @@ function LocationSelectorView (template, type) {
     this.passengerScheduleARideOriginType = 4;
     this.passengerScheduleARideDestinationType = 5;
 
+    /***/
+
+    if (this.type == this.hitchARideDestinationType) {
+        window.localStorage.setItem('hitchARideDestinationLocation', JSON.stringify({
+            'name': 'Prefeitura Municipal de Campinas - Avenida Anchieta, Centro, Campinas, Brasil',
+            'position': {
+                'latitude': -22.901084,
+                'longitude': -47.05761000000001
+            }
+        }));
+    }
+
+    if (this.type == this.passengerScheduleARideOriginType) {
+        window.localStorage.setItem('passengerScheduleARideOriginLocation', JSON.stringify({
+            'name': 'Avenida Francisco Glicério, 500, Centro, Campinas - São Paulo, Brasil',
+            'position': {
+                'latitude': -22.9093942,
+                'longitude': -47.05733679999997
+            }
+        }));
+    }
+
+    if (this.type == this.passengerScheduleARideDestinationType) {
+        window.localStorage.setItem('passengerScheduleARideDestinationLocation', JSON.stringify({
+            'name': 'IC - Instituto de Computação, Campinas - São Paulo, Brasil',
+            'position': {
+                'latitude': -22.814688,
+                'longitude': -47.064256
+            }
+        }));
+    }
+
+    /***/
+
     var marker;
 
     function selectAll () {
