@@ -6,7 +6,8 @@ console.log("app.js");
     /* ---------------------------------- Local Variables ---------------------------------- */
 
     var loginTpl = Handlebars.compile($('#login-tpl').html());
-    var homeTpl = Handlebars.compile($('#home-tpl').html());
+    var passengerHomeTpl = Handlebars.compile($('#passengerHome-tpl').html());
+    var driverHomeTpl = Handlebars.compile($('#driverHome-tpl').html());
     var locationSelectorTpl = Handlebars.compile($('#locationSelector-tpl').html());
     var hitchARidePriceTpl = Handlebars.compile($('#hitchARidePrice-tpl').html());
     var hitchARideSearchingTpl = Handlebars.compile($('#hitchARideSearching-tpl').html());
@@ -87,8 +88,10 @@ console.log("app.js");
         var view;
         var hash = window.location.hash;
 
-        if (hash == 'home' || hash == '#home') {
-            view = new HomeView(homeTpl);
+        if (hash == 'passengerHome' || hash == '#passengerHome') {
+            view = new PassengerHomeView(passengerHomeTpl);
+        } else if (hash == 'driverHome' || hash == '#driverHome') {
+            view = new DriverHomeView(driverHomeTpl);
         } else if (hash == 'hitchARideDestination' || hash == '#hitchARideDestination') {
             view = new LocationSelectorView(locationSelectorTpl, 1);
         } else if (hash == 'hitchARidePrice' || hash == '#hitchARidePrice') {

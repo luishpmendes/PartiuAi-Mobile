@@ -99,12 +99,12 @@ function ScheduleARideView (template) {
                 $('body').removeClass("loading");
             });
 */
-            window.location.hash = "home";
+            window.location.hash = "passengerHome";
         }
     }
 
     function cancel () {
-        window.location.hash = "home";
+        window.location.hash = "passengerHome";
     }
 
     this.el.on('click', '#backButton', this.back);

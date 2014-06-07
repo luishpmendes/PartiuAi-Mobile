@@ -57,7 +57,7 @@ function LoginView (template) {
         */
         window.localStorage.setItem('app_token', 'data.app_token');
         window.localStorage.setItem('username', 'data.username');
-        window.location.replace('main.html#home'); /* current page will NOT be saved in session history */
+        window.location.replace('main.html#passengerHome'); /* current page will NOT be saved in session history */
     }
 
     this.el.on('click', '#FBloginButton', FBlogin);
